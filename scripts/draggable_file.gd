@@ -1,15 +1,20 @@
 extends Node2D
 
 class_name DraggableFile
+@onready var label : Label = $Label
+@onready var rect = get_viewport_rect()
+@onready var xx = rect.size.x/2 - 20
+@onready var yy = rect.size.y/2 - 20
+@onready var _selected_panel := $PanelContainer
 
 var lifted := false
 var selected := false
 var mouse_offset := Vector2.ZERO
-@onready var rect = get_viewport_rect()
-@onready var xx = rect.size.x/2 - 20
-@onready var yy = rect.size.y/2 - 20
+var text : String = "":
+	set(value):
+		if label == null: return
+		label.text = value
 
-@onready var _selected_panel := $PanelContainer
 
 ## default file size
 @export var file_size := 5
@@ -61,6 +66,8 @@ func set_lifted(val : bool):
 	var parent = get_parent()
 	get_parent().move_child(self, -1)
 
+func delete():
+	queue_free()
 
 func set_selected(val : bool):
 	selected = val

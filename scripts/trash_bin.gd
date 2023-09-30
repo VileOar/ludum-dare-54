@@ -17,7 +17,7 @@ func _ready():
 func remove_file(file : DraggableFile):
 	if file.name == "TrashBin" or not mouse_hovered or selected: return
 	total_space += file.file_size
-	file.queue_free()
+	file.delete()
 
 func remove_files(files : Array):
 	for i in range(files.size() - 1, -1, -1):
