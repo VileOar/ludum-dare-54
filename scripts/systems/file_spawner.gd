@@ -9,6 +9,7 @@ signal new_file(file_type)
 
 func _ready():
 	SignalManager.change_spawn_time.connect(change_spawn_time)
+	SignalManager.explode_folder.connect(create_files)
 
 ## if this variable is true, spawn files periodically
 var enable_spawning : bool = true:
@@ -32,3 +33,9 @@ func _on_spawn_timer_timeout():
 
 func change_spawn_time(time):
 	spawn_time = time
+
+func create_files(quantity):
+	var values = Global.FileTypes.values()
+	for i in range(quantity):
+		var type = values[randi() % values.size()]
+		new_file.emit(type)

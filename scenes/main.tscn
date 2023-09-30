@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/systems/disk_space_manager.gd" id="2_8ua7v"]
 [ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
 [ext_resource type="PackedScene" uid="uid://di25hfxjvfugn" path="res://scenes/ui/toolbar.tscn" id="4_gx0xd"]
-[ext_resource type="PackedScene" uid="uid://c0b5v2u8afjtv" path="res://scenes/files/executable_file.tscn" id="5_2hex5"]
+[ext_resource type="PackedScene" uid="uid://c0b5v2u8afjtv" path="res://scenes/files/corrupted_file.tscn" id="5_q86x2"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,7 +18,7 @@
 script = ExtResource("2_8ua7v")
 
 [node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
-increase_spawn_scene = ExtResource("5_2hex5")
+corrupted_files_scene = ExtResource("5_q86x2")
 
 [connection signal="new_file" from="Spawner" to="Desktop" method="_on_spawner_new_file"]
 [connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]

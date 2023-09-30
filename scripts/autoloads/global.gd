@@ -14,3 +14,26 @@ enum FileTypes {
 #	ADD_POPUP_EXE, ## spawns an add popup
 	# TODO: add more as needed
 }
+
+
+
+const file_properties = {
+	FileTypes.NORMAL: [
+		{
+			"name" : "CC.png",
+			"size" : 10
+		},
+	],
+	FileTypes.INCREASE_SPAWN_EXE: [
+		{
+			"name" : "CC.exe",
+			"size" : 2
+		},
+	],
+	FileTypes.CORRUPTED_FOLDER: [
+		{
+			"name" : "CC onlyfans",
+			"size" : 24
+		},
+	]
+}

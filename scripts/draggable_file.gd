@@ -1,12 +1,18 @@
 extends Node2D
 
 class_name DraggableFile
-
-var lifted := false
-var mouse_offset := Vector2.ZERO
+@onready var label : Label = $Label
 @onready var rect = get_viewport_rect()
 @onready var xx = rect.size.x/2 - 20
 @onready var yy = rect.size.y/2 - 20
+
+var lifted := false
+var mouse_offset := Vector2.ZERO
+var text : String = "":
+	set(value):
+		if label == null: return
+		label.text = value
+
 
 ## default file size
 var file_size := 5
@@ -17,7 +23,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if lifted:
 		position = get_global_mouse_position() + mouse_offset
 		position.x = clamp(position.x, -xx, xx)
