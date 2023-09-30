@@ -21,19 +21,27 @@ const file_properties = {
 	FileTypes.NORMAL: [
 		{
 			"name" : "CC.png",
-			"size" : 10
+			"size" : 10,
+			"anim_name": "png"
+		},
+		{
+			"name" : "TODO.txt",
+			"size" : 2,
+			"anim_name": "txt"
 		},
 	],
 	FileTypes.INCREASE_SPAWN_EXE: [
 		{
 			"name" : "CC.exe",
-			"size" : 2
+			"size" : 2,
+			"anim_name": "exe"
 		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
 		{
 			"name" : "CC onlyfans",
-			"size" : 24
+			"size" : 24,
+			"anim_name": "folder"
 		},
 	]
 }

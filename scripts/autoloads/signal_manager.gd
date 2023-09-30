@@ -1,6 +1,5 @@
 extends Node
 
-signal release_file(file)
 signal release_files(files)
 
 ## emitted when someone wants to free space from disk (ex: empty trash, delete system32, ...)[br]
@@ -16,3 +15,9 @@ signal file_created(file)
 ## Corrupted Files signals
 signal change_spawn_time(time)
 signal explode_folder(quantity)
+
+## Spawning stuffs
+
+## this signal is emitted periodically with a file type by the file spawner[br]
+## the desktop should be in charge of actually creating the file node and randomly populating it
+signal new_file(file_type)

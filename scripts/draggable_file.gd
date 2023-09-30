@@ -5,7 +5,9 @@ class_name DraggableFile
 @onready var rect = get_viewport_rect()
 @onready var xx = rect.size.x/2 - 20
 @onready var yy = rect.size.y/2 - 20
+
 @onready var _selected_panel := $PanelContainer
+@onready var _anim := $FileIcon
 
 var lifted := false
 var selected := false
@@ -47,7 +49,8 @@ func _on_color_rect_gui_input(event):
 					if not Global.selected_files.has(self):
 						for file in Global.selected_files:
 							file.set_lifted(false)
-							file.set_selected(false)
+							file.set_selected(false, false)
+						Global.selected_files = []
 						set_selected(true)
 					# otherwise, add self to selected and grab all selected
 					for file in Global.selected_files:
@@ -57,6 +60,11 @@ func _on_color_rect_gui_input(event):
 						file.set_lifted(false)
 					SignalManager.release_files.emit(Global.selected_files)
 			# RIGHT CLICK HANDLER GOES HERE
+
+
+func set_icon(anim_name : String):
+	_anim.play(anim_name)
+
 
 func set_lifted(val : bool):
 	lifted = val
@@ -69,12 +77,13 @@ func set_lifted(val : bool):
 func delete():
 	queue_free()
 
-func set_selected(val : bool):
+func set_selected(val : bool, alter_list := true):
 	selected = val
 	if val:
-		if not Global.selected_files.has(self):
+		if not Global.selected_files.has(self) and alter_list:
 			Global.selected_files.append(self)
 		_selected_panel.show()
 	else:
-		Global.selected_files.erase(self)
+		if alter_list:
+			Global.selected_files.erase(self)
 		_selected_panel.hide()

@@ -5,6 +5,13 @@ extends Node2D
 @export var file_scene : PackedScene
 @export var corrupted_files_scene : PackedScene
 
+@onready var _files_holder := $Files
+@onready var _windows_holder := $Windows
+
+
+func _ready():
+	SignalManager.new_file.connect(_on_spawner_new_file)
+
 
 ## connected to the Spawner's new file signal in main scene
 func _on_spawner_new_file(file_type):
@@ -23,16 +30,17 @@ func _on_spawner_new_file(file_type):
 	
 	var files_properties = Global.file_properties[file_type]
 	var properties = files_properties[randi() % files_properties.size()]
-	var file_name = properties.name
-	var file_size = properties.size
 	
-	create_file(new_file, file_pos, file_name, file_size)
+	_create_file(new_file, file_pos, properties)
 
-func create_file(file_instance : DraggableFile, file_pos : Vector2, file_name : String, file_size : int):
+func _create_file(file_instance : DraggableFile, file_pos : Vector2, properties : Dictionary):
 	file_instance.position = file_pos
-	file_instance.file_size = file_size
-	add_child(file_instance)
-	file_instance.text = file_name
+	file_instance.file_size = properties["size"]
+	
+	_files_holder.add_child(file_instance)
+	
+	file_instance.text = properties["name"]
+	file_instance.set_icon(properties["anim_name"])
 
 ## return a position within desktop bounds
 func _get_position_within_bounds():

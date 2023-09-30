@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=6 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
@@ -12,16 +12,14 @@ file_scene = ExtResource("1_nnh13")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="DraggableFile" parent="." instance=ExtResource("1_nnh13")]
-position = Vector2(-456, -224)
-
-[node name="DraggableFile2" parent="." instance=ExtResource("1_nnh13")]
-position = Vector2(-272, -224)
-
 [node name="TrashBin" parent="." instance=ExtResource("2_n3o80")]
 position = Vector2(472, 208)
 
-[node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
+[node name="Files" type="Node" parent="."]
 
-[node name="DraggableWindow" parent="." instance=ExtResource("4_7gjup")]
+[node name="Windows" type="Node" parent="."]
+
+[node name="DraggableWindow" parent="Windows" instance=ExtResource("4_7gjup")]
 position = Vector2(-7, -232)
+
+[node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]

@@ -20,5 +20,4 @@ script = ExtResource("2_8ua7v")
 [node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
 corrupted_files_scene = ExtResource("5_q86x2")
 
-[connection signal="new_file" from="Spawner" to="Desktop" method="_on_spawner_new_file"]
 [connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]

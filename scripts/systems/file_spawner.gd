@@ -1,10 +1,6 @@
 extends Node
 
 
-## this signal is emitted periodically with a file type
-## the desktop should be in charge of actually creating the file node and randomly populating it
-signal new_file(file_type)
-
 @onready var spawn_timer = $SpawnTimer
 
 func _ready():
@@ -27,7 +23,7 @@ func _on_spawn_timer_timeout():
 	var values = Global.FileTypes.values()
 	var type = values[randi() % values.size()]
 	
-	new_file.emit(type)
+	SignalManager.new_file.emit(type)
 	
 	spawn_timer.start(spawn_time)
 
@@ -38,4 +34,4 @@ func create_files(quantity):
 	var values = Global.FileTypes.values()
 	for i in range(quantity):
 		var type = values[randi() % values.size()]
-		new_file.emit(type)
+		SignalManager.new_file.emit(type)
