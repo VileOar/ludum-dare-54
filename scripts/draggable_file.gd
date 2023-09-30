@@ -4,11 +4,18 @@ class_name DraggableFile
 
 var lifted := false
 var mouse_offset := Vector2.ZERO
+@onready var rect = get_viewport_rect()
+@onready var xx = rect.size.x/2 - 20
+@onready var yy = rect.size.y/2 - 20
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if lifted:
 		position = get_global_mouse_position() + mouse_offset
+		position.x = clamp(position.x, -xx, xx)
+		position.y = clamp(position.y, -yy, yy)
 
 
 func _on_color_rect_gui_input(event):
@@ -23,11 +30,13 @@ func _on_color_rect_gui_input(event):
 						for file in Global.selected_files:
 							file.set_lifted(true)
 				else:
-					set_lifted(false)
 					# Multiple Selection
 					if Global.selected_files.is_empty():
+						set_lifted(false)
 						SignalManager.release_file.emit(self)
 					else:
+						for file in Global.selected_files:
+							file.set_lifted(false)
 						SignalManager.release_files.emit(Global.selected_files)
 			# RIGHT CLICK HANDLER GOES HERE
 
