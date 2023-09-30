@@ -13,7 +13,7 @@ func _process(delta):
 		position = get_global_mouse_position()
 
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func _on_color_rect_gui_input(event):
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
