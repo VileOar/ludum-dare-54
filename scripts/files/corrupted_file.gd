@@ -1,13 +1,8 @@
-extends DraggableFile
+extends EvilFile
 class_name CorruptedFile
 
 const EXPLODE_QUANTITY = 10
 
-var type : Global.FileTypes
-
-func _ready():
-	super._ready()
-	_anim.modulate = Global.CORRUPTED_COLOUR
 
 func delete():
 	match type:
