@@ -21,10 +21,25 @@ var spawn_time = 1.0 # sec
 func _on_spawn_timer_timeout():
 	# TODO: another way to choose file type, not completely random
 	var values = Global.FileTypes.values()
-	var type = values[randi() % values.size()]
+	var weights := Global.FILE_TYPES_WEIGHTS
+	var sum = Global.sum_array(weights.values())
+	var result = randi() % sum + 1
+	var type
+	sum = 0
+	for key in weights:
+		type = key
+		sum += weights[key]
+		if result <= sum:
+			break
 	
 	SignalManager.new_file.emit(type)
 	
+	
+#	const FILE_TYPES_WEIGHTS = {
+#	FileTypes.NORMAL : 5,
+#	FileTypes.INCREASE_SPAWN_EXE : 1,
+#	FileTypes.CORRUPTED_FOLDER : 1
+#}
 	spawn_timer.start(spawn_time)
 
 func change_spawn_time(time):

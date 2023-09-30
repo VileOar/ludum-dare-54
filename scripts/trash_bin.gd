@@ -1,5 +1,6 @@
 extends DraggableFile
 
+@onready var deleting_time := $DeletingTime
 
 var mouse_hovered := false
 
@@ -28,6 +29,13 @@ func empty_trash():
 	# TODO: according to how full it is, lag the computer (this should probably be done by emitting
 	# a signal to trigger lag which is handled somewhere else, since it involves blocing player
 	# input, giving UI feedback, ...)
+	deleting_time.start()
+	Global.ignore_inputs = true
+	
+
+func _on_deleting_time_timeout():
+	# TODO: add progress bar 
+	Global.ignore_inputs = false
 	SignalManager.free_space.emit(total_space)
 	total_space = 0
 
@@ -38,3 +46,5 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	mouse_hovered = false
+
+

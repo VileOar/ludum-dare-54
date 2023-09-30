@@ -56,6 +56,7 @@ func _physics_process(delta):
 
 
 func _on_color_rect_gui_input(event):
+	if Global.ignore_inputs: return
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
@@ -79,7 +80,6 @@ func _on_color_rect_gui_input(event):
 
 func set_icon(anim_name : String):
 	_anim.play(anim_name)
-
 
 func set_lifted(val : bool):
 	lifted = val
