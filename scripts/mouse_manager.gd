@@ -37,6 +37,9 @@ func _unhandled_input(event):
 			# only enters here if not clicking a file
 			MOUSE_BUTTON_LEFT:
 				if event.pressed:
+					for file in Global.selected_files:
+						file.set_selected(false)
+					
 					var mouse_pos = get_global_mouse_position()
 					initial_mouse_pos = mouse_pos
 					panel.position = mouse_pos
