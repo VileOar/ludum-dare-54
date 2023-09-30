@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cylps5fisf5fa"]
+[gd_scene load_steps=3 format=3 uid="uid://bjmftrmoy8ww5"]
 
-[ext_resource type="Script" path="res://scripts/draggable_window.gd" id="1_1tewi"]
-[ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_eebc2"]
+[ext_resource type="Script" path="res://scripts/download_window.gd" id="1_hjbis"]
+[ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_qhtas"]
 
-[node name="DraggableWindow" type="Node2D"]
-script = ExtResource("1_1tewi")
+[node name="DownloadWindow" type="Node2D"]
+script = ExtResource("1_hjbis")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -39,17 +39,16 @@ theme_override_constants/separation = 20
 [node name="Title" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "System Message"
+text = "Limewire Pro - Free Version"
 
 [node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
-icon = ExtResource("2_eebc2")
+icon = ExtResource("2_qhtas")
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -63,10 +62,26 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(258, 0)
 layout_mode = 2
 size_flags_vertical = 6
-text = "This is an error message. Very bad.
+text = "Your download is ready. Press button to start.
 "
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+visible = false
+modulate = Color(0.611765, 0.827451, 0.235294, 1)
+layout_mode = 2
+step = 1.0
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+modulate = Color(0.611765, 0.827451, 0.235294, 1)
+layout_mode = 2
+text = "Download"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="gui_input" from="PanelContainer/VBoxContainer/PanelContainer" to="." method="_on_panel_container_gui_input"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

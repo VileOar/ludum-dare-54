@@ -3,13 +3,26 @@ extends Node2D
 class_name DraggableWindow
 
 
+@onready var close_button : Button = $PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/CloseButton
+@onready var window_text : Label = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Description
+@onready var window_title : Label = $PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Title
+
 var lifted := false
-var liftPosOffset = Vector2.ZERO 
+var lift_pos_offset = Vector2.ZERO 
+
+var title : String = "":
+	set(value):
+		if window_text == null: return
+		window_text.text = value
+var description : String = "":
+	set(value):
+		if window_title == null: return
+		window_title.text = value
 
 
 func _physics_process(_delta):
 	if lifted:
-		position = get_global_mouse_position() - liftPosOffset
+		position = get_global_mouse_position() - lift_pos_offset
 
 
 func _on_panel_container_gui_input(event:InputEvent):
@@ -20,19 +33,13 @@ func _on_panel_container_gui_input(event:InputEvent):
 					lifted = true
 
 					# calculate offset
-					liftPosOffset = get_global_mouse_position() - position
+					lift_pos_offset = get_global_mouse_position() - position
 
 					# Put file on "top" of parent children
 					get_parent().move_child(self, -1)
 				else:
 					lifted = false
-			# RIGHT CLICK HANDLER GOES HERE
 
 
 func _on_close_button_pressed():
 	self.queue_free()
-
-
-func _on_button_pressed():
-	self.queue_free()
-	

@@ -15,6 +15,12 @@ enum FileTypes {
 	# TODO: add more as needed
 }
 
+enum WindowTypes {
+	NORMAL, ## a simple window with no gimmicks
+	DOWNLOAD, ## can be simply closed or used to download more files
+	RECURSIVE, ## spawns a message of the same type if wrong choiced is picked
+}
+
 const FILE_TYPES_WEIGHTS = {
 	FileTypes.NORMAL : 3,
 	FileTypes.INCREASE_SPAWN_EXE : 1,
@@ -94,6 +100,37 @@ const file_properties = {
 			"name" : "CC onlyfans",
 			"size" : 24,
 			"anim_name": "folder"
+		},
+	]
+}
+
+
+# when a window spawns another window, offset is used to offset the newly instanced object
+const window_properties = {
+	WindowTypes.NORMAL: [
+		{
+			"title" : "System Message",
+			"description" : "This is an error message. I am ERROR.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Unable to delete System32. Try contacting your local priest.",
+			"offset" : 15
+		},
+	],
+	WindowTypes.DOWNLOAD: [
+		{
+			"title" : "Limewire Pro - Free Version",
+			"description" : "Your download is ready. Press button to start.",
+			"offset" : 15
+		},
+	],
+	WindowTypes.RECURSIVE: [
+		{
+			"title" : "Pintows XP",
+			"description" : "Couldn't defragment the disk.",
+			"offset" : 15
 		},
 	]
 }
