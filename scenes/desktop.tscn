@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://crlkuni2202pw"]
+
+[ext_resource type="PackedScene" uid="uid://ynjx6uerook2" path="res://scenes/draggable_object.tscn" id="1_lc0sx"]
+
+[node name="Desktop" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DraggableObject" parent="." instance=ExtResource("1_lc0sx")]
