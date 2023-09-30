@@ -5,7 +5,7 @@ var final_mouse_pos := Vector2.ZERO
 var initial_mouse_pos := Vector2.ZERO
 var dragging := false
 
-func _process(delta):
+func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
 	final_mouse_pos = mouse_pos
 	var offset = final_mouse_pos - initial_mouse_pos
