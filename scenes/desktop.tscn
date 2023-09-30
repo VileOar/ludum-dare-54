@@ -21,5 +21,3 @@ position = Vector2(-272, -224)
 position = Vector2(472, 208)
 
 [node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
-
-[connection signal="select_files" from="MouseManager" to="." method="_on_mouse_manager_select_files"]

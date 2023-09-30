@@ -4,8 +4,6 @@ extends Node2D
 @onready var selection_area : Area2D = $SelectionArea
 @onready var selection_shape = $SelectionArea/SelectionShape
 
-signal select_files(files)
-
 var final_mouse_pos := Vector2.ZERO
 var initial_mouse_pos := Vector2.ZERO
 var dragging := false
@@ -36,6 +34,7 @@ func _unhandled_input(event):
 	# Draggable Area
 	if event is InputEventMouseButton:
 		match event.button_index:
+			# only enters here if not clicking a file
 			MOUSE_BUTTON_LEFT:
 				if event.pressed:
 					var mouse_pos = get_global_mouse_position()
@@ -50,14 +49,11 @@ func _unhandled_input(event):
 
 func _on_selection_area_area_entered(area):
 	if dragging:
-		Global.selected_files.append(area.owner)
-#	SignalManager.select_files.emit(selected_files)
+		area.owner.set_selected(true)
 
 
 func _on_selection_area_area_exited(area):
 	if dragging:
-		Global.selected_files.erase(area.owner)
-#	SignalManager.select_files.emit(selected_files)
-	
+		area.owner.set_selected(false)
 
 

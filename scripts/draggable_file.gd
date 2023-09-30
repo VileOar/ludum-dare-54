@@ -5,8 +5,10 @@ class_name DraggableFile
 @onready var rect = get_viewport_rect()
 @onready var xx = rect.size.x/2 - 20
 @onready var yy = rect.size.y/2 - 20
+@onready var _selected_panel := $PanelContainer
 
 var lifted := false
+var selected := false
 var mouse_offset := Vector2.ZERO
 var text : String = "":
 	set(value):
@@ -15,11 +17,17 @@ var text : String = "":
 
 
 ## default file size
-var file_size := 5
+@export var file_size := 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.file_created.emit(self)
+
+
+func _notification(what):
+	match what:
+		NOTIFICATION_PREDELETE:
+			Global.selected_files.erase(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,21 +43,19 @@ func _on_color_rect_gui_input(event):
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				if event.pressed:
-					# Multiple Selection
-					if Global.selected_files.is_empty():
-						set_lifted(true)
-					else:
-						for file in Global.selected_files:
-							file.set_lifted(true)
-				else:
-					# Multiple Selection
-					if Global.selected_files.is_empty():
-						set_lifted(false)
-						SignalManager.release_file.emit(self)
-					else:
+					# if another file is clicked besides the already selected ones, deselect them
+					if not Global.selected_files.has(self):
 						for file in Global.selected_files:
 							file.set_lifted(false)
-						SignalManager.release_files.emit(Global.selected_files)
+							file.set_selected(false)
+						set_selected(true)
+					# otherwise, add self to selected and grab all selected
+					for file in Global.selected_files:
+						file.set_lifted(true)
+				else:
+					for file in Global.selected_files:
+						file.set_lifted(false)
+					SignalManager.release_files.emit(Global.selected_files)
 			# RIGHT CLICK HANDLER GOES HERE
 
 func set_lifted(val : bool):
@@ -62,3 +68,13 @@ func set_lifted(val : bool):
 
 func delete():
 	queue_free()
+
+func set_selected(val : bool):
+	selected = val
+	if val:
+		if not Global.selected_files.has(self):
+			Global.selected_files.append(self)
+		_selected_panel.show()
+	else:
+		Global.selected_files.erase(self)
+		_selected_panel.hide()
