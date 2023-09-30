@@ -2,7 +2,6 @@ extends Node
 
 signal release_file(file)
 signal release_files(files)
-signal select_files(files)
 
 ## emitted when someone wants to free space from disk (ex: empty trash, delete system32, ...)[br]
 ## should be caught by disk space manager
