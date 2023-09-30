@@ -8,8 +8,10 @@ var mouse_offset := Vector2.ZERO
 @onready var xx = rect.size.x/2 - 20
 @onready var yy = rect.size.y/2 - 20
 
+@onready var _selected_panel := $PanelContainer
+
 ## default file size
-var file_size := 5
+@export var file_size := 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,3 +55,11 @@ func set_lifted(val : bool):
 	# Put file on "top" of parent children
 	var parent = get_parent()
 	get_parent().move_child(self, -1)
+
+
+## this function simply changes the graphics
+func set_selected(val : bool):
+	if val:
+		_selected_panel.show()
+	else:
+		_selected_panel.hide()
