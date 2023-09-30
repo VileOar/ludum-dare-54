@@ -1,14 +1,83 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv0gqt42k76sy"]
+[gd_scene load_steps=12 format=3 uid="uid://dv0gqt42k76sy"]
 
 [ext_resource type="Script" path="res://scripts/draggable_file.gd" id="1_6b7ij"]
-[ext_resource type="Texture2D" uid="uid://7s0b2duww7m6" path="res://icon.svg" id="2_1ykcq"]
+[ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="2_qx6t0"]
+[ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="3_2q1sg"]
+[ext_resource type="StyleBox" uid="uid://mywrcixpr5bb" path="res://assets/styles/select_stylebox.tres" id="4_tpltf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_872bg"]
+atlas = ExtResource("2_qx6t0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoaal"]
+atlas = ExtResource("2_qx6t0")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abxmc"]
+atlas = ExtResource("2_qx6t0")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpatc"]
+atlas = ExtResource("3_2q1sg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p68r8"]
+atlas = ExtResource("2_qx6t0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjvc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_872bg")
+}],
+"loop": true,
+"name": &"exe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoaal")
+}],
+"loop": true,
+"name": &"folder",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abxmc")
+}],
+"loop": true,
+"name": &"png",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpatc")
+}],
+"loop": true,
+"name": &"trash_bin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p68r8")
+}],
+"loop": true,
+"name": &"txt",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whtvk"]
+size = Vector2(64, 64)
 
 [node name="DraggableFile" type="Node2D"]
 script = ExtResource("1_6b7ij")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_1ykcq")
+[node name="FileIcon" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hjvc7")
+animation = &"png"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -32.0
@@ -25,5 +94,23 @@ offset_bottom = 58.0
 text = "Carlos Costa.png"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SelectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("RectangleShape2D_whtvk")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_tpltf")
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

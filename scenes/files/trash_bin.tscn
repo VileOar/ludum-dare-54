@@ -4,12 +4,17 @@
 [ext_resource type="Script" path="res://scripts/trash_bin.gd" id="2_u3sap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcycp"]
-size = Vector2(64, 64)
+size = Vector2(96, 96)
 
 [node name="TrashBin" instance=ExtResource("1_e3kgo")]
 script = ExtResource("2_u3sap")
+file_size = 0
+
+[node name="FileIcon" parent="." index="0"]
+animation = &"trash_bin"
 
 [node name="Label" parent="." index="2"]
+offset_right = 64.0
 text = "Trash Bin"
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
