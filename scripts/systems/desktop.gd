@@ -14,6 +14,7 @@ extends Node2D
 
 func _ready():
 	SignalManager.new_file.connect(_on_new_file)
+	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
 
 func _on_new_file(file_type):
@@ -36,6 +37,8 @@ func _on_new_file(file_type):
 	_create_file(new_file, file_pos, properties)
 
 
+func _on_explode_files(origin_point : Vector2):
+	pass
 
 
 # --- || INTERNAL || ---
@@ -52,10 +55,8 @@ func _create_file(file_instance : DraggableFile, file_pos : Vector2, properties 
 
 ## return a position within desktop bounds
 func _get_position_within_bounds():
-	# TODO: restruct size, because files must not spawn in toolbar space for instance
-	var rect = Rect2(_bounds_rect.position, _bounds_rect.size)
-	var xx = randf_range(-rect.size.x/2, rect.size.x/2)
-	var yy = randf_range(-rect.size.y/2, rect.size.y/2)
+	var xx = randf_range(-_bounds_rect.size.x/2, _bounds_rect.size.x/2)
+	var yy = randf_range(-_bounds_rect.size.y/2, _bounds_rect.size.y/2)
 	var pos = Vector2(xx, yy)
 	
 	return pos

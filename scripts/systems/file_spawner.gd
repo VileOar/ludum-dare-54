@@ -2,6 +2,7 @@ extends Node
 
 
 @onready var spawn_timer = $SpawnTimer
+@onready var spawn_rate_timer = $SpawnRateTimer
 
 func _ready():
 	SignalManager.change_spawn_time.connect(change_spawn_time)
@@ -29,9 +30,15 @@ func _on_spawn_timer_timeout():
 
 func change_spawn_time(time):
 	spawn_time = time
+	spawn_rate_timer.start(3.0)
+
 
 func create_files(quantity):
 	var values = Global.FileTypes.values()
 	for i in range(quantity):
 		var type = values[randi() % values.size()]
 		SignalManager.new_file.emit(type)
+
+
+func _on_spawn_rate_timer_timeout():
+	spawn_time = 1.0

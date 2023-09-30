@@ -21,6 +21,10 @@ var text : String = "":
 ## default file size
 @export var file_size := 5
 
+@export var move_dir := Vector2.ONE
+@export var speed := 0.0
+@export var drag := 6.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.file_created.emit(self)
@@ -38,6 +42,16 @@ func _physics_process(delta):
 		position = get_global_mouse_position() + mouse_offset
 		position.x = clamp(position.x, -xx, xx)
 		position.y = clamp(position.y, -yy, yy)
+	else:
+		position += speed * move_dir * delta
+		speed = move_toward(speed, 0.0, drag)
+		
+		if position.x < Global.bounds_rect.position.x or position.x > Global.bounds_rect.end.x:
+			position.x = clamp(position.x, Global.bounds_rect.position.x, Global.bounds_rect.end.x)
+			move_dir.x = -move_dir.x
+		if position.y < Global.bounds_rect.position.y or position.y > Global.bounds_rect.end.y:
+			position.y = clamp(position.y, Global.bounds_rect.position.y, Global.bounds_rect.end.y)
+			move_dir.y = -move_dir.y
 
 
 func _on_color_rect_gui_input(event):

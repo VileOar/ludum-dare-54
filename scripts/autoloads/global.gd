@@ -15,6 +15,9 @@ enum FileTypes {
 	# TODO: add more as needed
 }
 
+## should only be set by desktop
+var bounds_rect : Rect2
+
 
 
 const file_properties = {
