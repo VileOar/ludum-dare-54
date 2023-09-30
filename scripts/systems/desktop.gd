@@ -14,13 +14,31 @@ extends Node2D
 
 func _ready():
 	SignalManager.new_file.connect(_on_new_file)
+	SignalManager.explode_files.connect(_on_explode_files)
 	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
 
 func _on_new_file(file_type):
 	
 	var file_pos = _get_position_within_bounds()
-	var new_file
+	
+	_create_file(file_type, file_pos, Vector2.ZERO, 0.0)
+
+
+func _on_explode_files(origin_point : Vector2, quantity : int):
+	
+	var values = Global.FileTypes.values()
+	for i in range(quantity):
+		var type = values[randi() % values.size()]
+		
+		var angle = randf() * 2 * PI
+		_create_file(type, origin_point, Vector2.RIGHT.rotated(angle), Global.EXPLODE_SPEED)
+
+
+# --- || INTERNAL || ---
+
+func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed : float):
+	var new_file : DraggableFile
 	match file_type:
 		Global.FileTypes.NORMAL:
 			new_file = file_scene.instantiate()
@@ -31,26 +49,22 @@ func _on_new_file(file_type):
 			new_file = corrupted_files_scene.instantiate()
 			new_file.type = Global.FileTypes.CORRUPTED_FOLDER
 	
+	if new_file == null:
+		push_error("file type not found")
+		return
+	
 	var files_properties = Global.file_properties[file_type]
 	var properties = files_properties[randi() % files_properties.size()]
 	
-	_create_file(new_file, file_pos, properties)
-
-
-func _on_explode_files(origin_point : Vector2):
-	pass
-
-
-# --- || INTERNAL || ---
-
-func _create_file(file_instance : DraggableFile, file_pos : Vector2, properties : Dictionary):
-	file_instance.position = file_pos
-	file_instance.file_size = properties["size"]
+	new_file.position = file_pos
+	new_file.move_dir = move_dir
+	new_file.speed = speed
+	new_file.file_size = properties["size"]
 	
-	_files_holder.add_child(file_instance)
+	_files_holder.add_child(new_file)
 	
-	file_instance.text = properties["name"]
-	file_instance.set_icon(properties["anim_name"])
+	new_file.text = properties["name"]
+	new_file.set_icon(properties["anim_name"])
 
 
 ## return a position within desktop bounds

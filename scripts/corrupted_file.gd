@@ -5,6 +5,10 @@ const EXPLODE_QUANTITY = 10
 
 var type : Global.FileTypes
 
+func _ready():
+	super._ready()
+	_anim.modulate = Color("a15589")
+
 func delete():
 	match type:
 		Global.FileTypes.INCREASE_SPAWN_EXE:
@@ -19,4 +23,4 @@ func increase_spawn_rate():
 
 ## Explode Files
 func explode_files():
-	SignalManager.explode_folder.emit(EXPLODE_QUANTITY)
+	SignalManager.explode_files.emit(global_position, EXPLODE_QUANTITY)

@@ -19,6 +19,7 @@ enum FileTypes {
 var bounds_rect : Rect2
 
 
+const EXPLODE_SPEED = 480.0
 
 const file_properties = {
 	FileTypes.NORMAL: [

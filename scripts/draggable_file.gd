@@ -23,7 +23,8 @@ var text : String = "":
 
 @export var move_dir := Vector2.ONE
 @export var speed := 0.0
-@export var drag := 6.0
+
+@export var drag := 16.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
