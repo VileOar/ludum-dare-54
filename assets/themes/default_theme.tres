@@ -1,6 +1,30 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ibde"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 96, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da8nw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 120, 24, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hast1"]
 content_margin_left = 4.0
@@ -14,6 +38,47 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 24, 24)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dgwe"]
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 48, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1jrm"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 72, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1sc"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 24, 24, 24)
+
 [resource]
+AntivirusPanel/base_type = &"PanelContainer"
+AntivirusPanel/styles/panel = SubResource("StyleBoxTexture_4ibde")
+QuarantinePanel/base_type = &"PanelContainer"
+QuarantinePanel/styles/panel = SubResource("StyleBoxTexture_da8nw")
 SelectPanel/base_type = &"PanelContainer"
 SelectPanel/styles/panel = SubResource("StyleBoxTexture_hast1")
+TitlePanel/base_type = &"PanelContainer"
+TitlePanel/styles/panel = SubResource("StyleBoxTexture_3dgwe")
+ToolbarPanel/base_type = &"PanelContainer"
+ToolbarPanel/styles/panel = SubResource("StyleBoxTexture_f1jrm")
+WindowPanel/base_type = &"PanelContainer"
+WindowPanel/styles/panel = SubResource("StyleBoxTexture_qu1sc")
