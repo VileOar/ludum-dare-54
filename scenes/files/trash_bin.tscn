@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://borhx2rspskdv"]
+[gd_scene load_steps=4 format=3 uid="uid://borhx2rspskdv"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_e3kgo"]
 [ext_resource type="Script" path="res://scripts/trash_bin.gd" id="2_u3sap"]
-[ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="3_qxymo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnykr"]
-atlas = ExtResource("3_qxymo")
-region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcycp"]
 size = Vector2(96, 96)
@@ -14,11 +9,11 @@ size = Vector2(96, 96)
 [node name="TrashBin" instance=ExtResource("1_e3kgo")]
 script = ExtResource("2_u3sap")
 
-[node name="Sprite2D" parent="." index="0"]
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_xnykr")
+[node name="FileIcon" parent="." index="0"]
+animation = &"trash_bin"
 
 [node name="Label" parent="." index="2"]
+offset_right = 64.0
 text = "Trash Bin"
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
