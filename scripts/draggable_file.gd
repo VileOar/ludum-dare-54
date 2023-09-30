@@ -8,6 +8,12 @@ var mouse_offset := Vector2.ZERO
 @onready var xx = rect.size.x/2 - 20
 @onready var yy = rect.size.y/2 - 20
 
+## default file size
+var file_size := 5
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	SignalManager.file_created.emit(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
