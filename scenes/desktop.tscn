@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
 [ext_resource type="PackedScene" uid="uid://borhx2rspskdv" path="res://scenes/files/trash_bin.tscn" id="2_n3o80"]
 [ext_resource type="PackedScene" uid="uid://b5urrjt5nnfyi" path="res://scenes/mouse_manager.tscn" id="3_vdwjr"]
+[ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="4_7gjup"]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_y7jii")
@@ -21,3 +22,6 @@ position = Vector2(-272, -224)
 position = Vector2(472, 208)
 
 [node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
+
+[node name="DraggableWindow" parent="." instance=ExtResource("4_7gjup")]
+position = Vector2(-7, -232)
