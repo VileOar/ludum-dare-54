@@ -15,6 +15,7 @@ func _physics_process(delta):
 	create_drag_area()
 
 func create_drag_area():
+	if not dragging: return
 	var mouse_pos = get_global_mouse_position()
 	final_mouse_pos = mouse_pos
 	var offset = final_mouse_pos - initial_mouse_pos
@@ -48,13 +49,15 @@ func _unhandled_input(event):
 
 
 func _on_selection_area_area_entered(area):
-	selected_files.append(area.owner)
-	select_files.emit(selected_files)
+	if dragging:
+		Global.selected_files.append(area.owner)
+#	SignalManager.select_files.emit(selected_files)
 
 
 func _on_selection_area_area_exited(area):
-	selected_files.erase(area.owner)
-	select_files.emit(selected_files)
+	if dragging:
+		Global.selected_files.erase(area.owner)
+#	SignalManager.select_files.emit(selected_files)
 	
 
 
