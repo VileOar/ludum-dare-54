@@ -24,6 +24,7 @@ func _on_spawn_timer_timeout():
 	var weights := Global.FILE_TYPES_WEIGHTS
 	var sum = Global.sum_array(weights.values())
 	var result = randi() % sum + 1
+
 	var type
 	sum = 0
 	for key in weights:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://borhx2rspskdv"]
+[gd_scene load_steps=5 format=3 uid="uid://borhx2rspskdv"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_e3kgo"]
 [ext_resource type="Script" path="res://scripts/trash_bin.gd" id="2_u3sap"]
+[ext_resource type="FontFile" uid="uid://cjh68u8tk4n0x" path="res://assets/fonts/Retro Gaming.ttf" id="3_okt75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcycp"]
 size = Vector2(96, 96)
@@ -14,7 +15,10 @@ file_size = 0
 animation = &"trash_bin"
 
 [node name="Label" parent="." index="2"]
+offset_top = 40.0
 offset_right = 64.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("3_okt75")
 text = "Trash Bin"
 
 [node name="Area2D" type="Area2D" parent="." index="3"]

@@ -16,7 +16,7 @@ enum FileTypes {
 }
 
 const FILE_TYPES_WEIGHTS = {
-	FileTypes.NORMAL : 4,
+	FileTypes.NORMAL : 1,
 	FileTypes.INCREASE_SPAWN_EXE : 1,
 	FileTypes.CORRUPTED_FOLDER : 1
 }

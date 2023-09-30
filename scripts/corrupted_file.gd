@@ -7,7 +7,7 @@ var type : Global.FileTypes
 
 func _ready():
 	super._ready()
-	_anim.modulate = Color("a15589")
+	_anim.modulate = Color(1, 0.9, 0.9, 1)
 
 func delete():
 	match type:
