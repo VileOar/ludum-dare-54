@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=4 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="PackedScene" uid="uid://borhx2rspskdv" path="res://scenes/files/trash_bin.tscn" id="2_n3o80"]
+[ext_resource type="PackedScene" uid="uid://b5urrjt5nnfyi" path="res://scenes/mouse_manager.tscn" id="3_vdwjr"]
 
 [node name="Desktop" type="Node2D"]
 
@@ -15,3 +16,5 @@ position = Vector2(-272, -224)
 
 [node name="TrashBin" parent="." instance=ExtResource("2_n3o80")]
 position = Vector2(472, 208)
+
+[node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
