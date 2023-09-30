@@ -16,7 +16,7 @@ enum FileTypes {
 }
 
 const FILE_TYPES_WEIGHTS = {
-	FileTypes.NORMAL : 1,
+	FileTypes.NORMAL : 3,
 	FileTypes.INCREASE_SPAWN_EXE : 1,
 	FileTypes.CORRUPTED_FOLDER : 1
 }
@@ -25,7 +25,7 @@ const FILE_TYPES_WEIGHTS = {
 var bounds_rect : Rect2
 
 const EXPLODE_SPEED = 480.0
-const CORRUPTED_COLOUR = "e69ecd"
+const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 
 const file_properties = {
 	FileTypes.NORMAL: [
