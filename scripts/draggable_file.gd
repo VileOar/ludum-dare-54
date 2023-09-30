@@ -4,9 +4,12 @@ class_name DraggableFile
 
 var lifted := false
 
+## default file size
+var file_size := 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	SignalManager.file_created.emit(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

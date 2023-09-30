@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbv62ldbf64mb"]
+[gd_scene load_steps=5 format=3 uid="uid://dbv62ldbf64mb"]
 
 [ext_resource type="PackedScene" uid="uid://bj5y314d3ssba" path="res://scenes/spawner.tscn" id="1_5sg88"]
+[ext_resource type="Script" path="res://scripts/systems/disk_space_manager.gd" id="2_8ua7v"]
 [ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
+[ext_resource type="PackedScene" uid="uid://di25hfxjvfugn" path="res://scenes/ui/toolbar.tscn" id="4_gx0xd"]
 
 [node name="Main" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Toolbar" parent="CanvasLayer" instance=ExtResource("4_gx0xd")]
+
 [node name="Spawner" parent="." instance=ExtResource("1_5sg88")]
+
+[node name="DiskSpaceManager" type="Node" parent="."]
+script = ExtResource("2_8ua7v")
 
 [node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
 
 [connection signal="new_file" from="Spawner" to="Desktop" method="_on_spawner_new_file"]
+[connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]
