@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbv62ldbf64mb"]
+
+[ext_resource type="PackedScene" uid="uid://bj5y314d3ssba" path="res://scenes/spawner.tscn" id="1_5sg88"]
+[ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Spawner" parent="." instance=ExtResource("1_5sg88")]
+
+[node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
+
+[connection signal="new_file" from="Spawner" to="Desktop" method="_on_spawner_new_file"]

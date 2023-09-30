@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=4 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
+[ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
 [ext_resource type="PackedScene" uid="uid://borhx2rspskdv" path="res://scenes/files/trash_bin.tscn" id="2_n3o80"]
 
 [node name="Desktop" type="Node2D"]
+script = ExtResource("1_y7jii")
+file_scene = ExtResource("1_nnh13")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
