@@ -14,3 +14,7 @@ config/name="Ludum Dare 54"
 run/main_scene="res://scenes/desktop.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalManager="*res://scripts/signal_manager.gd"

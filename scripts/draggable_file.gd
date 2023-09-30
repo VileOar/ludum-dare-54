@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name DraggableFile
+
 var lifted := false
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +21,10 @@ func _on_color_rect_gui_input(event):
 			MOUSE_BUTTON_LEFT:
 				if event.pressed:
 					lifted = true
+					# Put file on "top" of parent children
+					var parent = get_parent()
+					get_parent().move_child(self, -1)
 				else:
 					lifted = false
+					SignalManager.release_file.emit(self)
 			# RIGHT CLICK HANDLER GOES HERE

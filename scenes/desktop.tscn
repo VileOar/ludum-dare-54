@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=3 format=3 uid="uid://crlkuni2202pw"]
 
-[ext_resource type="PackedScene" uid="uid://ynjx6uerook2" path="res://scenes/draggable_object.tscn" id="1_lc0sx"]
+[ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
+[ext_resource type="PackedScene" uid="uid://borhx2rspskdv" path="res://scenes/files/trash_bin.tscn" id="2_n3o80"]
 
 [node name="Desktop" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="DraggableObject" parent="." instance=ExtResource("1_lc0sx")]
+[node name="DraggableFile" parent="." instance=ExtResource("1_nnh13")]
+position = Vector2(-456, -224)
 
-[node name="DraggableObject2" parent="." instance=ExtResource("1_lc0sx")]
-position = Vector2(72, -88)
+[node name="DraggableFile2" parent="." instance=ExtResource("1_nnh13")]
+position = Vector2(-272, -224)
+
+[node name="TrashBin" parent="." instance=ExtResource("2_n3o80")]
+position = Vector2(472, 208)
