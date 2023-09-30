@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5urrjt5nnfyi"]
+
+[ext_resource type="Script" path="res://scripts/mouse_manager.gd" id="1_5gibr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s36c4"]
+size = Vector2(42, 34)
+
+[node name="MouseManager" type="Node2D"]
+script = ExtResource("1_5gibr")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+z_index = 1
+offset_right = 128.0
+offset_bottom = 56.0
+
+[node name="SelectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="SelectionShape" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("RectangleShape2D_s36c4")
+
+[connection signal="area_entered" from="SelectionArea" to="." method="_on_selection_area_area_entered"]
+[connection signal="area_exited" from="SelectionArea" to="." method="_on_selection_area_area_exited"]

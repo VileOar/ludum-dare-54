@@ -1,5 +1,6 @@
 extends Node
 
+var selected_files : Array = []
 
 func _ready():
 	randomize()
