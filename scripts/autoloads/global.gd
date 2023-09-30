@@ -1,10 +1,10 @@
 extends Node
 
 var selected_files : Array = []
+var ignore_inputs := false
 
 func _ready():
 	randomize()
-
 
 enum FileTypes {
 	NORMAL, ## a simple file with no gimmicks
@@ -15,17 +15,35 @@ enum FileTypes {
 	# TODO: add more as needed
 }
 
+enum WindowTypes {
+	NORMAL, ## a simple window with no gimmicks
+	DOWNLOAD, ## can be simply closed or used to download more files
+	RECURSIVE, ## spawns a message of the same type if wrong choiced is picked
+}
+
+const FILE_TYPES_WEIGHTS = {
+	FileTypes.NORMAL : 3,
+	FileTypes.INCREASE_SPAWN_EXE : 1,
+	FileTypes.CORRUPTED_FOLDER : 1
+}
+
 ## should only be set by desktop
 var bounds_rect : Rect2
 
-
 const EXPLODE_SPEED = 480.0
-const CORRUPTED_COLOUR = "ffe0f3"
+const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
+
+func sum_array(array : Array):
+	var sum = 0
+	for i in array:
+		sum += i
+	return sum
+
 
 const file_properties = {
 	FileTypes.NORMAL: [
 		{
-			"name" : "CC.png",
+			"name" : "family.png",
 			"size" : 10,
 			"anim_name": "png"
 		},
@@ -34,12 +52,47 @@ const file_properties = {
 			"size" : 2,
 			"anim_name": "txt"
 		},
+		{
+			"name" : "school projects",
+			"size" : 20,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "bitcoin miner",
+			"size" : 14,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "TODO.txt",
+			"size" : 3,
+			"anim_name": "txt"
+		},
+		{
+			"name" : "my photos",
+			"size" : 10,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "selfie.png",
+			"size" : 13,
+			"anim_name": "png"
+		},
 	],
 	FileTypes.INCREASE_SPAWN_EXE: [
 		{
-			"name" : "CC.exe",
-			"size" : 2,
+			"name" : "free v-bucks.exe",
+			"size" : 3,
 			"anim_name": "exe"
+		},
+		{
+			"name" : "unification.exe",
+			"size" : 5,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "me.png",
+			"size" : 20,
+			"anim_name": "png"
 		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
@@ -47,6 +100,37 @@ const file_properties = {
 			"name" : "CC onlyfans",
 			"size" : 24,
 			"anim_name": "folder"
+		},
+	]
+}
+
+
+# when a window spawns another window, offset is used to offset the newly instanced object
+const window_properties = {
+	WindowTypes.NORMAL: [
+		{
+			"title" : "System Message",
+			"description" : "This is an error message. I am ERROR.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Unable to delete System32. Try contacting your local priest.",
+			"offset" : 15
+		},
+	],
+	WindowTypes.DOWNLOAD: [
+		{
+			"title" : "Limewire Pro - Free Version",
+			"description" : "Your download is ready. Press button to start.",
+			"offset" : 15
+		},
+	],
+	WindowTypes.RECURSIVE: [
+		{
+			"title" : "Pintows XP",
+			"description" : "Couldn't defragment the disk.",
+			"offset" : 15
 		},
 	]
 }

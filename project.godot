@@ -27,6 +27,7 @@ window/stretch/mode="viewport"
 [gui]
 
 theme/custom="res://assets/themes/default_theme.tres"
+theme/custom_font="res://assets/fonts/Retro Gaming.ttf"
 
 [rendering]
 

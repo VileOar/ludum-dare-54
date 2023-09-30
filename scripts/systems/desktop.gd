@@ -4,6 +4,9 @@ extends Node2D
 ## TODO: make this a dict in order to hold all file types' scenes
 @export var file_scene : PackedScene
 @export var corrupted_files_scene : PackedScene
+@export var window_scene : PackedScene
+@export var download_window_scene : PackedScene
+@export var recursive_window_scene : PackedScene
 
 @onready var _files_holder := $Files
 @onready var _windows_holder := $Windows
@@ -14,6 +17,7 @@ extends Node2D
 
 func _ready():
 	SignalManager.new_file.connect(_on_new_file)
+	SignalManager.new_window.connect(_on_new_window)
 	SignalManager.explode_files.connect(_on_explode_files)
 	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
@@ -23,6 +27,26 @@ func _on_new_file(file_type):
 	var file_pos = _get_position_within_bounds()
 	
 	_create_file(file_type, file_pos, Vector2.ZERO, 0.0)
+
+
+func _on_new_window(window_type, last_position):
+	var windows_pos = _get_position_within_bounds()
+	var new_window
+	match window_type:
+		Global.WindowTypes.NORMAL:
+			new_window = window_scene.instantiate()
+		Global.WindowTypes.DOWNLOAD:
+			new_window = download_window_scene.instantiate()
+		Global.WindowTypes.RECURSIVE:
+			new_window = recursive_window_scene.instantiate()
+
+			var offset = Global.window_properties[window_type][0]["offset"]
+			windows_pos = last_position + Vector2(-offset, offset)
+	
+	var window_properties = Global.window_properties[window_type]
+	var properties = window_properties[randi() % window_properties.size()]
+	
+	_create_window(new_window, windows_pos, properties)
 
 
 func _on_explode_files(origin_point : Vector2, quantity : int):
@@ -36,6 +60,7 @@ func _on_explode_files(origin_point : Vector2, quantity : int):
 
 
 # --- || INTERNAL || ---
+
 
 func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed : float):
 	var new_file : DraggableFile
@@ -55,7 +80,7 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 	
 	var files_properties = Global.file_properties[file_type]
 	var properties = files_properties[randi() % files_properties.size()]
-	
+
 	new_file.position = file_pos
 	new_file.move_dir = move_dir
 	new_file.speed = speed
@@ -65,6 +90,14 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 	
 	new_file.text = properties["name"]
 	new_file.set_icon(properties["anim_name"])
+	
+
+func _create_window(window_instance : DraggableWindow, window_pos : Vector2, properties : Dictionary):
+	window_instance.position = window_pos
+	window_instance.title = properties["title"]
+	window_instance.description = properties["description"]
+	
+	_windows_holder.add_child(window_instance)
 
 
 ## return a position within desktop bounds
