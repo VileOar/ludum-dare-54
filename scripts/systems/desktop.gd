@@ -8,13 +8,15 @@ extends Node2D
 @onready var _files_holder := $Files
 @onready var _windows_holder := $Windows
 
+## this color rect simply serves to define the spawn bounds in the inspector
+@onready var _bounds_rect := $Node/BoundsDelimiter
+
 
 func _ready():
-	SignalManager.new_file.connect(_on_spawner_new_file)
+	SignalManager.new_file.connect(_on_new_file)
 
 
-## connected to the Spawner's new file signal in main scene
-func _on_spawner_new_file(file_type):
+func _on_new_file(file_type):
 	
 	var file_pos = _get_position_within_bounds()
 	var new_file
@@ -33,6 +35,11 @@ func _on_spawner_new_file(file_type):
 	
 	_create_file(new_file, file_pos, properties)
 
+
+
+
+# --- || INTERNAL || ---
+
 func _create_file(file_instance : DraggableFile, file_pos : Vector2, properties : Dictionary):
 	file_instance.position = file_pos
 	file_instance.file_size = properties["size"]
@@ -42,10 +49,11 @@ func _create_file(file_instance : DraggableFile, file_pos : Vector2, properties 
 	file_instance.text = properties["name"]
 	file_instance.set_icon(properties["anim_name"])
 
+
 ## return a position within desktop bounds
 func _get_position_within_bounds():
 	# TODO: restruct size, because files must not spawn in toolbar space for instance
-	var rect = get_viewport_rect()
+	var rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 	var xx = randf_range(-rect.size.x/2, rect.size.x/2)
 	var yy = randf_range(-rect.size.y/2, rect.size.y/2)
 	var pos = Vector2(xx, yy)

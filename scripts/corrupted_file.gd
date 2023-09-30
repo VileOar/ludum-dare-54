@@ -1,4 +1,5 @@
 extends DraggableFile
+class_name CorruptedFile
 
 const EXPLODE_QUANTITY = 10
 

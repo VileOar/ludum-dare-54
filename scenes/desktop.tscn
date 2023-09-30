@@ -23,3 +23,20 @@ position = Vector2(472, 208)
 position = Vector2(-7, -232)
 
 [node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="BoundsDelimiter" type="ColorRect" parent="Node"]
+anchors_preset = -1
+anchor_left = -0.472
+anchor_top = -0.469
+anchor_right = 0.472
+anchor_bottom = 0.198
+offset_left = -0.255981
+offset_top = -0.0879822
+offset_right = 0.255981
+offset_bottom = -0.304016
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

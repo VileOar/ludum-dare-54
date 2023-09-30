@@ -21,3 +21,4 @@ signal explode_folder(quantity)
 ## this signal is emitted periodically with a file type by the file spawner[br]
 ## the desktop should be in charge of actually creating the file node and randomly populating it
 signal new_file(file_type)
+signal explode_files(origin_point)
