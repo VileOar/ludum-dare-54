@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0b5v2u8afjtv"]
+
+[ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_q8ia0"]
+[ext_resource type="Script" path="res://scripts/executable_file.gd" id="2_qia5g"]
+
+[node name="ExecutableFile" instance=ExtResource("1_q8ia0")]
+script = ExtResource("2_qia5g")
+
+[node name="Label" parent="." index="2"]
+text = "Carlos Costa.exe"
+
+[node name="IncreaseSpawnTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="IncreaseSpawnTimer" to="." method="_on_increase_spawn_timer_timeout"]

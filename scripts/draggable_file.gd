@@ -11,9 +11,6 @@ var mouse_offset := Vector2.ZERO
 ## default file size
 var file_size := 5
 
-## default file size
-var file_size := 5
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.file_created.emit(self)
@@ -56,3 +53,6 @@ func set_lifted(val : bool):
 	# Put file on "top" of parent children
 	var parent = get_parent()
 	get_parent().move_child(self, -1)
+
+func delete():
+	queue_free()

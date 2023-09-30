@@ -7,6 +7,9 @@ signal new_file(file_type)
 
 @onready var spawn_timer = $SpawnTimer
 
+func _ready():
+	SignalManager.change_spawn_time.connect(change_spawn_time)
+
 ## if this variable is true, spawn files periodically
 var enable_spawning : bool = true:
 	set(value):
@@ -26,3 +29,6 @@ func _on_spawn_timer_timeout():
 	new_file.emit(type)
 	
 	spawn_timer.start(spawn_time)
+
+func change_spawn_time(time):
+	spawn_time = time

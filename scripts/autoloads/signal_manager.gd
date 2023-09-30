@@ -13,3 +13,5 @@ signal free_space(size)
 signal empty_trash
 
 signal file_created(file)
+
+signal change_spawn_time(time)
