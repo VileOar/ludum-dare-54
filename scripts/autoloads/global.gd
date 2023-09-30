@@ -20,6 +20,7 @@ var bounds_rect : Rect2
 
 
 const EXPLODE_SPEED = 480.0
+const CORRUPTED_COLOUR = "e69ecd"
 
 const file_properties = {
 	FileTypes.NORMAL: [
