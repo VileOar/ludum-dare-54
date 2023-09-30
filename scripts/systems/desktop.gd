@@ -28,4 +28,5 @@ func _get_position_within_bounds():
 
 
 func _on_mouse_manager_select_files(files):
+	# TODO: drag any file should apply to those as well
 	selected_files = files
