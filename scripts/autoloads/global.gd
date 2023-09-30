@@ -27,10 +27,17 @@ var bounds_rect : Rect2
 const EXPLODE_SPEED = 480.0
 const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 
+func sum_array(array : Array):
+	var sum = 0
+	for i in array:
+		sum += i
+	return sum
+
+
 const file_properties = {
 	FileTypes.NORMAL: [
 		{
-			"name" : "CC.png",
+			"name" : "family.png",
 			"size" : 10,
 			"anim_name": "png"
 		},
@@ -39,12 +46,47 @@ const file_properties = {
 			"size" : 2,
 			"anim_name": "txt"
 		},
+		{
+			"name" : "school projects",
+			"size" : 20,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "bitcoin miner",
+			"size" : 14,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "TODO.txt",
+			"size" : 3,
+			"anim_name": "txt"
+		},
+		{
+			"name" : "my photos",
+			"size" : 10,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "selfie.png",
+			"size" : 13,
+			"anim_name": "png"
+		},
 	],
 	FileTypes.INCREASE_SPAWN_EXE: [
 		{
-			"name" : "CC.exe",
-			"size" : 2,
+			"name" : "free v-bucks.exe",
+			"size" : 3,
 			"anim_name": "exe"
+		},
+		{
+			"name" : "unification.exe",
+			"size" : 5,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "me.png",
+			"size" : 20,
+			"anim_name": "png"
 		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
@@ -55,9 +97,3 @@ const file_properties = {
 		},
 	]
 }
-
-func sum_array(array : Array):
-	var sum = 0
-	for i in array:
-		sum += i
-	return sum
