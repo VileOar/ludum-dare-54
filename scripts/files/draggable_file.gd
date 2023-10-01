@@ -104,9 +104,6 @@ func set_lifted(val : bool):
 func set_disabled(val : bool):
 	disabled = val
 
-func set_disabled(val : bool):
-	disabled = val
-
 func delete():
 	queue_free()
 

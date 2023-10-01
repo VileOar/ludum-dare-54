@@ -69,5 +69,3 @@ script = ExtResource("2_8ua7v")
 libraries = {
 "": SubResource("AnimationLibrary_jrsef")
 }
-
-[connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]
