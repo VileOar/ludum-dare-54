@@ -5,8 +5,6 @@ signal space_update(new_space, max_space)
 signal disk_full
 
 var disk_space := 0
-## max disk space (could be altered by powerups)
-var max_disk_space := 1024
 
 
 func _ready():
@@ -16,8 +14,8 @@ func _ready():
 
 func _add_disk_space(to_add):
 	disk_space += to_add
-	space_update.emit(disk_space, max_disk_space)
-	if disk_space > max_disk_space:
+	space_update.emit(disk_space, Global.MAX_DISK_SPACE)
+	if disk_space > Global.MAX_DISK_SPACE:
 		disk_full.emit()
 
 

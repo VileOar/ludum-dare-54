@@ -11,10 +11,13 @@ var mouse_hovered := false
 # TODO: add some visual indication of size or how full it is
 var total_space := 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.release_files.connect(remove_files)
 	SignalManager.empty_trash.connect(empty_trash)
+	SignalManager.after_recycle_time.connect(after_recycle_time)
+
 
 func _remove_file(file : DraggableFile):
 	if file.name == "TrashBin" or not file.can_recycle:
@@ -25,26 +28,28 @@ func _remove_file(file : DraggableFile):
 	file.delete()
 	_trash_file_audio.play()
 
+
 func remove_files(files : Array):
 	if mouse_hovered and not selected:
 		for i in range(files.size() - 1, -1, -1):
 			var file = files[i]
 			_remove_file(file)
 
-func empty_trash():
-	# TODO: according to how full it is, lag the computer (this should probably be done by emitting
-	# a signal to trigger lag which is handled somewhere else, since it involves blocing player
-	# input, giving UI feedback, ...)
-	deleting_time.start()
-	Global.ignore_inputs = true
-	_trash_audio.play()
-	
 
-func _on_deleting_time_timeout():
-	# TODO: add progress bar 
-	Global.ignore_inputs = false
+func empty_trash():
+
+	#TODO: only deactivate trash bin while recycling, instead of the whole input system
+	#deleting_time.start()
+	#Global.ignore_inputs = true
+	#Global.ignore_inputs = false
+	print("trash bin notified")
 	SignalManager.free_space.emit(total_space)
+	
+	
+func after_recycle_time():
 	total_space = 0
+	_trash_audio.play()
+	print("recycled!!")
 
 
 func _on_area_2d_mouse_entered():
@@ -53,5 +58,3 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	mouse_hovered = false
-
-

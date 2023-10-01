@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvdx7ui05ov5"]
+
+[ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_kkmvx"]
+[ext_resource type="Script" path="res://scripts/windows/recycling_window.gd" id="2_cpbaf"]
+
+[node name="RecyclingWindow" instance=ExtResource("1_kkmvx")]
+script = ExtResource("2_cpbaf")
+
+[node name="Title" parent="PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" index="0"]
+text = "Trash Bin"
+
+[node name="CloseButton" parent="PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" index="1"]
+disabled = true
+
+[node name="MarginContainer2" parent="PanelContainer/VBoxContainer" index="1"]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Description" parent="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" index="0"]
+text = "Recycling...
+"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" index="1"]
+layout_mode = 2
+step = 1.0
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer" index="2"]
+layout_mode = 2
+disabled = true
+text = "OK"
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

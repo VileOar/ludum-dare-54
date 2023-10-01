@@ -20,6 +20,7 @@ enum WindowTypes {
 	NORMAL, ## a simple window with no gimmicks
 	DOWNLOAD, ## can be simply closed or used to download more files
 	RECURSIVE, ## spawns a message of the same type if wrong choiced is picked
+	RECYCLING, ## temporary window while trash is being emptied
 }
 
 
@@ -80,6 +81,12 @@ var bounds_rect : Rect2
 
 const EXPLODE_SPEED = 480.0
 const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
+
+## max disk space (could be altered by powerups)
+const MAX_DISK_SPACE = 256
+
+## this assumes that we want the recycle window to always spawn in the same place
+const RECYCLE_WINDOW_POS := Vector2(256, 256)
 
 func sum_array(array : Array):
 	var sum = 0
@@ -230,6 +237,13 @@ const window_properties = {
 		{
 			"title" : "Pintows XP",
 			"description" : "Couldn't defragment the disk.",
+			"offset" : 15
+		},
+	],
+	WindowTypes.RECYCLING: [
+		{
+			"title" : "Trash Bin",
+			"description" : "Recycling...",
 			"offset" : 15
 		},
 	]
