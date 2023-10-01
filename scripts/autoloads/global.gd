@@ -223,8 +223,58 @@ const window_properties = {
 			"offset" : 15
 		},
 		{
+			"title" : "Error",
+			"description" : "You are an error.",
+			"offset" : 15
+		},
+		{
 			"title" : "System Message",
 			"description" : "Unable to delete System32. Try contacting your local priest.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "L + cringe + ratio + didn't ask + skill issue",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You shouldn't have tried those free V-Bucks buddy",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You should surrender yoursef, NOW!",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Have you tried, i don't know, git gud?",
+			"offset" : 15
+		},
+		{
+			"title" : "Masterchef Official",
+			"description" : "What is bro cooking?",
+			"offset" : 15
+		},
+		{
+			"title" : ">:]",
+			"description" : ">:]",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Oops, I hope this message doesn't disturb your desktop at all :)",
+			"offset" : 15
+		},
+		{
+			"title" : "Don't be poor",
+			"description" : "Just pay my bitcoins and the PC is all yours again.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You cannot escape this, I control everything buddy.",
 			"offset" : 15
 		},
 	],
@@ -250,3 +300,4 @@ const window_properties = {
 		},
 	]
 }
+

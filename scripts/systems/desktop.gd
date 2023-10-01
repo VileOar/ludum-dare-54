@@ -113,11 +113,11 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 	
 
 func _create_window(window_instance : DraggableWindow, window_pos : Vector2, properties : Dictionary):
+	_windows_holder.add_child(window_instance)
 	window_instance.position = window_pos
 	window_instance.title = properties["title"]
 	window_instance.description = properties["description"]
 	
-	_windows_holder.add_child(window_instance)
 
 
 ## return a position within desktop bounds
