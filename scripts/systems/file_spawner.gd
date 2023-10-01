@@ -19,6 +19,7 @@ var spawn_time
 ## if this variable is true, spawn files periodically
 var enable_spawning : bool = true:
 	set(value):
+		enable_spawning = value
 		if value:
 			spawn_timer.start(WAVE_RATE[Global.current_wave])
 		else:

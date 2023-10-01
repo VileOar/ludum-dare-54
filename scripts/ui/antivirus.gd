@@ -7,7 +7,13 @@ class_name Antivirus
 
 var _mouse_hovered := false
 
-var _active := false
+var _active := false:
+	set(val):
+		_active = val
+		if val:
+			show()
+		else:
+			hide()
 
 ## a position way out of screen, where files are sent when they are in quarantine, so I don't have
 ## to bother with deleting and recreating them if they pop out of quarantine
@@ -28,6 +34,8 @@ func _ready():
 	SignalManager.toggle_antivirus.connect(_on_toggle_antivirus)
 	SignalManager.release_files.connect(_on_release_files)
 	_max_quarantine_size = _quarantine_grid.get_child_count()
+	_active = true
+	
 
 
 func _process(delta):
@@ -39,7 +47,9 @@ func _process(delta):
 
 
 func _drop_in_quarantine(file : DraggableFile):
-	if not file.can_antivirus: return
+	if not file.can_antivirus:
+		file.play_error_anim()
+		return
 	
 	# it pops all stored files until there is a free slot
 	while _quarantine_queue.size() > _max_quarantine_size - 1:
@@ -66,7 +76,8 @@ func _swap_out_file(file : DraggableFile):
 func _purge_files():
 	while _quarantine_queue.size() > 0:
 		var file = _quarantine_queue.pop_back() as DraggableFile
-		file.disable_effects()
+		if file is EvilFile:
+			file.disable_effects()
 		_swap_out_file(file)
 	
 	_purging = false
@@ -97,10 +108,6 @@ func _on_release_files(files : Array):
 
 func _on_toggle_antivirus():
 	_active = not _active
-	if _active:
-		show()
-	else:
-		hide()
 
 
 func _on_area_2d_mouse_entered():

@@ -8,16 +8,18 @@ class_name DraggableFile
 
 @onready var _selected_panel := $PanelContainer
 @onready var _anim := $FileIcon
+@onready var _anim_player := $AnimationPlayer
 
 ## whether the file can be put in recycle bin
 var can_recycle = true
 ## whether the file can be put in antivirus
-var can_antivirus = false
+var can_antivirus = true
 
 var lifted := false
 var selected := false
 var disabled := false:
 	set(val):
+		disabled = val
 		if not val:
 			process_mode = Node.PROCESS_MODE_INHERIT
 		else:
@@ -98,7 +100,6 @@ func set_lifted(val : bool):
 	if not val: return
 	mouse_offset = position - get_global_mouse_position()
 	# Put file on "top" of parent children
-	var parent = get_parent()
 	get_parent().move_child(self, -1)
 
 func set_disabled(val : bool):
@@ -121,3 +122,7 @@ func set_selected(val : bool, alter_list := true):
 
 func get_file_icon_anim() -> String:
 	return _anim.animation
+
+
+func play_error_anim():
+	_anim_player.play("error")

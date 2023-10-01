@@ -11,7 +11,7 @@ func _ready():
 
 func disable_effects():
 	can_recycle = true
-	can_antivirus = false
+	can_antivirus = true
 	_anim.modulate = Color.WHITE
 	_custom_disable_effects()
 

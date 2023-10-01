@@ -17,7 +17,10 @@ func _ready():
 	SignalManager.empty_trash.connect(empty_trash)
 
 func _remove_file(file : DraggableFile):
-	if file.name == "TrashBin" or not file.can_recycle: return
+	if file.name == "TrashBin" or not file.can_recycle:
+		if not file.can_recycle:
+			file.play_error_anim()
+		return
 	total_space += file.file_size
 	file.delete()
 	_trash_file_audio.play()

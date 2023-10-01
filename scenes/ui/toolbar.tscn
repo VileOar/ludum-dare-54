@@ -1,64 +1,152 @@
-[gd_scene load_steps=2 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene load_steps=7 format=3 uid="uid://di25hfxjvfugn"]
 
 [ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
+[ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
+[ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpb2x"]
+atlas = ExtResource("2_1dkig")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43tsx"]
+atlas = ExtResource("2_1dkig")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yycvd"]
+atlas = ExtResource("2_1dkig")
+region = Rect2(128, 0, 64, 64)
 
 [node name="Toolbar" type="Control"]
+process_mode = 3
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a4axe")
+
+[node name="Blocker" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.156863)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_a4axe")
+theme_override_constants/separation = 0
+alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="PauseMenu" type="PanelContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"TitlePanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ccml4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="LogoffButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"IconButton"
+text = "Logoff"
+icon = SubResource("AtlasTexture_hpb2x")
+
+[node name="ShutdownButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"IconButton"
+text = "Shutdown"
+icon = SubResource("AtlasTexture_43tsx")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
 theme_type_variation = &"ToolbarPanel"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"GreenButton"
+text = "Start"
+icon = SubResource("AtlasTexture_yycvd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
+alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "C:"
 
-[node name="DiskSpaceBar" type="ProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DiskSpaceBar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(256, 16)
 layout_mode = 2
 size_flags_vertical = 4
 show_percentage = false
 
-[node name="DiskSpaceLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EmptyButton" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 text = "Empty trash"
 
-[node name="AntiVButton" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="AntiVButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_type_variation = &"AntivirusButton"
 text = "Antivirus"
 
-[connection signal="pressed" from="PanelContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/AntiVButton" to="." method="_on_anti_v_button_pressed"]
+[node name="Date" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/ShutdownButton" to="." method="_on_shutdown_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/AntiVButton" to="." method="_on_anti_v_button_pressed"]

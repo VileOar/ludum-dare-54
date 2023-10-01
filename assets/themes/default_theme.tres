@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
@@ -87,6 +87,84 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 region_rect = Rect2(288, 0, 96, 96)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ouil"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 576, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekwfh"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(192, 192, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4xsl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_miq2r"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(96, 192, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5sd5"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 192, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkeoh"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(288, 192, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7c31"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(192, 288, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dv0h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqctp"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(96, 288, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3k1g4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b44v1"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(288, 288, 96, 96)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da8nw"]
 texture = ExtResource("1_xv5vh")
 texture_margin_left = 8.0
@@ -118,9 +196,9 @@ region_rect = Rect2(0, 192, 96, 96)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1jrm"]
 texture = ExtResource("1_xv5vh")
 texture_margin_left = 16.0
-texture_margin_top = 32.0
+texture_margin_top = 16.0
 texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 288, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1sc"]
@@ -157,6 +235,31 @@ Button/styles/focus = SubResource("StyleBoxEmpty_nx7p3")
 Button/styles/hover = SubResource("StyleBoxTexture_detdx")
 Button/styles/normal = SubResource("StyleBoxTexture_kghdm")
 Button/styles/pressed = SubResource("StyleBoxTexture_wid8x")
+ErrorPanel/base_type = &"PanelContainer"
+ErrorPanel/styles/panel = SubResource("StyleBoxTexture_0ouil")
+GreenButton/base_type = &"Button"
+GreenButton/colors/font_color = Color(1, 1, 1, 1)
+GreenButton/colors/font_focus_color = Color(1, 1, 1, 1)
+GreenButton/colors/font_hover_color = Color(1, 1, 1, 1)
+GreenButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+GreenButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+GreenButton/styles/disabled = SubResource("StyleBoxTexture_ekwfh")
+GreenButton/styles/focus = SubResource("StyleBoxEmpty_o4xsl")
+GreenButton/styles/hover = SubResource("StyleBoxTexture_miq2r")
+GreenButton/styles/normal = SubResource("StyleBoxTexture_o5sd5")
+GreenButton/styles/pressed = SubResource("StyleBoxTexture_dkeoh")
+IconButton/base_type = &"Button"
+IconButton/colors/font_color = Color(1, 1, 1, 1)
+IconButton/colors/font_disabled_color = Color(1, 1, 1, 1)
+IconButton/colors/font_focus_color = Color(1, 1, 1, 1)
+IconButton/colors/font_hover_color = Color(1, 1, 1, 1)
+IconButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+IconButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+IconButton/styles/disabled = SubResource("StyleBoxTexture_q7c31")
+IconButton/styles/focus = SubResource("StyleBoxEmpty_4dv0h")
+IconButton/styles/hover = SubResource("StyleBoxTexture_oqctp")
+IconButton/styles/normal = SubResource("StyleBoxEmpty_3k1g4")
+IconButton/styles/pressed = SubResource("StyleBoxTexture_b44v1")
 QuarantinePanel/base_type = &"PanelContainer"
 QuarantinePanel/styles/panel = SubResource("StyleBoxTexture_da8nw")
 SelectPanel/base_type = &"PanelContainer"
