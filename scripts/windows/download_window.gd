@@ -4,9 +4,9 @@ class_name DownloadWindow
 ## how many of these there are
 static var exist_counter = 0
 
-@onready var download_button : Button = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button
+@onready var download_button : Button = %DownloadButton
 @onready var progress_timer : Timer = $Timer
-@onready var download_bar : ProgressBar = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/ProgressBar
+@onready var download_bar : ProgressBar = %DownloadProgress
 
 var download_increment := 1 # value to increment progress
 var files_to_download := 10 # files that will spawn at the end of download

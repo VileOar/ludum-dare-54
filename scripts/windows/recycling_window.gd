@@ -2,8 +2,8 @@ extends DraggableWindow
 class_name RecyclingWindow
 
 
-@onready var ok_button : Button = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button
-@onready var recycling_bar : ProgressBar = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/ProgressBar
+@onready var ok_button : Button = %OKButton
+@onready var recycling_bar : ProgressBar = %RecycleProgress
 @onready var recycling_timer : Timer = $Timer
 
 const MIN_RECYCLE_TIME := 0.2 ## in seconds

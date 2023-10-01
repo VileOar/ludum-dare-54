@@ -186,10 +186,10 @@ region_rect = Rect2(0, 0, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dgwe"]
 texture = ExtResource("1_xv5vh")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 24.0
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 region_rect = Rect2(0, 192, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1jrm"]
@@ -202,10 +202,10 @@ region_rect = Rect2(0, 288, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1sc"]
 texture = ExtResource("1_xv5vh")
-texture_margin_left = 24.0
-texture_margin_top = 8.0
-texture_margin_right = 24.0
-texture_margin_bottom = 24.0
+texture_margin_left = 12.0
+texture_margin_top = 4.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 region_rect = Rect2(0, 96, 96, 96)
 
 [resource]
