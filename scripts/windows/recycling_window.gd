@@ -23,7 +23,7 @@ func _ready():
 	recycling_timer.wait_time = TIMER_RATE
 
 	# max recycle time corresponds to recycling of max disk space
-	var time_to_recycle = (space_to_recycle * MAX_RECYCLE_TIME) / Global.MAX_DISK_SPACE
+	var time_to_recycle = (space_to_recycle * MAX_RECYCLE_TIME) / Global.MAX_TRASH_SPACE
 	time_to_recycle = clamp(time_to_recycle, MIN_RECYCLE_TIME, MAX_RECYCLE_TIME)
 	timer_value_increment = recycling_bar.max_value/(time_to_recycle/TIMER_RATE)
 

@@ -14,6 +14,8 @@ var total_space := 0:
 		total_space = val
 		if val == 0:
 			_anim.play("trash_bin_empty")
+		elif val < Global.MAX_TRASH_SPACE:
+			_anim.play("trash_bin_mid")
 		else:
 			_anim.play("trash_bin_full")
 
@@ -43,15 +45,10 @@ func remove_files(files : Array):
 
 
 func empty_trash():
-
-	#TODO: only deactivate trash bin while recycling, instead of the whole input system
-	#deleting_time.start()
-	#Global.ignore_inputs = true
-	#Global.ignore_inputs = false
-	
+	_anim.play("trash_bin_disabled")
 	SignalManager.free_space.emit(total_space)
-	
-	
+
+
 func after_recycle_time():
 	total_space = 0
 	_trash_audio.play()
