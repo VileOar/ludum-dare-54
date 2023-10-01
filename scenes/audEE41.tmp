@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqj0l6kf7kjjl"]
+
+[ext_resource type="AudioStream" uid="uid://bhxc1gors0lmm" path="res://assets/audio/sounds/Old Laptop.wav" id="1_fx8vy"]
+
+[node name="Audio" type="Node"]
+
+[node name="ComputerOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fx8vy")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

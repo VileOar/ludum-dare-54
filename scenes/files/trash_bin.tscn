@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://borhx2rspskdv"]
+[gd_scene load_steps=7 format=3 uid="uid://borhx2rspskdv"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_e3kgo"]
 [ext_resource type="Script" path="res://scripts/trash_bin.gd" id="2_u3sap"]
+[ext_resource type="AudioStream" uid="uid://p07csjpxujte" path="res://assets/audio/sounds/crumpled paper sound fx.wav" id="3_lwqde"]
 [ext_resource type="FontFile" uid="uid://cjh68u8tk4n0x" path="res://assets/fonts/Retro Gaming.ttf" id="3_okt75"]
+[ext_resource type="AudioStream" uid="uid://myjm1i2hlmht" path="res://assets/audio/sounds/toss_to_trash.wav" id="4_dy24m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcycp"]
 size = Vector2(96, 96)
@@ -11,29 +13,40 @@ size = Vector2(96, 96)
 script = ExtResource("2_u3sap")
 file_size = 0
 
-[node name="FileIcon" parent="." index="0"]
+[node name="EmptyTrashAudio" type="AudioStreamPlayer" parent="." index="0"]
+stream = ExtResource("3_lwqde")
+volume_db = -15.0
+pitch_scale = 1.25
+bus = &"SFX"
+
+[node name="TrashFileAudio" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource("4_dy24m")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="FileIcon" parent="." index="2"]
 animation = &"trash_bin"
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="." index="4"]
 offset_top = 40.0
 offset_right = 64.0
 offset_bottom = 66.0
 theme_override_fonts/font = ExtResource("3_okt75")
 text = "Trash Bin"
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="Area2D" type="Area2D" parent="." index="5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_dcycp")
 
-[node name="PanelContainer" parent="." index="5"]
+[node name="PanelContainer" parent="." index="7"]
 custom_minimum_size = Vector2(96, 96)
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 
-[node name="DeletingTime" type="Timer" parent="." index="6"]
+[node name="DeletingTime" type="Timer" parent="." index="8"]
 wait_time = 5.0
 one_shot = true
 
