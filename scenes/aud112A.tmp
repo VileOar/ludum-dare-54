@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqj0l6kf7kjjl"]
+
+[ext_resource type="Script" path="res://scenes/audio.gd" id="1_2dwux"]
+[ext_resource type="AudioStream" uid="uid://bhxc1gors0lmm" path="res://assets/audio/sounds/Old Laptop.wav" id="1_fx8vy"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_2dwux")
+
+[node name="ComputerOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fx8vy")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true

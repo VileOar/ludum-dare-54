@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c0b5v2u8afjtv" path="res://scenes/files/corrupted_file.tscn" id="3_rm4x6"]
 [ext_resource type="PackedScene" uid="uid://b5urrjt5nnfyi" path="res://scenes/mouse_manager.tscn" id="3_vdwjr"]
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="4_7gjup"]
-[ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
-[ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
+[ext_resource type="PackedScene" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
+[ext_resource type="PackedScene" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_y7jii")
