@@ -16,7 +16,7 @@ func _ready():
 
 func _on_timer_timeout():
 	print("start playing music")
-	fade_out(_music_audio)
+	fade_out(_music_audio, transition_duration)
 
 
 func _on_disk_almost_full():
@@ -26,18 +26,17 @@ func _on_disk_almost_full():
 
 
 # Source: https://ask.godotengine.org/27939/how-to-fade-in-out-an-audio-stream
-func fade_out(stream_player):
+func fade_out(stream_player, duration):
 	# tween music volume down to 0
 	var _tween_off = get_tree().create_tween()
-	_tween_off.tween_property(stream_player, "volume_db", -80, transition_duration)
+	_tween_off.tween_property(stream_player, "volume_db", UtilsAudio.MIN_VOLUME, duration)
 	# when the tween ends, the music will be stopped
 	
-	
-func fade_in(stream_player, duration = transition_duration):
+func fade_in(stream_player, duration):
 	var _tween_in = get_tree().create_tween()
-	stream_player.volume_db = -80
+	stream_player.volume_db = UtilsAudio.MIN_VOLUME
 	stream_player.play()
-	_tween_in.tween_property(stream_player, "volume_db", -20, duration)
+	_tween_in.tween_property(stream_player, "volume_db", UtilsAudio.DEFAULT_VOLUME, duration)
 	# when the tween ends, the music will be stopped
 	
 # stop the music -- otherwise it continues to run at silent volume
