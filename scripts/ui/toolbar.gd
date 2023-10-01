@@ -42,8 +42,8 @@ func _on_start_button_pressed():
 
 
 func _on_logoff_button_pressed():
-	# TODO: change to title scene
-	pass
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_shutdown_button_pressed():
