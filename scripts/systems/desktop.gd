@@ -8,6 +8,7 @@ extends Node2D
 @export var window_scene : PackedScene
 @export var download_window_scene : PackedScene
 @export var recursive_window_scene : PackedScene
+@export var recycling_window_scene : PackedScene
 
 @onready var _files_holder := $Files
 @onready var _windows_holder := $Windows
@@ -15,11 +16,15 @@ extends Node2D
 ## this color rect simply serves to define the spawn bounds in the inspector
 @onready var _bounds_rect := $Node/BoundsDelimiter
 
+#TODO: this should be temporary
+var space_to_free := 0
+
 
 func _ready():
 	SignalManager.new_file.connect(_on_new_file)
 	SignalManager.new_window.connect(_on_new_window)
 	SignalManager.explode_files.connect(_on_explode_files)
+	SignalManager.free_space.connect(_on_free_space)
 	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
 
@@ -31,11 +36,12 @@ func _on_new_file(file_type):
 
 
 func _on_new_window(window_type, last_position):
-	var windows_pos = last_position
+	var windows_pos = _get_position_within_bounds()
 	var new_window
 	match window_type:
 		Global.WindowTypes.NORMAL:
 			new_window = window_scene.instantiate()
+			windows_pos = last_position
 		Global.WindowTypes.DOWNLOAD:
 			new_window = download_window_scene.instantiate()
 		Global.WindowTypes.RECURSIVE:
@@ -43,6 +49,10 @@ func _on_new_window(window_type, last_position):
 
 			var offset = Global.window_properties[window_type][0]["offset"]
 			windows_pos = last_position + Vector2(-offset, offset)
+		Global.WindowTypes.RECYCLING:
+			new_window = recycling_window_scene.instantiate()
+			windows_pos = last_position
+			new_window.space_to_recycle = space_to_free
 	
 	windows_pos = _clamp_within_bounds(windows_pos)
 	var window_properties = Global.window_properties[window_type]
@@ -59,6 +69,11 @@ func _on_explode_files(origin_point : Vector2, quantity : int):
 		
 		var angle = randf() * 2 * PI
 		_create_file(type, origin_point, Vector2.RIGHT.rotated(angle), Global.EXPLODE_SPEED)
+
+
+func _on_free_space(space):
+	space_to_free = space
+	_on_new_window(Global.WindowTypes.RECYCLING, Global.RECYCLE_WINDOW_POS)
 
 
 # --- || INTERNAL || ---

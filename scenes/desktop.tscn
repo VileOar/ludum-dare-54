@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=12 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="4_ux808"]
 [ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
 [ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
+[ext_resource type="PackedScene" uid="uid://buvdx7ui05ov5" path="res://scenes/windows/recycling_window.tscn" id="8_heqa6"]
 [ext_resource type="PackedScene" uid="uid://cjykajyw8e0wu" path="res://scenes/ui/antivirus.tscn" id="10_lpn00"]
 
 [node name="Desktop" type="Node2D"]
@@ -19,6 +20,7 @@ error_exe_scene = ExtResource("4_ux808")
 window_scene = ExtResource("4_7gjup")
 download_window_scene = ExtResource("5_q1gx7")
 recursive_window_scene = ExtResource("6_6hjia")
+recycling_window_scene = ExtResource("8_heqa6")
 metadata/_edit_vertical_guides_ = []
 metadata/_edit_horizontal_guides_ = []
 
