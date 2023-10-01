@@ -99,7 +99,10 @@ func set_lifted(val : bool):
 	mouse_offset = position - get_global_mouse_position()
 	# Put file on "top" of parent children
 	var parent = get_parent()
-	get_parent().move_child(self, -1)
+	parent.move_child(self, -1)
+
+func set_disabled(val : bool):
+	disabled = val
 
 func set_disabled(val : bool):
 	disabled = val
