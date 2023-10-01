@@ -3,6 +3,7 @@ class_name Antivirus
 
 @onready var _quarantine_grid = %QuarantineGrid
 @onready var _grid_detector = %Area2D
+@onready var _purge_progressbar = %PurgeProgressbar
 
 var _mouse_hovered := false
 
@@ -17,10 +18,24 @@ var _quarantine_queue := []
 var _max_quarantine_size := 4
 
 
+
+var _purge_counter := 0.0
+var _purge_speed := 100.0 # %/sec
+var _purging := false
+
+
 func _ready():
 	SignalManager.toggle_antivirus.connect(_on_toggle_antivirus)
 	SignalManager.release_files.connect(_on_release_files)
 	_max_quarantine_size = _quarantine_grid.get_child_count()
+
+
+func _process(delta):
+	if _purging:
+		_purge_counter += _purge_speed * delta
+		_purge_progressbar.value = _purge_counter
+		if _purge_counter >= 100.0:
+			_purge_files()
 
 
 func _drop_in_quarantine(file : DraggableFile):
@@ -41,9 +56,32 @@ func _drop_in_quarantine(file : DraggableFile):
 	file.set_selected(false)
 	_quarantine_queue.push_front(file)
 	
+	_update_grid_graphics()
+
+
+func _purge_files():
+	while _quarantine_queue.size() > 0:
+		var file = _quarantine_queue.pop_back() as DraggableFile
+		SignalManager.free_space.emit(file.file_size)
+		file.queue_free() # NOT delete, so as to not trigger delete effects
+	
+	_purging = false
+	_purge_counter = 0.0
+	_purge_progressbar.value = _purge_counter
+	_update_grid_graphics()
+
+
+func _update_grid_graphics():
 	# update grid graphics
+	var first_empty = 0
 	for ix in range(_quarantine_queue.size()):
 		_quarantine_grid.get_child(ix).set_icon(_quarantine_queue[ix].get_file_icon_anim())
+		first_empty += 1
+	
+	# set remaining as empty
+	while first_empty < _quarantine_grid.get_child_count():
+		_quarantine_grid.get_child(first_empty).set_icon("")
+		first_empty += 1
 
 
 func _on_release_files(files : Array):
@@ -67,3 +105,7 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	_mouse_hovered = false
+
+
+func _on_purge_button_pressed():
+	_purging = true
