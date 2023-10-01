@@ -1,6 +1,8 @@
 extends DraggableFile
 
 @onready var deleting_time := $DeletingTime
+@onready var _trash_audio := $EmptyTrashAudio
+@onready var _trash_file_audio := $TrashFileAudio
 
 var mouse_hovered := false
 
@@ -18,6 +20,7 @@ func _remove_file(file : DraggableFile):
 	if file.name == "TrashBin" or not mouse_hovered or selected: return
 	total_space += file.file_size
 	file.delete()
+	_trash_file_audio.play()
 
 func remove_files(files : Array):
 	for i in range(files.size() - 1, -1, -1):
@@ -31,6 +34,7 @@ func empty_trash():
 	# input, giving UI feedback, ...)
 	deleting_time.start()
 	Global.ignore_inputs = true
+	_trash_audio.play()
 	
 
 func _on_deleting_time_timeout():
