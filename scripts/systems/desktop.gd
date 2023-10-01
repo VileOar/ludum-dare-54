@@ -18,6 +18,11 @@ extends Node2D
 ## this color rect simply serves to define the spawn bounds in the inspector
 @onready var _bounds_rect := $Node/BoundsDelimiter
 
+## Audio
+@onready var _explode_files_sfx := $ExplodeFilesSFX
+@onready var _explode_file_sfx := $ExplodeFileSFX
+@onready var _popup_message_sfx := $PopupMessageSFX
+
 #TODO: this should be temporary
 var space_to_free := 0
 
@@ -60,11 +65,17 @@ func _on_new_window(window_type, last_position):
 	var properties = window_properties[randi() % window_properties.size()]
 	
 	_create_window(new_window, windows_pos, properties)
-
+	_popup_message_sfx.play()
 
 func _on_explode_files(origin_point : Vector2, quantity : int):
-	
 	var values = Global.FileTypes.values()
+	# Audio play
+	if quantity == 1: 
+		_explode_file_sfx.play() 
+	else: 
+		_explode_files_sfx.play()
+	
+		
 	for i in range(quantity):
 		var type = values[randi() % values.size()]
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=15 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
 [ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
 [ext_resource type="PackedScene" path="res://scenes/windows/recycling_window.tscn" id="8_heqa6"]
+[ext_resource type="AudioStream" uid="uid://cu2g7108agyr7" path="res://assets/audio/sounds/[Popup] .wav" id="9_8atgh"]
+[ext_resource type="AudioStream" uid="uid://hlylwmss44mn" path="res://assets/audio/sounds/Explode - Scroll Wood Single.wav" id="9_caf8r"]
+[ext_resource type="AudioStream" uid="uid://dc7e3wnqpollv" path="res://assets/audio/sounds/Explode - Scroll Wood Short.wav" id="9_j8rme"]
 [ext_resource type="PackedScene" uid="uid://cjykajyw8e0wu" path="res://scenes/ui/antivirus.tscn" id="10_lpn00"]
 
 [node name="Desktop" type="Node2D"]
@@ -23,6 +26,23 @@ recursive_window_scene = ExtResource("6_6hjia")
 recycling_window_scene = ExtResource("8_heqa6")
 metadata/_edit_vertical_guides_ = []
 metadata/_edit_horizontal_guides_ = []
+
+[node name="PopupMessageSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8atgh")
+volume_db = -10.0
+pitch_scale = 1.4
+
+[node name="ExplodeFileSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_caf8r")
+volume_db = -5.0
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="ExplodeFilesSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j8rme")
+volume_db = -5.0
+pitch_scale = 0.6
+bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
