@@ -14,7 +14,7 @@ signal empty_trash
 signal file_created(file)
 
 # Corrupted Files signals
-signal change_spawn_time(time)
+signal change_spawn_time(time, duration)
 signal explode_files(origin_point, quantity)
 
 

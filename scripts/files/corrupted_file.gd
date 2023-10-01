@@ -2,6 +2,8 @@ extends EvilFile
 class_name CorruptedFile
 
 const EXPLODE_QUANTITY = 10
+const RATE_MODIFIER = 0.2  ## in seconds
+const MODIFIER_DUARATION = 3.0
 
 
 func delete():
@@ -12,9 +14,11 @@ func delete():
 			explode_files()
 	queue_free()
 
+
 ## Increase Spawn
 func increase_spawn_rate():
-	SignalManager.change_spawn_time.emit(0.2)
+	SignalManager.change_spawn_time.emit(RATE_MODIFIER, MODIFIER_DUARATION)
+
 
 ## Explode Files
 func explode_files():
