@@ -6,7 +6,7 @@ signal disk_full
 
 var disk_space := 0
 ## max disk space (could be altered by powerups)
-var max_disk_space := 256
+var max_disk_space := 1024
 
 
 func _ready():

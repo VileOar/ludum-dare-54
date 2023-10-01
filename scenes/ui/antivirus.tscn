@@ -86,6 +86,7 @@ mouse_filter = 2
 
 [node name="PurgeButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"AntivirusButton"
 text = "PURGE"
 
 [node name="PurgeProgressbar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer"]

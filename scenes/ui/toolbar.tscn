@@ -57,6 +57,7 @@ text = "Empty trash"
 
 [node name="AntiVButton" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"AntivirusButton"
 text = "Antivirus"
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]

@@ -108,4 +108,5 @@ func _on_area_2d_mouse_exited():
 
 
 func _on_purge_button_pressed():
-	_purging = true
+	if not _quarantine_queue.is_empty():
+		_purging = true

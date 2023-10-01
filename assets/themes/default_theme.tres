@@ -1,7 +1,41 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_065l1"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(192, 96, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6bw8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo5lj"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(96, 96, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5isax"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 96, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nksq6"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(288, 96, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ibde"]
 texture = ExtResource("1_xv5vh")
@@ -98,6 +132,18 @@ texture_margin_bottom = 24.0
 region_rect = Rect2(0, 96, 96, 96)
 
 [resource]
+AntivirusButton/base_type = &"Button"
+AntivirusButton/colors/font_color = Color(1, 1, 1, 1)
+AntivirusButton/colors/font_disabled_color = Color(0.603922, 0.603922, 0.603922, 1)
+AntivirusButton/colors/font_focus_color = Color(1, 1, 1, 1)
+AntivirusButton/colors/font_hover_color = Color(1, 1, 1, 1)
+AntivirusButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+AntivirusButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+AntivirusButton/styles/disabled = SubResource("StyleBoxTexture_065l1")
+AntivirusButton/styles/focus = SubResource("StyleBoxEmpty_n6bw8")
+AntivirusButton/styles/hover = SubResource("StyleBoxTexture_oo5lj")
+AntivirusButton/styles/normal = SubResource("StyleBoxTexture_5isax")
+AntivirusButton/styles/pressed = SubResource("StyleBoxTexture_nksq6")
 AntivirusPanel/base_type = &"PanelContainer"
 AntivirusPanel/styles/panel = SubResource("StyleBoxTexture_4ibde")
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -105,6 +151,7 @@ Button/colors/font_disabled_color = Color(0.2, 0.2, 0.2, 0.588235)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/styles/disabled = SubResource("StyleBoxTexture_asdi1")
 Button/styles/focus = SubResource("StyleBoxEmpty_nx7p3")
 Button/styles/hover = SubResource("StyleBoxTexture_detdx")
