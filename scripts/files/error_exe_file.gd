@@ -1,7 +1,7 @@
 extends EvilFile
 class_name ErrorExeFile
 
-const SPAWN_ERROR_TIME = 4.0
+const SPAWN_ERROR_TIME = 7
 const MESSAGE_OFFSET = 64.0
 const COLUMN_INTERVAL = 128.0
 
@@ -38,4 +38,4 @@ func _on_spawn_error_timer_timeout():
 		if not Global.bounds_rect.has_point(_next_position):
 			_next_position = _first_position
 	
-	_spawn_error_timer.start(SPAWN_ERROR_TIME)
+	_spawn_error_timer.start(SPAWN_ERROR_TIME / Global.current_wave)

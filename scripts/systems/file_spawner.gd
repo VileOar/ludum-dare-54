@@ -36,14 +36,16 @@ func _ready():
 
 
 func _on_spawn_timer_timeout():
-	var sum = Global.sum_array(weights.values())
+	var current_weight = weights[Global.current_wave - 1]
+	
+	var sum = Global.sum_array(current_weight.values())
 	var result = randi() % sum + 1
 
 	var type
 	sum = 0
-	for key in weights:
+	for key in current_weight:
 		type = key
-		sum += weights[key]
+		sum += current_weight[key]
 		if result <= sum:
 			break
 	
