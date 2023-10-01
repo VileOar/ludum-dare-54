@@ -6,6 +6,8 @@ extends DraggableFile
 
 var mouse_hovered := false
 
+var allow_empty := true
+
 ## total space from deleted files[br]
 ## is reset when trash is emptied
 # TODO: add some visual indication of size or how full it is
@@ -45,12 +47,15 @@ func remove_files(files : Array):
 
 
 func empty_trash():
-	_anim.play("trash_bin_disabled")
-	SignalManager.free_space.emit(total_space)
+	if allow_empty and total_space > 0:
+		allow_empty = false
+		_anim.play("trash_bin_disabled")
+		SignalManager.free_space.emit(total_space)
 
 
 func after_recycle_time():
 	total_space = 0
+	allow_empty = true
 	_trash_audio.play()
 
 
