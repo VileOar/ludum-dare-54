@@ -210,31 +210,31 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam",
 			"size" : 4,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 		{
 			"name" : "README",
 			"size" : 20,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 		{
 			"name" : "SUSBSCRIBE tO My CAHNHEL",
 			"size" : 24,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 	],
 	FileTypes.DOWNLOAD_EXE: [
 		{
 			"name" : "Roblux",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "download"
 		},
 	],
 	FileTypes.RECURSIVE: [
 		{
-			"name" : "me.png",
+			"name" : "no_u.gmm",
 			"size" : 4,
-			"anim_name": "png"
+			"anim_name": "code"
 		},
 	]
 }

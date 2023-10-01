@@ -1,6 +1,8 @@
 extends DraggableWindow
 class_name DownloadWindow
 
+## how many of these there are
+static var exist_counter = 0
 
 @onready var download_button : Button = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button
 @onready var progress_timer : Timer = $Timer
@@ -9,7 +11,17 @@ class_name DownloadWindow
 var download_increment := 1 # value to increment progress
 var files_to_download := 10 # files that will spawn at the end of download
 
-	
+
+func _ready():
+	exist_counter += 1
+
+
+func _notification(what):
+	match what:
+		NOTIFICATION_PREDELETE:
+			exist_counter = max(exist_counter - 1, 0)
+
+
 func _on_button_pressed():
 	download_button.disabled = true
 	window_text.text = "Downloading..."

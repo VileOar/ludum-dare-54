@@ -28,6 +28,7 @@ window/stretch/mode="viewport"
 
 theme/custom="res://assets/themes/default_theme.tres"
 theme/custom_font="res://assets/fonts/Retro Gaming.ttf"
+theme/default_font_antialiasing=0
 
 [rendering]
 

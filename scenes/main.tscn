@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbv62ldbf64mb"]
+[gd_scene load_steps=10 format=3 uid="uid://dbv62ldbf64mb"]
 
 [ext_resource type="PackedScene" uid="uid://bj5y314d3ssba" path="res://scenes/spawner.tscn" id="1_5sg88"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_veabf"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
 [ext_resource type="Script" path="res://scripts/audio/audio.gd" id="3_8tq8v"]
 [ext_resource type="PackedScene" uid="uid://di25hfxjvfugn" path="res://scenes/ui/toolbar.tscn" id="4_gx0xd"]
-[ext_resource type="PackedScene" uid="uid://clh4useffttdt" path="res://scenes/files/download_exe_file.tscn" id="8_104f0"]
-[ext_resource type="PackedScene" uid="uid://gu7tjp4t04y2" path="res://scenes/files/recursion_exe_file.tscn" id="10_mris8"]
 
 [sub_resource type="Animation" id="Animation_an2fa"]
 resource_name = "enter"
@@ -66,8 +64,6 @@ time_till_music_starts = 5.0
 script = ExtResource("2_8ua7v")
 
 [node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
-download_exe_scene = ExtResource("8_104f0")
-recursive_scene = ExtResource("10_mris8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -5,8 +5,8 @@ extends Node2D
 @export var file_scene : PackedScene
 @export var corrupted_files_scene : PackedScene
 @export var error_exe_scene : PackedScene
-@export var download_exe_scene : PackedScene
-@export var recursive_scene : PackedScene
+@export var download_file_scene : PackedScene
+@export var recursive_file_scene : PackedScene
 @export var window_scene : PackedScene
 @export var download_window_scene : PackedScene
 @export var recursive_window_scene : PackedScene
@@ -43,7 +43,6 @@ func _on_new_window(window_type, last_position):
 	match window_type:
 		Global.WindowTypes.NORMAL:
 			new_window = window_scene.instantiate()
-			windows_pos = last_position
 		Global.WindowTypes.DOWNLOAD:
 			new_window = download_window_scene.instantiate()
 		Global.WindowTypes.RECURSIVE:
@@ -95,10 +94,10 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 			new_file = error_exe_scene.instantiate()
 			new_file.type = Global.FileTypes.ERROR_MESSAGE_EXE
 		Global.FileTypes.DOWNLOAD_EXE:
-			new_file = download_exe_scene.instantiate()
+			new_file = download_file_scene.instantiate()
 			new_file.type = Global.FileTypes.DOWNLOAD_EXE
 		Global.FileTypes.RECURSIVE:
-			new_file = recursive_scene.instantiate()
+			new_file = recursive_file_scene.instantiate()
 			new_file.type = Global.FileTypes.RECURSIVE
 	
 	if new_file == null:
