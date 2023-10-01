@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c0b5v2u8afjtv" path="res://scenes/files/corrupted_file.tscn" id="3_rm4x6"]
 [ext_resource type="PackedScene" uid="uid://b5urrjt5nnfyi" path="res://scenes/mouse_manager.tscn" id="3_vdwjr"]
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="4_7gjup"]
-[ext_resource type="PackedScene" path="res://scenes/files/error_exe_file.tscn" id="4_dlf22"]
-[ext_resource type="PackedScene" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
-[ext_resource type="PackedScene" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
+[ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="4_dlf22"]
+[ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
+[ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_y7jii")
@@ -41,9 +41,9 @@ anchor_top = -0.469
 anchor_right = 0.472
 anchor_bottom = 0.198
 offset_left = -0.255981
-offset_top = -0.0879822
+offset_top = 47.912
 offset_right = 0.255981
-offset_bottom = -0.304016
+offset_bottom = -0.304001
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
