@@ -107,7 +107,7 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam.exe",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "link"
 		},
 	]
 }
