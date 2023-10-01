@@ -9,6 +9,9 @@ signal release_files(files)
 ## used to increase disk space for example
 signal file_created(file)
 
+## called by disk space manager
+signal disk_full
+
 
 # --- || RECYCLING || ---
 

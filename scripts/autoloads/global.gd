@@ -7,6 +7,12 @@ var ignore_inputs := false
 func _ready():
 	randomize()
 
+
+func reset_on_play():
+	game_time = 0
+	current_wave = 1
+
+
 enum FileTypes {
 	NORMAL, ## a simple file with no gimmicks
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
@@ -26,6 +32,30 @@ enum WindowTypes {
 }
 
 
+# --- || GAME TIME || ---
+
+var game_time := 0
+var best_time := 0
+
+func time_to_str(time:int) -> String:
+	var seconds = time % 60
+	var minutes = int(time / float(60))
+	var minutes_str = str(minutes)
+	var seconds_str = str(seconds)
+	if minutes < 10:
+		minutes_str = "0" + minutes_str
+	if seconds < 10:
+		seconds_str = "0" + seconds_str
+	
+	return minutes_str + ":" + seconds_str
+
+
+func handle_highscore():
+	if game_time > best_time:
+		best_time = game_time
+
+
+# --- || WAVES || ---
 
 ## time in seconds that each wave takes. If -1 then it keeps going forever
 const WAVE_TIMES = {
@@ -87,6 +117,9 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.RECURSIVE: 3,
 	}
 ]
+
+
+# --- || OTHER || ---
 
 ## should only be set by desktop
 var bounds_rect : Rect2

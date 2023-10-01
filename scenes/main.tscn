@@ -74,4 +74,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jrsef")
 }
 
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
