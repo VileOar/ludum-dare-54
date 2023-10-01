@@ -83,7 +83,7 @@ const EXPLODE_SPEED = 480.0
 const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 
 ## max disk space (could be altered by powerups)
-const MAX_DISK_SPACE = 256
+const MAX_DISK_SPACE = 1024
 
 ## this assumes that we want the recycle window to always spawn in the same place
 const RECYCLE_WINDOW_POS := Vector2(256, 256)

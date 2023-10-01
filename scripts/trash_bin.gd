@@ -48,14 +48,13 @@ func empty_trash():
 	#deleting_time.start()
 	#Global.ignore_inputs = true
 	#Global.ignore_inputs = false
-	print("trash bin notified")
+	
 	SignalManager.free_space.emit(total_space)
 	
 	
 func after_recycle_time():
 	total_space = 0
 	_trash_audio.play()
-	print("recycled!!")
 
 
 func _on_area_2d_mouse_entered():
