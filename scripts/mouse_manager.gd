@@ -9,7 +9,7 @@ var initial_mouse_pos := Vector2.ZERO
 var dragging := false
 var selected_files : Array = []
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	create_drag_area()
 
 func create_drag_area():

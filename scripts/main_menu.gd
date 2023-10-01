@@ -6,16 +6,20 @@ extends Control
 @onready var user_options = $MainUsers/UserContainer/UserOptions
 @onready var back = $Credits/BackContainer/Back
 
+@export var main_scene : PackedScene
+
 var credits := false
+var start := false
 
 func _ready():
-	animation.play("fade_in")
+	animation.play("enter")
 
 # TODO: add options settings
 
 func _on_start_gui_input(event):
 	if is_left_click(event):
-		print("start")
+		animation.play("turn")
+		start = true
 
 func _on_how_to_play_gui_input(event):
 	if is_left_click(event):
@@ -28,7 +32,7 @@ func _on_credits_gui_input(event):
 	
 func _on_exit_gui_input(event):
 	if is_left_click(event):
-		animation.play("exit")
+		animation.play("turn")
 
 func _on_back_container_gui_input(event):
 	if is_left_click(event):
@@ -38,8 +42,11 @@ func _on_back_container_gui_input(event):
 
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
-		"exit":
-			get_tree().quit()
+		"turn":
+			if start:
+				get_tree().change_scene_to_packed(main_scene)
+			else:
+				get_tree().quit()
 		"hide_menu":
 			if credits:
 				animation.play("show_credits")
