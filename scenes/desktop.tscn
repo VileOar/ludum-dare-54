@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=11 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
@@ -6,15 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://c0b5v2u8afjtv" path="res://scenes/files/corrupted_file.tscn" id="3_rm4x6"]
 [ext_resource type="PackedScene" uid="uid://b5urrjt5nnfyi" path="res://scenes/mouse_manager.tscn" id="3_vdwjr"]
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="4_7gjup"]
-[ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="4_dlf22"]
+[ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="4_ux808"]
 [ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
 [ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
+[ext_resource type="PackedScene" uid="uid://cjykajyw8e0wu" path="res://scenes/ui/antivirus.tscn" id="10_lpn00"]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_y7jii")
 file_scene = ExtResource("1_nnh13")
 corrupted_files_scene = ExtResource("3_rm4x6")
-error_exe_scene = ExtResource("4_dlf22")
+error_exe_scene = ExtResource("4_ux808")
 window_scene = ExtResource("4_7gjup")
 download_window_scene = ExtResource("5_q1gx7")
 recursive_window_scene = ExtResource("6_6hjia")
@@ -24,7 +25,7 @@ metadata/_edit_horizontal_guides_ = []
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TrashBin" parent="." instance=ExtResource("2_n3o80")]
-position = Vector2(472, 208)
+position = Vector2(480, -240)
 
 [node name="Files" type="Node" parent="."]
 
@@ -48,3 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Antivirus" parent="." instance=ExtResource("10_lpn00")]
+visible = false
+offset_left = 448.0
+offset_top = 80.0
+offset_right = 448.0
+offset_bottom = 80.0

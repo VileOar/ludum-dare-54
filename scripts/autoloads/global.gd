@@ -3,6 +3,7 @@ extends Node
 var selected_files : Array = []
 var ignore_inputs := false
 
+
 func _ready():
 	randomize()
 
@@ -27,6 +28,22 @@ const FILE_TYPES_WEIGHTS = {
 	FileTypes.CORRUPTED_FOLDER : 10,
 	FileTypes.ERROR_MESSAGE_EXE : 3
 }
+
+## time in seconds that each wave takes. If -1 then it keeps going forever
+const WAVE_TIMES = {
+	1 :20,
+	2 : 20,
+	3 : 30,
+	4 : 60,
+	5 : -1
+}
+
+var current_wave = 1:
+	set(value):
+		current_wave = value
+		if current_wave > WAVE_TIMES.size():
+			current_wave = WAVE_TIMES.size()
+
 
 ## should only be set by desktop
 var bounds_rect : Rect2
@@ -59,7 +76,7 @@ const file_properties = {
 			"anim_name": "folder"
 		},
 		{
-			"name" : "bitcoin miner",
+			"name" : "bitcoin_miner.exe",
 			"size" : 14,
 			"anim_name": "exe"
 		},
@@ -107,7 +124,7 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam.exe",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "link"
 		},
 	]
 }

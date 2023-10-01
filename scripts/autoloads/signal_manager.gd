@@ -1,5 +1,7 @@
 extends Node
 
+signal toggle_antivirus
+
 signal release_files(files)
 
 ## emitted when someone wants to free space from disk (ex: empty trash, delete system32, ...)[br]
@@ -14,7 +16,7 @@ signal empty_trash
 signal file_created(file)
 
 # Corrupted Files signals
-signal change_spawn_time(time)
+signal change_spawn_time(time, duration)
 signal explode_files(origin_point, quantity)
 
 

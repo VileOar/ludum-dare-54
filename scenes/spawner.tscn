@@ -9,7 +9,11 @@ script = ExtResource("1_c2f8w")
 one_shot = true
 autostart = true
 
-[node name="SpawnRateTimer" type="Timer" parent="."]
+[node name="SpawnModifierTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WavesTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="SpawnRateTimer" to="." method="_on_spawn_rate_timer_timeout"]
+[connection signal="timeout" from="SpawnModifierTimer" to="." method="_on_spawn_modifier_timer_timeout"]
+[connection signal="timeout" from="WavesTimer" to="." method="_on_waves_timer_timeout"]
