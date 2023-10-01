@@ -9,7 +9,13 @@ var mouse_hovered := false
 ## total space from deleted files[br]
 ## is reset when trash is emptied
 # TODO: add some visual indication of size or how full it is
-var total_space := 0
+var total_space := 0:
+	set(val):
+		total_space = val
+		if val == 0:
+			_anim.play("trash_bin_empty")
+		else:
+			_anim.play("trash_bin_full")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

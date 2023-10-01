@@ -74,7 +74,7 @@ script = ExtResource("1_bbf4o")
 [node name="FileIcon" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_gs77j")
-animation = &"png"
+animation = &"exe"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -32.0
