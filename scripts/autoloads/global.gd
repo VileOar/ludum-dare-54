@@ -47,8 +47,8 @@ const FILE_TYPES_WEIGHTS = [
 	{
 		FileTypes.NORMAL : 5,
 		FileTypes.INCREASE_SPAWN_EXE : 0,
-		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 0
+		FileTypes.CORRUPTED_FOLDER : 0,
+		FileTypes.ERROR_MESSAGE_EXE : 5
 	},
 	{
 		FileTypes.NORMAL : 7,
