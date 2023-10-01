@@ -72,16 +72,11 @@ func _on_mouse_exited(idx):
 func _on_back_container_mouse_entered():
 	back.modulate = Color(0.75, 0.75, 0.75, 1)
 
-
 func _on_back_container_mouse_exited():
 	back.modulate = Color(1, 1, 1, 1)
 
 func _on_back_container_2_mouse_entered():
 	back2.modulate = Color(0.75, 0.75, 0.75, 1)
 
-
 func _on_back_container_2_mouse_exited():
 	back2.modulate = Color(1, 1, 1, 1)
-
-
-
