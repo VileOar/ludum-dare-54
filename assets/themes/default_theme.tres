@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
+[ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ibde"]
 texture = ExtResource("1_xv5vh")
@@ -9,6 +10,48 @@ texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 region_rect = Rect2(0, 384, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asdi1"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(192, 0, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx7p3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_detdx"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(96, 0, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kghdm"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wid8x"]
+texture = ExtResource("2_gimpf")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(288, 0, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da8nw"]
 texture = ExtResource("1_xv5vh")
@@ -57,6 +100,16 @@ region_rect = Rect2(0, 96, 96, 96)
 [resource]
 AntivirusPanel/base_type = &"PanelContainer"
 AntivirusPanel/styles/panel = SubResource("StyleBoxTexture_4ibde")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.2, 0.2, 0.2, 0.588235)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_asdi1")
+Button/styles/focus = SubResource("StyleBoxEmpty_nx7p3")
+Button/styles/hover = SubResource("StyleBoxTexture_detdx")
+Button/styles/normal = SubResource("StyleBoxTexture_kghdm")
+Button/styles/pressed = SubResource("StyleBoxTexture_wid8x")
 QuarantinePanel/base_type = &"PanelContainer"
 QuarantinePanel/styles/panel = SubResource("StyleBoxTexture_da8nw")
 SelectPanel/base_type = &"PanelContainer"
