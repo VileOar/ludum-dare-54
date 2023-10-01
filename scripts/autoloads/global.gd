@@ -12,6 +12,8 @@ enum FileTypes {
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
 	CORRUPTED_FOLDER, ## "explodes" in several files when deleted
 	ERROR_MESSAGE_EXE, ## infintely spawns error messages
+	DOWNLOAD_EXE, ## show download bar (TODO: that can be easily closed...?)
+	RECURSIVE,
 #	ADD_POPUP_EXE, ## spawns an add popup
 	# TODO: add more as needed
 }
@@ -48,31 +50,41 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.NORMAL : 5,
 		FileTypes.INCREASE_SPAWN_EXE : 0,
 		FileTypes.CORRUPTED_FOLDER : 0,
-		FileTypes.ERROR_MESSAGE_EXE : 5
+		FileTypes.ERROR_MESSAGE_EXE : 0,
+		FileTypes.DOWNLOAD_EXE: 5,
+		FileTypes.RECURSIVE: 0,
 	},
 	{
 		FileTypes.NORMAL : 7,
 		FileTypes.INCREASE_SPAWN_EXE : 2,
 		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 0
+		FileTypes.ERROR_MESSAGE_EXE : 0,
+		FileTypes.DOWNLOAD_EXE: 5,
+		FileTypes.RECURSIVE: 5,
 	},
 	{
 		FileTypes.NORMAL : 15,
 		FileTypes.INCREASE_SPAWN_EXE : 2,
 		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 2
+		FileTypes.ERROR_MESSAGE_EXE : 2,
+		FileTypes.DOWNLOAD_EXE: 5,
+		FileTypes.RECURSIVE: 5,
 	},
 	{
 		FileTypes.NORMAL : 15,
 		FileTypes.INCREASE_SPAWN_EXE : 3,
 		FileTypes.CORRUPTED_FOLDER : 3,
-		FileTypes.ERROR_MESSAGE_EXE : 3
+		FileTypes.ERROR_MESSAGE_EXE : 3,
+		FileTypes.DOWNLOAD_EXE: 3,
+		FileTypes.RECURSIVE: 3,
 	},
 	{
 		FileTypes.NORMAL : 20,
 		FileTypes.INCREASE_SPAWN_EXE : 5,
 		FileTypes.CORRUPTED_FOLDER : 5,
-		FileTypes.ERROR_MESSAGE_EXE : 5
+		FileTypes.ERROR_MESSAGE_EXE : 5,
+		FileTypes.DOWNLOAD_EXE: 5,
+		FileTypes.RECURSIVE: 5,
 	}
 ]
 
@@ -209,6 +221,20 @@ const file_properties = {
 			"name" : "SUSBSCRIBE tO My CAHNHEL",
 			"size" : 24,
 			"anim_name": "link"
+		},
+	],
+	FileTypes.DOWNLOAD_EXE: [
+		{
+			"name" : "Roblux",
+			"size" : 4,
+			"anim_name": "exe"
+		},
+	],
+	FileTypes.RECURSIVE: [
+		{
+			"name" : "me.png",
+			"size" : 4,
+			"anim_name": "png"
 		},
 	]
 }
