@@ -1,0 +1,46 @@
+extends Node
+
+@onready var _computer_on_audio : AudioStreamPlayer = $ComputerOn
+@onready var _music_audio : AudioStreamPlayer = $MainMenuMusic
+@onready var _timer : Timer = $Timer
+
+@export var transition_duration : float = 6.00
+@export var time_till_music_starts : float = 3.00
+
+
+# On turning the game on, plays sound
+func _ready():
+	_computer_on_audio.play()
+	
+	
+# Called from main menu animation player to start the music when menu appears	
+func start_menu_music():
+	fade_in(_music_audio)
+	_timer.wait_time = time_till_music_starts
+	_timer.start()
+	
+	
+# Fades out the computer on
+func _on_timer_timeout():
+	fade_out(_computer_on_audio)
+#	pass
+
+
+# Source: https://ask.godotengine.org/27939/how-to-fade-in-out-an-audio-stream
+func fade_out(stream_player):
+	# tween music volume down to 0
+	var _tween_off = get_tree().create_tween()
+	_tween_off.tween_property(stream_player, "volume_db", -80, transition_duration)
+	# when the tween ends, the music will be stopped
+	
+func fade_in(stream_player):
+	var _tween_in = get_tree().create_tween()
+	stream_player.volume_db = -80
+	stream_player.play()
+	_tween_in.tween_property(stream_player, "volume_db", -20, time_till_music_starts)
+	# when the tween ends, the music will be stopped
+	
+# stop the music -- otherwise it continues to run at silent volume
+func _on_TweenOut_tween_completed(object, _key):
+	print("fade out completed")
+	object.stop()

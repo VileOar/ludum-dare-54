@@ -1,5 +1,7 @@
 extends Control
 
+@onready var _menu_audio = $MenuAudio
+
 ## Background
 @onready var bg_transition = $Background/BGTransition # TODO: change background image
 @onready var animation = $AnimationPlayer
@@ -11,6 +13,7 @@ extends Control
 
 var credits := false
 var start := false
+
 
 func _ready():
 	animation.play("enter")
@@ -45,6 +48,7 @@ func _on_back_container_2_gui_input(event):
 		animation.play("hide_howto")
 
 func _on_animation_player_animation_finished(anim_name):
+	print("Animation ended = " + anim_name)
 	match anim_name:
 		"turn":
 			if start:

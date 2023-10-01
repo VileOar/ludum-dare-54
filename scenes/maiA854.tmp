@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbv62ldbf64mb"]
+
+[ext_resource type="PackedScene" uid="uid://bj5y314d3ssba" path="res://scenes/spawner.tscn" id="1_5sg88"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_veabf"]
+[ext_resource type="Script" path="res://scripts/systems/disk_space_manager.gd" id="2_8ua7v"]
+[ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
+[ext_resource type="PackedScene" uid="uid://dqj0l6kf7kjjl" path="res://scenes/audio/game_audio.tscn" id="3_n2vht"]
+[ext_resource type="Script" path="res://scripts/audio/game_audio.gd" id="4_e7hlq"]
+[ext_resource type="PackedScene" uid="uid://di25hfxjvfugn" path="res://scenes/ui/toolbar.tscn" id="4_gx0xd"]
+
+[sub_resource type="Animation" id="Animation_an2fa"]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0.905882, 0.905882, 0.905882, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrsef"]
+_data = {
+"enter": SubResource("Animation_an2fa")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_veabf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Toolbar" parent="CanvasLayer" instance=ExtResource("4_gx0xd")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1160.0
+offset_bottom = 656.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameAudio" parent="." instance=ExtResource("3_n2vht")]
+script = ExtResource("4_e7hlq")
+
+[node name="Spawner" parent="." instance=ExtResource("1_5sg88")]
+
+[node name="DiskSpaceManager" type="Node" parent="."]
+script = ExtResource("2_8ua7v")
+
+[node name="Desktop" parent="." instance=ExtResource("2_jclm6")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jrsef")
+}
+
+[connection signal="space_update" from="DiskSpaceManager" to="CanvasLayer/Toolbar" method="_on_disk_space_manager_space_update"]

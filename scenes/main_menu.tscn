@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene load_steps=18 format=3 uid="uid://kamcmkeapi6o"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_3lyop"]
 [ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="2_yoho8"]
+[ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="3_hy4mu"]
 [ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="4_w2n04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipx6"]
@@ -133,6 +134,20 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../MenuAudio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_menu_music"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_g4px3"]
@@ -457,6 +472,8 @@ anchors_preset = 0
 script = ExtResource("1_tjut0")
 main_scene = ExtResource("2_3lyop")
 
+[node name="MenuAudio" parent="." instance=ExtResource("3_hy4mu")]
+
 [node name="Background" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -476,7 +493,6 @@ offset_bottom = 648.0
 
 [node name="ProgressBar" type="ProgressBar" parent="ProgressCenter"]
 layout_mode = 2
-value = 98.0
 
 [node name="TitleContainer" type="CenterContainer" parent="."]
 modulate = Color(1, 1, 1, 0)

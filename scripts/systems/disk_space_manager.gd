@@ -5,6 +5,7 @@ signal space_update(new_space, max_space)
 signal disk_full
 
 var disk_space := 0
+var is_disk_almost_full := false
 
 
 func _ready():
@@ -17,6 +18,14 @@ func _add_disk_space(to_add):
 	space_update.emit(disk_space, Global.MAX_DISK_SPACE)
 	if disk_space > Global.MAX_DISK_SPACE:
 		disk_full.emit()
+	
+	# When disk is almost full signals
+	if disk_space > Global.MAX_DISK_SPACE * Global.DISK_ALMOST_FULL_PERCENTAGE and !is_disk_almost_full:
+		SignalManager.disk_almost_full.emit()
+		is_disk_almost_full = true
+	if disk_space <= Global.MAX_DISK_SPACE * Global.DISK_ALMOST_FULL_PERCENTAGE:
+		is_disk_almost_full = false
+		
 
 
 func _on_file_created(file : DraggableFile):
