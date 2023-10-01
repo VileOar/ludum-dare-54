@@ -167,14 +167,14 @@ const file_properties = {
 			"anim_name": "exe"
 		},
 		{
-			"name" : "me.png",
+			"name" : "high-tier-god.exe",
 			"size" : 20,
-			"anim_name": "png"
+			"anim_name": "exe"
 		},
 		{
-			"name" : "mytube",
+			"name" : "mytube.exe",
 			"size" : 10,
-			"anim_name": "link"
+			"anim_name": "exe"
 		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
@@ -196,14 +196,14 @@ const file_properties = {
 	],
 	FileTypes.ERROR_MESSAGE_EXE: [
 		{
-			"name" : "TotallyNotSpam.exe",
+			"name" : "TotallyNotSpam",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "link"
 		},
 		{
-			"name" : "README.txt",
+			"name" : "README",
 			"size" : 20,
-			"anim_name": "txt"
+			"anim_name": "link"
 		},
 		{
 			"name" : "SUSBSCRIBE tO My CAHNHEL",
