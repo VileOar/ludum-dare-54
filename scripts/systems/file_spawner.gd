@@ -69,5 +69,4 @@ func _on_waves_timer_timeout():
 		waves_timer.stop()
 	else:	
 		Global.current_wave += 1
-		print(Global.current_wave)
 		waves_timer.start(Global.WAVE_TIMES[Global.current_wave])
