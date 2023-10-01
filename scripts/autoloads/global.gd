@@ -12,6 +12,8 @@ enum FileTypes {
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
 	CORRUPTED_FOLDER, ## "explodes" in several files when deleted
 	ERROR_MESSAGE_EXE, ## infintely spawns error messages
+	DOWNLOAD_EXE, ## show download bar (TODO: that can be easily closed...?)
+	RECURSIVE,
 #	ADD_POPUP_EXE, ## spawns an add popup
 	# TODO: add more as needed
 }
@@ -48,31 +50,41 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.NORMAL : 5,
 		FileTypes.INCREASE_SPAWN_EXE : 0,
 		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 0
+		FileTypes.ERROR_MESSAGE_EXE : 1,
+		FileTypes.DOWNLOAD_EXE: 0,
+		FileTypes.RECURSIVE: 0,
 	},
 	{
 		FileTypes.NORMAL : 7,
-		FileTypes.INCREASE_SPAWN_EXE : 2,
+		FileTypes.INCREASE_SPAWN_EXE : 1,
 		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 0
+		FileTypes.ERROR_MESSAGE_EXE : 1,
+		FileTypes.DOWNLOAD_EXE: 0,
+		FileTypes.RECURSIVE: 1,
 	},
 	{
-		FileTypes.NORMAL : 15,
+		FileTypes.NORMAL : 10,
 		FileTypes.INCREASE_SPAWN_EXE : 2,
-		FileTypes.CORRUPTED_FOLDER : 1,
-		FileTypes.ERROR_MESSAGE_EXE : 2
-	},
-	{
-		FileTypes.NORMAL : 15,
-		FileTypes.INCREASE_SPAWN_EXE : 3,
-		FileTypes.CORRUPTED_FOLDER : 3,
-		FileTypes.ERROR_MESSAGE_EXE : 3
+		FileTypes.CORRUPTED_FOLDER : 2,
+		FileTypes.ERROR_MESSAGE_EXE : 1,
+		FileTypes.DOWNLOAD_EXE: 1,
+		FileTypes.RECURSIVE: 1,
 	},
 	{
 		FileTypes.NORMAL : 20,
+		FileTypes.INCREASE_SPAWN_EXE : 3,
+		FileTypes.CORRUPTED_FOLDER : 3,
+		FileTypes.ERROR_MESSAGE_EXE : 3,
+		FileTypes.DOWNLOAD_EXE: 1,
+		FileTypes.RECURSIVE: 1,
+	},
+	{
+		FileTypes.NORMAL : 30,
 		FileTypes.INCREASE_SPAWN_EXE : 5,
 		FileTypes.CORRUPTED_FOLDER : 5,
-		FileTypes.ERROR_MESSAGE_EXE : 5
+		FileTypes.ERROR_MESSAGE_EXE : 5,
+		FileTypes.DOWNLOAD_EXE: 3,
+		FileTypes.RECURSIVE: 3,
 	}
 ]
 
@@ -167,14 +179,14 @@ const file_properties = {
 			"anim_name": "exe"
 		},
 		{
-			"name" : "me.png",
+			"name" : "high-tier-god.exe",
 			"size" : 20,
-			"anim_name": "png"
+			"anim_name": "exe"
 		},
 		{
-			"name" : "mytube",
+			"name" : "mytube.exe",
 			"size" : 10,
-			"anim_name": "link"
+			"anim_name": "exe"
 		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
@@ -196,19 +208,33 @@ const file_properties = {
 	],
 	FileTypes.ERROR_MESSAGE_EXE: [
 		{
-			"name" : "TotallyNotSpam.exe",
+			"name" : "TotallyNotSpam",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "link"
 		},
 		{
-			"name" : "README.txt",
+			"name" : "README",
 			"size" : 20,
-			"anim_name": "txt"
+			"anim_name": "link"
 		},
 		{
 			"name" : "SUSBSCRIBE tO My CAHNHEL",
 			"size" : 24,
 			"anim_name": "link"
+		},
+	],
+	FileTypes.DOWNLOAD_EXE: [
+		{
+			"name" : "Roblux",
+			"size" : 4,
+			"anim_name": "exe"
+		},
+	],
+	FileTypes.RECURSIVE: [
+		{
+			"name" : "me.png",
+			"size" : 4,
+			"anim_name": "png"
 		},
 	]
 }
@@ -223,8 +249,58 @@ const window_properties = {
 			"offset" : 15
 		},
 		{
+			"title" : "Error",
+			"description" : "You are an error.",
+			"offset" : 15
+		},
+		{
 			"title" : "System Message",
 			"description" : "Unable to delete System32. Try contacting your local priest.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "L + cringe + ratio + didn't ask + skill issue",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You shouldn't have tried those free V-Bucks buddy",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You should surrender yoursef, NOW!",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Have you tried, i don't know, git gud?",
+			"offset" : 15
+		},
+		{
+			"title" : "Masterchef Official",
+			"description" : "What is bro cooking?",
+			"offset" : 15
+		},
+		{
+			"title" : ">:]",
+			"description" : ">:]",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "Oops, I hope this message doesn't disturb your desktop at all :)",
+			"offset" : 15
+		},
+		{
+			"title" : "Don't be poor",
+			"description" : "Just pay my bitcoins and the PC is all yours again.",
+			"offset" : 15
+		},
+		{
+			"title" : "System Message",
+			"description" : "You cannot escape this, I control everything buddy.",
 			"offset" : 15
 		},
 	],
@@ -250,3 +326,4 @@ const window_properties = {
 		},
 	]
 }
+
