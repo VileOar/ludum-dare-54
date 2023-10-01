@@ -5,6 +5,7 @@ extends Control
 @onready var animation = $AnimationPlayer
 @onready var user_options = $MainUsers/UserContainer/UserOptions
 @onready var back = $Credits/BackContainer/Back
+@onready var back2 = $HowToPlay/BackContainer2/Back2
 
 @export var main_scene : PackedScene
 
@@ -23,7 +24,7 @@ func _on_start_gui_input(event):
 
 func _on_how_to_play_gui_input(event):
 	if is_left_click(event):
-		print("how to play")
+		animation.play("hide_menu")
 		
 func _on_credits_gui_input(event):
 	if is_left_click(event):
@@ -39,6 +40,9 @@ func _on_back_container_gui_input(event):
 		animation.play("hide_credits")
 		credits = false
 
+func _on_back_container_2_gui_input(event):
+	if is_left_click(event):
+		animation.play("hide_howto")
 
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
@@ -50,6 +54,8 @@ func _on_animation_player_animation_finished(anim_name):
 		"hide_menu":
 			if credits:
 				animation.play("show_credits")
+			else:
+				animation.play("show_howto")
 
 func is_left_click(event) -> bool:
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
@@ -69,6 +75,13 @@ func _on_back_container_mouse_entered():
 
 func _on_back_container_mouse_exited():
 	back.modulate = Color(1, 1, 1, 1)
+
+func _on_back_container_2_mouse_entered():
+	back2.modulate = Color(0.75, 0.75, 0.75, 1)
+
+
+func _on_back_container_2_mouse_exited():
+	back2.modulate = Color(1, 1, 1, 1)
 
 
 
