@@ -14,5 +14,9 @@ func _on_disk_space_manager_space_update(new_space, max_space):
 	disk_space_label.text = str(max_space - new_space) + " free out of " + str(max_space)
 
 
-func _on_button_pressed():
+func _on_empty_button_pressed():
 	SignalManager.empty_trash.emit()
+
+
+func _on_anti_v_button_pressed():
+	SignalManager.toggle_antivirus.emit()

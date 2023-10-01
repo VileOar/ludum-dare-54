@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1srnuj4hxkt1"]
+
+[ext_resource type="SpriteFrames" uid="uid://dbr2hhv0iya5b" path="res://assets/spriteframes/file_icons.tres" id="1_21v1k"]
+[ext_resource type="Script" path="res://scenes/ui/antivirus_slot.gd" id="1_xdorw"]
+
+[node name="AntivirusSlot" type="CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 2
+script = ExtResource("1_xdorw")
+
+[node name="SpriteDock" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteDock"]
+visible = false
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("1_21v1k")
+animation = &"exe"

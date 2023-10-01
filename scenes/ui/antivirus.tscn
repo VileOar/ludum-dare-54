@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjykajyw8e0wu"]
+
+[ext_resource type="Script" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
+[ext_resource type="PackedScene" uid="uid://c1srnuj4hxkt1" path="res://scenes/ui/antivirus_slot.tscn" id="2_jkvhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ija6y"]
+size = Vector2(176, 176)
+
+[node name="Antivirus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_spha5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -136.0
+offset_right = 120.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_type_variation = &"AntivirusPanel"
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/PanelContainer2"]
+unique_name_in_owner = true
+position = Vector2(120, 143.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/PanelContainer2/Area2D"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_ija6y")
+
+[node name="QuarantineGrid" type="GridContainer" parent="VBoxContainer/PanelContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Slot0" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot1" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"QuarantinePanel"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PurgeButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "PURGE"
+
+[node name="PurgeProgressbar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/PurgeButton" to="." method="_on_purge_button_pressed"]

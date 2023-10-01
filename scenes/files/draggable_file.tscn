@@ -1,81 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv0gqt42k76sy"]
+[gd_scene load_steps=4 format=3 uid="uid://dv0gqt42k76sy"]
 
-[ext_resource type="Script" path="res://scripts/draggable_file.gd" id="1_6b7ij"]
-[ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="2_qx6t0"]
-[ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="3_2q1sg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_872bg"]
-atlas = ExtResource("2_qx6t0")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uoaal"]
-atlas = ExtResource("2_qx6t0")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abxmc"]
-atlas = ExtResource("2_qx6t0")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpatc"]
-atlas = ExtResource("3_2q1sg")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p68r8"]
-atlas = ExtResource("2_qx6t0")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hjvc7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_872bg")
-}],
-"loop": true,
-"name": &"exe",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uoaal")
-}],
-"loop": true,
-"name": &"folder",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abxmc")
-}],
-"loop": true,
-"name": &"png",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpatc")
-}],
-"loop": true,
-"name": &"trash_bin",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p68r8")
-}],
-"loop": true,
-"name": &"txt",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://scripts/files/draggable_file.gd" id="1_bbf4o"]
+[ext_resource type="SpriteFrames" uid="uid://dbr2hhv0iya5b" path="res://assets/spriteframes/file_icons.tres" id="2_gs77j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whtvk"]
 size = Vector2(64, 64)
 
 [node name="DraggableFile" type="Node2D"]
-script = ExtResource("1_6b7ij")
+script = ExtResource("1_bbf4o")
 
 [node name="FileIcon" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_hjvc7")
+sprite_frames = ExtResource("2_gs77j")
 animation = &"png"
 
 [node name="ColorRect" type="ColorRect" parent="."]

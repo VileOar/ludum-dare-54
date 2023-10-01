@@ -10,7 +10,7 @@ enum FileTypes {
 	NORMAL, ## a simple file with no gimmicks
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
 	CORRUPTED_FOLDER, ## "explodes" in several files when deleted
-#	ERROR_MESSAGE_EXE, ## infintely spawns error messages
+	ERROR_MESSAGE_EXE, ## infintely spawns error messages
 #	ADD_POPUP_EXE, ## spawns an add popup
 	# TODO: add more as needed
 }
@@ -22,9 +22,10 @@ enum WindowTypes {
 }
 
 const FILE_TYPES_WEIGHTS = {
-	FileTypes.NORMAL : 3,
-	FileTypes.INCREASE_SPAWN_EXE : 1,
-	FileTypes.CORRUPTED_FOLDER : 1
+	FileTypes.NORMAL : 30,
+	FileTypes.INCREASE_SPAWN_EXE : 10,
+	FileTypes.CORRUPTED_FOLDER : 10,
+	FileTypes.ERROR_MESSAGE_EXE : 3
 }
 
 ## should only be set by desktop
@@ -100,6 +101,13 @@ const file_properties = {
 			"name" : "CC onlyfans",
 			"size" : 24,
 			"anim_name": "folder"
+		},
+	],
+	FileTypes.ERROR_MESSAGE_EXE: [
+		{
+			"name" : "TotallyNotSpam.exe",
+			"size" : 4,
+			"anim_name": "exe"
 		},
 	]
 }
