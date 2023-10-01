@@ -22,12 +22,7 @@ enum WindowTypes {
 	RECURSIVE, ## spawns a message of the same type if wrong choiced is picked
 }
 
-const FILE_TYPES_WEIGHTS = {
-	FileTypes.NORMAL : 30,
-	FileTypes.INCREASE_SPAWN_EXE : 10,
-	FileTypes.CORRUPTED_FOLDER : 10,
-	FileTypes.ERROR_MESSAGE_EXE : 3
-}
+
 
 ## time in seconds that each wave takes. If -1 then it keeps going forever
 const WAVE_TIMES = {
@@ -40,10 +35,45 @@ const WAVE_TIMES = {
 
 var current_wave = 1:
 	set(value):
+		print("Changed wave to ")
+		print(value)
 		current_wave = value
 		if current_wave > WAVE_TIMES.size():
 			current_wave = WAVE_TIMES.size()
 
+## Weights of spawn dictated by current wave
+const FILE_TYPES_WEIGHTS = [
+	{
+		FileTypes.NORMAL : 5,
+		FileTypes.INCREASE_SPAWN_EXE : 0,
+		FileTypes.CORRUPTED_FOLDER : 1,
+		FileTypes.ERROR_MESSAGE_EXE : 0
+	},
+	{
+		FileTypes.NORMAL : 7,
+		FileTypes.INCREASE_SPAWN_EXE : 2,
+		FileTypes.CORRUPTED_FOLDER : 1,
+		FileTypes.ERROR_MESSAGE_EXE : 0
+	},
+	{
+		FileTypes.NORMAL : 15,
+		FileTypes.INCREASE_SPAWN_EXE : 2,
+		FileTypes.CORRUPTED_FOLDER : 1,
+		FileTypes.ERROR_MESSAGE_EXE : 2
+	},
+	{
+		FileTypes.NORMAL : 15,
+		FileTypes.INCREASE_SPAWN_EXE : 3,
+		FileTypes.CORRUPTED_FOLDER : 3,
+		FileTypes.ERROR_MESSAGE_EXE : 3
+	},
+	{
+		FileTypes.NORMAL : 20,
+		FileTypes.INCREASE_SPAWN_EXE : 5,
+		FileTypes.CORRUPTED_FOLDER : 5,
+		FileTypes.ERROR_MESSAGE_EXE : 5
+	}
+]
 
 ## should only be set by desktop
 var bounds_rect : Rect2
@@ -95,6 +125,26 @@ const file_properties = {
 			"size" : 13,
 			"anim_name": "png"
 		},
+		{
+			"name" : "underleaf.html",
+			"size" : 22,
+			"anim_name": "link"
+		},
+		{
+			"name" : "myself.png",
+			"size" : 24,
+			"anim_name": "png"
+		},
+		{
+			"name" : "Family.jpg",
+			"size" : 100,
+			"anim_name": "png"
+		},
+		{
+			"name" : "Mr. Wild",
+			"size" : 10,
+			"anim_name": "link"
+		},
 	],
 	FileTypes.INCREASE_SPAWN_EXE: [
 		{
@@ -112,11 +162,26 @@ const file_properties = {
 			"size" : 20,
 			"anim_name": "png"
 		},
+		{
+			"name" : "mytube",
+			"size" : 10,
+			"anim_name": "link"
+		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
 		{
-			"name" : "CC onlyfans",
+			"name" : "justfans",
 			"size" : 24,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "leaked tests",
+			"size" : 18,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "lmao",
+			"size" : 18,
 			"anim_name": "folder"
 		},
 	],
@@ -124,6 +189,16 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam.exe",
 			"size" : 4,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "README.txt",
+			"size" : 20,
+			"anim_name": "txt"
+		},
+		{
+			"name" : "SUSBSCRIBE tO My CAHNHEL",
+			"size" : 24,
 			"anim_name": "link"
 		},
 	]
