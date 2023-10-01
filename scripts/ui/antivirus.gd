@@ -44,11 +44,7 @@ func _drop_in_quarantine(file : DraggableFile):
 	# it pops all stored files until there is a free slot
 	while _quarantine_queue.size() > _max_quarantine_size - 1:
 		var pop_file := _quarantine_queue.pop_back() as DraggableFile
-		pop_file.set_disabled(false)
-		pop_file.global_position = _grid_detector.global_position + Vector2(0, -128)
-		pop_file.speed = Global.EXPLODE_SPEED
-		var angle = randf_range(-PI/4, PI/4)
-		pop_file.move_dir = Vector2.UP.rotated(angle)
+		_swap_out_file(pop_file)
 	
 	file.set_disabled(true)
 	file.global_position = _shadow_realm
@@ -59,11 +55,19 @@ func _drop_in_quarantine(file : DraggableFile):
 	_update_grid_graphics()
 
 
+func _swap_out_file(file : DraggableFile):
+	file.set_disabled(false)
+	file.global_position = _grid_detector.global_position + Vector2(0, -128)
+	file.speed = Global.EXPLODE_SPEED
+	var angle = randf_range(-PI/4, PI/4)
+	file.move_dir = Vector2.UP.rotated(angle)
+
+
 func _purge_files():
 	while _quarantine_queue.size() > 0:
 		var file = _quarantine_queue.pop_back() as DraggableFile
-		SignalManager.free_space.emit(file.file_size)
-		file.queue_free() # NOT delete, so as to not trigger delete effects
+		file.disable_effects()
+		_swap_out_file(file)
 	
 	_purging = false
 	_purge_counter = 0.0

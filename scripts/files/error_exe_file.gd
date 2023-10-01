@@ -22,6 +22,10 @@ func _ready():
 	_next_position = _first_position
 
 
+func _custom_disable_effects():
+	_spawn_error_timer.stop()
+
+
 func _on_spawn_error_timer_timeout():
 	SignalManager.new_window.emit(Global.WindowTypes.NORMAL, _next_position)
 	_next_position += Vector2(-1, 1) * MESSAGE_OFFSET
