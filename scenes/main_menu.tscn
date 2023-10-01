@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene load_steps=11 format=3 uid="uid://kamcmkeapi6o"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="2_yoho8"]
@@ -36,7 +36,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../UserContainer:visible")
+tracks/1/path = NodePath("../MainUsers/UserContainer:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -60,7 +60,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_vpxe0"]
 resource_name = "fade_in"
-length = 20.0
+length = 13.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -112,7 +112,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../UserContainer:modulate")
+tracks/4/path = NodePath("../MainUsers/UserContainer:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -124,7 +124,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../UserContainer:visible")
+tracks/5/path = NodePath("../MainUsers/UserContainer:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -133,12 +133,211 @@ tracks/5/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Credits:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wmc4t"]
+resource_name = "hide_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MainUsers/UserContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MainUsers/UserContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gpvnk"]
+resource_name = "show_credits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Credits:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Credits/BackContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g4px3"]
+resource_name = "hide_credits"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["show_menu", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_tse0x"]
+resource_name = "show_menu"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MainUsers/UserContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MainUsers/UserContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MainUsers/UserContainer/UserOptions/Start:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MainUsers/UserContainer/UserOptions/HowToPlay:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MainUsers/UserContainer/UserOptions/Credits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../MainUsers/UserContainer/UserOptions/Exit:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53n6a"]
 _data = {
 "RESET": SubResource("Animation_s6dsr"),
 "exit": SubResource("Animation_k1kok"),
-"fade_in": SubResource("Animation_vpxe0")
+"fade_in": SubResource("Animation_vpxe0"),
+"hide_credits": SubResource("Animation_g4px3"),
+"hide_menu": SubResource("Animation_wmc4t"),
+"show_credits": SubResource("Animation_gpvnk"),
+"show_menu": SubResource("Animation_tse0x")
 }
 
 [node name="MainMenu" type="Control"]
@@ -178,51 +377,166 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Oh No! My Computer has Virus!"
 
-[node name="UserContainer" type="CenterContainer" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 1.05964e-06)
+[node name="MainUsers" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UserContainer" type="CenterContainer" parent="MainUsers"]
 layout_mode = 0
-offset_top = 256.0
+offset_top = 192.0
 offset_right = 1160.0
-offset_bottom = 480.0
+offset_bottom = 576.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UserContainer"]
+[node name="UserOptions" type="VBoxContainer" parent="MainUsers/UserContainer"]
 layout_mode = 2
-theme_override_constants/separation = 300
-alignment = 1
+theme_override_constants/separation = 30
 
-[node name="Start" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+[node name="Start" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/Start"]
+[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Start"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_yoho8")
 
-[node name="Label" type="Label" parent="UserContainer/HBoxContainer/Start"]
+[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Start"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Start Game"
 
-[node name="HowToPlay" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+[node name="HowToPlay" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/HowToPlay"]
+[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/HowToPlay"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_yoho8")
 
-[node name="Label" type="Label" parent="UserContainer/HBoxContainer/HowToPlay"]
+[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/HowToPlay"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "How to Play"
 
-[node name="Exit" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+[node name="Credits" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/Exit"]
+[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Credits"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_yoho8")
 
-[node name="Label" type="Label" parent="UserContainer/HBoxContainer/Exit"]
+[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Credits"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Exit" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Exit"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_yoho8")
+
+[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Exit"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Exit Game"
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits"]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 1160.0
+offset_bottom = 528.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Created By"
+
+[node name="GridContainer" type="GridContainer" parent="Credits/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 190
+theme_override_constants/v_separation = 65
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Francisco Pinto"
+
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soundeffects"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lucius Vinicius"
+
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Gamer B)"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Luís Chaves"
+
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Speedrunner"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pedro Valério"
+
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Developer"
+
+[node name="BackContainer" type="BoxContainer" parent="Credits"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 568.0
+offset_right = 199.0
+offset_bottom = 612.0
+
+[node name="Back" type="Label" parent="Credits/BackContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Go Back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Background")
@@ -231,7 +545,21 @@ libraries = {
 "": SubResource("AnimationLibrary_53n6a")
 }
 
-[connection signal="gui_input" from="UserContainer/HBoxContainer/Start" to="." method="_on_start_gui_input"]
-[connection signal="gui_input" from="UserContainer/HBoxContainer/HowToPlay" to="." method="_on_how_to_play_gui_input"]
-[connection signal="gui_input" from="UserContainer/HBoxContainer/Exit" to="." method="_on_exit_gui_input"]
+[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_start_gui_input"]
+[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_mouse_entered" binds= [0]]
+[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_mouse_exited" binds= [0]]
+[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_how_to_play_gui_input"]
+[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_mouse_entered" binds= [1]]
+[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_mouse_exited" binds= [1]]
+[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_credits_gui_input"]
+[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_mouse_entered" binds= [2]]
+[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_mouse_exited" binds= [2]]
+[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_exit_gui_input"]
+[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_mouse_entered" binds= [3]]
+[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_mouse_exited" binds= [3]]
+[connection signal="gui_input" from="Credits/BackContainer" to="." method="_on_back_container_gui_input"]
+[connection signal="mouse_entered" from="Credits/BackContainer" to="." method="_on_back_container_mouse_entered"]
+[connection signal="mouse_exited" from="Credits/BackContainer" to="." method="_on_back_container_mouse_exited"]
+[connection signal="mouse_entered" from="Credits/BackContainer/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Credits/BackContainer/Back" to="." method="_on_back_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
