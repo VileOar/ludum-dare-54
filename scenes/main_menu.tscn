@@ -1,25 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene load_steps=14 format=3 uid="uid://kamcmkeapi6o"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_3lyop"]
-[ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="2_yoho8"]
 [ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="3_hy4mu"]
-[ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="4_w2n04"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iipx6"]
-atlas = ExtResource("4_w2n04")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nsd2c"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iipx6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_s6dsr"]
 length = 0.001
