@@ -35,6 +35,8 @@ const WAVE_TIMES = {
 
 var current_wave = 1:
 	set(value):
+		print("Changed wave to ")
+		print(value)
 		current_wave = value
 		if current_wave > WAVE_TIMES.size():
 			current_wave = WAVE_TIMES.size()
@@ -42,13 +44,13 @@ var current_wave = 1:
 ## Weights of spawn dictated by current wave
 const FILE_TYPES_WEIGHTS = [
 	{
-		FileTypes.NORMAL : 10,
+		FileTypes.NORMAL : 5,
 		FileTypes.INCREASE_SPAWN_EXE : 0,
 		FileTypes.CORRUPTED_FOLDER : 1,
 		FileTypes.ERROR_MESSAGE_EXE : 0
 	},
 	{
-		FileTypes.NORMAL : 10,
+		FileTypes.NORMAL : 7,
 		FileTypes.INCREASE_SPAWN_EXE : 2,
 		FileTypes.CORRUPTED_FOLDER : 1,
 		FileTypes.ERROR_MESSAGE_EXE : 0
@@ -66,7 +68,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.ERROR_MESSAGE_EXE : 3
 	},
 	{
-		FileTypes.NORMAL : 15,
+		FileTypes.NORMAL : 20,
 		FileTypes.INCREASE_SPAWN_EXE : 5,
 		FileTypes.CORRUPTED_FOLDER : 5,
 		FileTypes.ERROR_MESSAGE_EXE : 5
@@ -123,6 +125,26 @@ const file_properties = {
 			"size" : 13,
 			"anim_name": "png"
 		},
+		{
+			"name" : "underleaf.html",
+			"size" : 22,
+			"anim_name": "link"
+		},
+		{
+			"name" : "myself.png",
+			"size" : 24,
+			"anim_name": "png"
+		},
+		{
+			"name" : "Family.jpg",
+			"size" : 100,
+			"anim_name": "png"
+		},
+		{
+			"name" : "Mr. Wild",
+			"size" : 10,
+			"anim_name": "link"
+		},
 	],
 	FileTypes.INCREASE_SPAWN_EXE: [
 		{
@@ -140,11 +162,26 @@ const file_properties = {
 			"size" : 20,
 			"anim_name": "png"
 		},
+		{
+			"name" : "mytube",
+			"size" : 10,
+			"anim_name": "link"
+		},
 	],
 	FileTypes.CORRUPTED_FOLDER: [
 		{
-			"name" : "CC onlyfans",
+			"name" : "justfans",
 			"size" : 24,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "leaked tests",
+			"size" : 18,
+			"anim_name": "folder"
+		},
+		{
+			"name" : "lmao",
+			"size" : 18,
 			"anim_name": "folder"
 		},
 	],
@@ -152,6 +189,16 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam.exe",
 			"size" : 4,
+			"anim_name": "exe"
+		},
+		{
+			"name" : "README.txt",
+			"size" : 20,
+			"anim_name": "txt"
+		},
+		{
+			"name" : "SUSBSCRIBE tO My CAHNHEL",
+			"size" : 24,
 			"anim_name": "link"
 		},
 	]
