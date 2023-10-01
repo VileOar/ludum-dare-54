@@ -1,0 +1,237 @@
+[gd_scene load_steps=7 format=3 uid="uid://kamcmkeapi6o"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
+[ext_resource type="Texture2D" uid="uid://cwajhyeq7c5dd" path="res://assets/gfx/desktop_icons/big_icons.png" id="2_yoho8"]
+
+[sub_resource type="Animation" id="Animation_s6dsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.109804, 0.109804, 0.109804, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k1kok"]
+resource_name = "exit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.180392, 0.25098, 1, 1), Color(0.87451, 0.87451, 0.87451, 1), Color(0.87451, 0.87451, 0.87451, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UserContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TitleContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vpxe0"]
+resource_name = "fade_in"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.8, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.109804, 0.109804, 0.109804, 1), Color(0.109804, 0.109804, 0.109804, 1), Color(0.180392, 0.25098, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ProgressCenter/ProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1, 1.4, 1.8, 2.3, 3.2, 4.1, 4.4, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 20.0, 20.0, 21.0, 50.0, 50.0, 55.0, 99.0, 99.0, 98.0, 100.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ProgressCenter/ProgressBar:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.2, 6.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TitleContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 9.1, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../UserContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.2, 11.9, 12.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../UserContainer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 11.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53n6a"]
+_data = {
+"RESET": SubResource("Animation_s6dsr"),
+"exit": SubResource("Animation_k1kok"),
+"fade_in": SubResource("Animation_vpxe0")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tjut0")
+
+[node name="Background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BGTransition" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 648.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ProgressCenter" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressCenter"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+value = 100.0
+
+[node name="TitleContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Oh No! My Computer has Virus!"
+
+[node name="UserContainer" type="CenterContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 1.05964e-06)
+layout_mode = 0
+offset_top = 256.0
+offset_right = 1160.0
+offset_bottom = 480.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UserContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Start" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/Start"]
+layout_mode = 2
+texture = ExtResource("2_yoho8")
+
+[node name="Label" type="Label" parent="UserContainer/HBoxContainer/Start"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="HowToPlay" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/HowToPlay"]
+layout_mode = 2
+texture = ExtResource("2_yoho8")
+
+[node name="Label" type="Label" parent="UserContainer/HBoxContainer/HowToPlay"]
+layout_mode = 2
+text = "How to Play"
+
+[node name="Exit" type="HBoxContainer" parent="UserContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UserContainer/HBoxContainer/Exit"]
+layout_mode = 2
+texture = ExtResource("2_yoho8")
+
+[node name="Label" type="Label" parent="UserContainer/HBoxContainer/Exit"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Background")
+autoplay = "fade_in"
+libraries = {
+"": SubResource("AnimationLibrary_53n6a")
+}
+
+[connection signal="gui_input" from="UserContainer/HBoxContainer/Start" to="." method="_on_start_gui_input"]
+[connection signal="gui_input" from="UserContainer/HBoxContainer/HowToPlay" to="." method="_on_how_to_play_gui_input"]
+[connection signal="gui_input" from="UserContainer/HBoxContainer/Exit" to="." method="_on_exit_gui_input"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
