@@ -285,52 +285,28 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Credits/BackContainer/Back:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_ur47t"]
 resource_name = "show_howto"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HowToPlay/BackContainer2/Back2:modulate")
+tracks/0/path = NodePath("../HowToPlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../HowToPlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../HowToPlay:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HowToPlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -363,54 +339,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../MainUsers/UserContainer/UserOptions/Start/Label:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../MainUsers/UserContainer/UserOptions/HowToPlay/Label:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../MainUsers/UserContainer/UserOptions/Credits/Label:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../MainUsers/UserContainer/UserOptions/Exit/Label:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_k1kok"]
@@ -492,10 +420,11 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ProgressBar" type="ProgressBar" parent="ProgressCenter"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+value = 100.0
 
 [node name="TitleContainer" type="CenterContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1160.0
 offset_bottom = 192.0
@@ -511,8 +440,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="UserContainer" type="CenterContainer" parent="MainUsers"]
-visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 192.0
 offset_right = 1160.0
@@ -522,57 +449,21 @@ offset_bottom = 576.0
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Start" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Start" type="Button" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
+text = "Start"
 
-[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Start"]
-visible = false
+[node name="How to Play" type="Button" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
-texture = ExtResource("2_yoho8")
-
-[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Start"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Start Game"
-
-[node name="HowToPlay" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/HowToPlay"]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_yoho8")
-
-[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/HowToPlay"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "How to Play"
 
-[node name="Credits" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Credits" type="Button" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Credits"]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_yoho8")
-
-[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Credits"
 
-[node name="Exit" type="HBoxContainer" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Exit" type="Button" parent="MainUsers/UserContainer/UserOptions"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MainUsers/UserContainer/UserOptions/Exit"]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_yoho8")
-
-[node name="Label" type="Label" parent="MainUsers/UserContainer/UserOptions/Exit"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Exit Game"
+text = "Exit"
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -615,7 +506,7 @@ text = "Francisco Pinto"
 [node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Soundeffects"
+text = "Instigador de Ódio"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
@@ -641,7 +532,7 @@ text = "Luís Chaves"
 [node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Speedrunner"
+text = "Speedrunner shoto cringe"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
@@ -654,23 +545,18 @@ text = "Pedro Valério"
 [node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Developer"
+text = "Communist"
 
-[node name="BackContainer" type="BoxContainer" parent="Credits"]
+[node name="Back" type="Button" parent="Credits"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 568.0
-offset_right = 199.0
-offset_bottom = 612.0
-
-[node name="Back" type="Label" parent="Credits/BackContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
+offset_left = 48.0
+offset_top = 560.0
+offset_right = 159.0
+offset_bottom = 613.0
 text = "Go Back"
 
 [node name="HowToPlay" type="Control" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -680,12 +566,6 @@ layout_mode = 0
 offset_top = 152.0
 offset_right = 1160.0
 offset_bottom = 536.0
-
-[node name="Folder" type="AnimatedSprite2D" parent="HowToPlay/CenterContainer"]
-visible = false
-position = Vector2(780, 132)
-scale = Vector2(3.4375, 3.4375)
-sprite_frames = SubResource("SpriteFrames_nsd2c")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HowToPlay/CenterContainer"]
 custom_minimum_size = Vector2(0, 256)
@@ -715,17 +595,14 @@ save the PC failed completely >:]
 Sincerely, the hacker.
 "
 
-[node name="BackContainer2" type="BoxContainer" parent="HowToPlay"]
+[node name="Back2" type="Button" parent="HowToPlay"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 568.0
-offset_right = 199.0
-offset_bottom = 612.0
-
-[node name="Back2" type="Label" parent="HowToPlay/BackContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Go Back"
+offset_left = 48.0
+offset_top = 560.0
+offset_right = 159.0
+offset_bottom = 613.0
+text = "Go Back
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Background")
@@ -734,24 +611,10 @@ libraries = {
 "": SubResource("AnimationLibrary_53n6a")
 }
 
-[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_start_gui_input"]
-[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_mouse_entered" binds= [0]]
-[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_mouse_exited" binds= [0]]
-[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_how_to_play_gui_input"]
-[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_mouse_entered" binds= [1]]
-[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/HowToPlay" to="." method="_on_mouse_exited" binds= [1]]
-[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_credits_gui_input"]
-[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_mouse_entered" binds= [2]]
-[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_mouse_exited" binds= [2]]
-[connection signal="gui_input" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_exit_gui_input"]
-[connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_mouse_entered" binds= [3]]
-[connection signal="mouse_exited" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_mouse_exited" binds= [3]]
-[connection signal="gui_input" from="Credits/BackContainer" to="." method="_on_back_container_gui_input"]
-[connection signal="mouse_entered" from="Credits/BackContainer" to="." method="_on_back_container_mouse_entered"]
-[connection signal="mouse_exited" from="Credits/BackContainer" to="." method="_on_back_container_mouse_exited"]
-[connection signal="mouse_entered" from="Credits/BackContainer/Back" to="." method="_on_back_mouse_entered"]
-[connection signal="mouse_exited" from="Credits/BackContainer/Back" to="." method="_on_back_mouse_exited"]
-[connection signal="gui_input" from="HowToPlay/BackContainer2" to="." method="_on_back_container_2_gui_input"]
-[connection signal="mouse_entered" from="HowToPlay/BackContainer2" to="." method="_on_back_container_2_mouse_entered"]
-[connection signal="mouse_exited" from="HowToPlay/BackContainer2" to="." method="_on_back_container_2_mouse_exited"]
+[connection signal="pressed" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainUsers/UserContainer/UserOptions/How to Play" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="MainUsers/UserContainer/UserOptions/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainUsers/UserContainer/UserOptions/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HowToPlay/Back2" to="." method="_on_back_2_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

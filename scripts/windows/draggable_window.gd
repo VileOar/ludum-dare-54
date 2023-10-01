@@ -12,12 +12,10 @@ var lift_pos_offset = Vector2.ZERO
 
 var title : String = "":
 	set(value):
-		if window_text == null: return
-		window_text.text = value
+		window_title.text = value
 var description : String = "":
 	set(value):
-		if window_title == null: return
-		window_title.text = value
+		window_text.text = value
 
 
 func _physics_process(_delta):

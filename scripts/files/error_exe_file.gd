@@ -1,13 +1,12 @@
 extends EvilFile
 class_name ErrorExeFile
 
-const SPAWN_ERROR_TIME = 7
+const SPAWN_ERROR_TIME = 7.0
 const MESSAGE_OFFSET = 64.0
 const COLUMN_INTERVAL = 128.0
 
 @onready var _spawn_error_timer := $SpawnErrorTimer
 
-var _last_column_multiplier = 0
 var _first_position : Vector2
 var _next_position : Vector2
 
@@ -27,15 +26,9 @@ func _custom_disable_effects():
 
 
 func _on_spawn_error_timer_timeout():
-	SignalManager.new_window.emit(Global.WindowTypes.NORMAL, _next_position)
-	_next_position += Vector2(-1, 1) * MESSAGE_OFFSET
-	# if position not in bounds, go to next column
-	if not Global.bounds_rect.has_point(_next_position):
-		_last_column_multiplier += 1
-		_next_position = Vector2(_first_position.x + _last_column_multiplier * COLUMN_INTERVAL, _first_position.y)
-		
-		# if point is still not in bounds (because, column is too far), restart from first_position
-		if not Global.bounds_rect.has_point(_next_position):
-			_next_position = _first_position
+	var _rect_size = Global.bounds_rect.size
 	
-	_spawn_error_timer.start(SPAWN_ERROR_TIME / Global.current_wave)
+	_next_position = Vector2(randf_range(-1, 1) * int(_rect_size.x), randf_range(-1, 1) * int(_rect_size.y))
+	SignalManager.new_window.emit(Global.WindowTypes.NORMAL, _next_position)
+
+	_spawn_error_timer.start(SPAWN_ERROR_TIME - (Global.current_wave * 0.7)) 
