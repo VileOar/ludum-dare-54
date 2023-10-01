@@ -1,7 +1,7 @@
 extends EvilFile
 class_name CorruptedFile
 
-const EXPLODE_QUANTITY = 10
+const EXPLODE_QUANTITY = 3
 const RATE_MODIFIER = 0.2  ## in seconds
 const MODIFIER_DUARATION = 3.0
 
@@ -35,4 +35,4 @@ func increase_spawn_rate():
 
 ## Explode Files
 func explode_files():
-	SignalManager.explode_files.emit(global_position, EXPLODE_QUANTITY)
+	SignalManager.explode_files.emit(global_position, EXPLODE_QUANTITY * Global.current_wave / 2)
