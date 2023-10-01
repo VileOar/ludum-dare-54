@@ -1,8 +1,8 @@
 extends EvilFile
 class_name ErrorExeFile
 
-const SPAWN_ERROR_TIME = 0.5
-const MESSAGE_OFFSET = 32.0
+const SPAWN_ERROR_TIME = 4.0
+const MESSAGE_OFFSET = 64.0
 const COLUMN_INTERVAL = 128.0
 
 @onready var _spawn_error_timer := $SpawnErrorTimer
@@ -15,8 +15,10 @@ var _next_position : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
+	can_recycle = false
+	can_antivirus = true
 	_spawn_error_timer.start(SPAWN_ERROR_TIME)
-	_first_position = Global.bounds_rect.position
+	_first_position = Global.bounds_rect.position + Vector2.ONE * MESSAGE_OFFSET
 	_next_position = _first_position
 
 

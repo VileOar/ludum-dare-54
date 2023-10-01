@@ -9,8 +9,20 @@ class_name DraggableFile
 @onready var _selected_panel := $PanelContainer
 @onready var _anim := $FileIcon
 
+## whether the file can be put in recycle bin
+var can_recycle = true
+## whether the file can be put in antivirus
+var can_antivirus = false
+
 var lifted := false
 var selected := false
+var disabled := false:
+	set(val):
+		if not val:
+			process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			process_mode = Node.PROCESS_MODE_DISABLED
+
 var mouse_offset := Vector2.ZERO
 var text : String = "":
 	set(value):
@@ -89,6 +101,9 @@ func set_lifted(val : bool):
 	var parent = get_parent()
 	get_parent().move_child(self, -1)
 
+func set_disabled(val : bool):
+	disabled = val
+
 func delete():
 	queue_free()
 
@@ -102,3 +117,7 @@ func set_selected(val : bool, alter_list := true):
 		if alter_list:
 			Global.selected_files.erase(self)
 		_selected_panel.hide()
+
+
+func get_file_icon_anim() -> String:
+	return _anim.animation

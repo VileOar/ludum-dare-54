@@ -4,6 +4,12 @@ class_name CorruptedFile
 const EXPLODE_QUANTITY = 10
 
 
+func _ready():
+	super._ready()
+	can_recycle = true
+	can_antivirus = true
+
+
 func delete():
 	match type:
 		Global.FileTypes.INCREASE_SPAWN_EXE:

@@ -1,5 +1,7 @@
 extends Node
 
+signal toggle_antivirus
+
 signal release_files(files)
 
 ## emitted when someone wants to free space from disk (ex: empty trash, delete system32, ...)[br]

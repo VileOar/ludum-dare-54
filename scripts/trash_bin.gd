@@ -15,14 +15,15 @@ func _ready():
 	SignalManager.empty_trash.connect(empty_trash)
 
 func _remove_file(file : DraggableFile):
-	if file.name == "TrashBin" or not mouse_hovered or selected: return
+	if file.name == "TrashBin" or not file.can_recycle: return
 	total_space += file.file_size
 	file.delete()
 
 func remove_files(files : Array):
-	for i in range(files.size() - 1, -1, -1):
-		var file = files[i]
-		_remove_file(file)
+	if mouse_hovered and not selected:
+		for i in range(files.size() - 1, -1, -1):
+			var file = files[i]
+			_remove_file(file)
 
 func empty_trash():
 	# TODO: according to how full it is, lag the computer (this should probably be done by emitting

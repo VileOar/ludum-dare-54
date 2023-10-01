@@ -4,8 +4,6 @@ class_name Toolbar
 @onready var disk_space_bar := %DiskSpaceBar
 @onready var disk_space_label := %DiskSpaceLabel
 
-@onready var antivirus_panel := %AntivirusPanel
-
 
 func _on_disk_space_manager_space_update(new_space, max_space):
 	# TODO: change colour (and animation?) according to space occupied
@@ -21,7 +19,4 @@ func _on_empty_button_pressed():
 
 
 func _on_anti_v_button_pressed():
-	if antivirus_panel.visible:
-		antivirus_panel.hide()
-	else:
-		antivirus_panel.show()
+	SignalManager.toggle_antivirus.emit()
