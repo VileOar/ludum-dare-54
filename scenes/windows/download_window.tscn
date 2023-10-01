@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjmftrmoy8ww5"]
 
-[ext_resource type="Script" path="res://scripts/download_window.gd" id="1_hjbis"]
+[ext_resource type="Script" path="res://scripts/windows/download_window.gd" id="1_hjbis"]
 [ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_qhtas"]
 
 [node name="DownloadWindow" type="Node2D"]

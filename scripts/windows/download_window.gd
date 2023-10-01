@@ -21,13 +21,9 @@ func _on_button_pressed():
 
 func _on_timer_timeout():
 	download_bar.value = download_bar.value + download_increment
-
+	
 	if download_bar.value >= download_bar.max_value:
 		progress_timer.stop()
-
+		
 		SignalManager.explode_files.emit(position, files_to_download)
 		self.queue_free()
-
-
-
-	

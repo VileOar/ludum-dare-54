@@ -4,6 +4,7 @@ extends Node2D
 ## TODO: make this a dict in order to hold all file types' scenes
 @export var file_scene : PackedScene
 @export var corrupted_files_scene : PackedScene
+@export var error_exe_scene : PackedScene
 @export var window_scene : PackedScene
 @export var download_window_scene : PackedScene
 @export var recursive_window_scene : PackedScene
@@ -30,7 +31,7 @@ func _on_new_file(file_type):
 
 
 func _on_new_window(window_type, last_position):
-	var windows_pos = _get_position_within_bounds()
+	var windows_pos = last_position
 	var new_window
 	match window_type:
 		Global.WindowTypes.NORMAL:
@@ -43,6 +44,7 @@ func _on_new_window(window_type, last_position):
 			var offset = Global.window_properties[window_type][0]["offset"]
 			windows_pos = last_position + Vector2(-offset, offset)
 	
+	windows_pos = _clamp_within_bounds(windows_pos)
 	var window_properties = Global.window_properties[window_type]
 	var properties = window_properties[randi() % window_properties.size()]
 	
@@ -73,6 +75,9 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 		Global.FileTypes.CORRUPTED_FOLDER:
 			new_file = corrupted_files_scene.instantiate()
 			new_file.type = Global.FileTypes.CORRUPTED_FOLDER
+		Global.FileTypes.ERROR_MESSAGE_EXE:
+			new_file = error_exe_scene.instantiate()
+			new_file.type = Global.FileTypes.ERROR_MESSAGE_EXE
 	
 	if new_file == null:
 		push_error("file type not found")
@@ -107,3 +112,9 @@ func _get_position_within_bounds():
 	var pos = Vector2(xx, yy)
 	
 	return pos
+
+
+func _clamp_within_bounds(pos : Vector2) -> Vector2:
+	var xx = clamp(pos.x, Global.bounds_rect.position.x, Global.bounds_rect.end.x)
+	var yy = clamp(pos.y, Global.bounds_rect.position.y, Global.bounds_rect.end.y)
+	return Vector2(xx, yy)

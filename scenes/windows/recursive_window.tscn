@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://du3yx3v7snkkb"]
 
-[ext_resource type="Script" path="res://scripts/recursive_window.gd" id="1_s8ifr"]
+[ext_resource type="Script" path="res://scripts/windows/recursive_window.gd" id="1_s8ifr"]
 [ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_ft144"]
 
 [node name="RecursiveWindow" type="Node2D"]

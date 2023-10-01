@@ -26,7 +26,6 @@ func remove_files(files : Array):
 	for i in range(files.size() - 1, -1, -1):
 		var file = files[i]
 		_remove_file(file)
-	#Global.selected_files = []
 
 func empty_trash():
 	# TODO: according to how full it is, lag the computer (this should probably be done by emitting

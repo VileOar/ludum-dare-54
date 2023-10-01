@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cylps5fisf5fa"]
 
-[ext_resource type="Script" path="res://scripts/draggable_window.gd" id="1_1tewi"]
+[ext_resource type="Script" path="res://scripts/windows/draggable_window.gd" id="1_1tewi"]
 [ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_eebc2"]
 
 [node name="DraggableWindow" type="Node2D"]

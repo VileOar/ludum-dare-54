@@ -38,7 +38,8 @@ func _unhandled_input(event):
 			MOUSE_BUTTON_LEFT:
 				if event.pressed:
 					for file in Global.selected_files:
-						file.set_selected(false)
+						file.set_selected(false, false)
+					Global.selected_files = []
 					
 					var mouse_pos = get_global_mouse_position()
 					initial_mouse_pos = mouse_pos

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0b5v2u8afjtv"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_cuxds"]
-[ext_resource type="Script" path="res://scripts/corrupted_file.gd" id="2_2ygs4"]
+[ext_resource type="Script" path="res://scripts/files/corrupted_file.gd" id="2_l1gjo"]
 
 [node name="CorruptedFile" instance=ExtResource("1_cuxds")]
-script = ExtResource("2_2ygs4")
+script = ExtResource("2_l1gjo")
 
 [node name="Label" parent="." index="2"]
 text = "Carlos Costa.exe"
