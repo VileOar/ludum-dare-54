@@ -10,6 +10,7 @@ func _ready():
 
 	animation.play("enter")
 	Global.reset_on_play()
+	_on_toggle_distortion(false)
 
 
 func _on_game_timer_timeout():

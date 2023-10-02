@@ -8,11 +8,6 @@ func _ready():
 	randomize()
 
 
-func reset_on_play():
-	game_time = 0
-	current_wave = 1
-
-
 enum FileTypes {
 	NORMAL, ## a simple file with no gimmicks
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
@@ -366,3 +361,7 @@ const window_properties = {
 	]
 }
 
+func reset_on_play():
+	game_time = 0
+	current_wave = 1
+	set_max_space(1024)
