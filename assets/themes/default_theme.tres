@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=37 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=44 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="3_nn7h3"]
+[ext_resource type="Texture2D" uid="uid://b43iqevc4my1g" path="res://assets/gfx/panels.png" id="4_7vbmc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_065l1"]
 texture = ExtResource("2_gimpf")
@@ -151,6 +152,30 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 region_rect = Rect2(288, 192, 96, 96)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ic0lt"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltagi"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 72, 24, 24)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7c31"]
 texture = ExtResource("2_gimpf")
 texture_margin_left = 8.0
@@ -183,6 +208,26 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(288, 288, 96, 96)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j386w"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nj6vm"]
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 96, 24, 24)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfm5d"]
 texture = ExtResource("1_xv5vh")
 texture_margin_left = 8.0
@@ -190,6 +235,30 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivecp"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rd46j"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 48, 24, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da8nw"]
 texture = ExtResource("1_xv5vh")
@@ -280,6 +349,9 @@ GreenButton/styles/focus = SubResource("StyleBoxEmpty_o4xsl")
 GreenButton/styles/hover = SubResource("StyleBoxTexture_miq2r")
 GreenButton/styles/normal = SubResource("StyleBoxTexture_o5sd5")
 GreenButton/styles/pressed = SubResource("StyleBoxTexture_dkeoh")
+GreenProgressbar/base_type = &"ProgressBar"
+GreenProgressbar/styles/background = SubResource("StyleBoxTexture_ic0lt")
+GreenProgressbar/styles/fill = SubResource("StyleBoxTexture_ltagi")
 IconButton/base_type = &"Button"
 IconButton/colors/font_color = Color(1, 1, 1, 1)
 IconButton/colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -292,7 +364,12 @@ IconButton/styles/focus = SubResource("StyleBoxEmpty_4dv0h")
 IconButton/styles/hover = SubResource("StyleBoxTexture_oqctp")
 IconButton/styles/normal = SubResource("StyleBoxEmpty_3k1g4")
 IconButton/styles/pressed = SubResource("StyleBoxTexture_b44v1")
+OrangeProgressbar/base_type = &"ProgressBar"
+OrangeProgressbar/styles/background = SubResource("StyleBoxTexture_j386w")
+OrangeProgressbar/styles/fill = SubResource("StyleBoxTexture_nj6vm")
 Panel/styles/panel = SubResource("StyleBoxTexture_pfm5d")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_ivecp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_rd46j")
 QuarantinePanel/base_type = &"PanelContainer"
 QuarantinePanel/styles/panel = SubResource("StyleBoxTexture_da8nw")
 SelectPanel/base_type = &"PanelContainer"

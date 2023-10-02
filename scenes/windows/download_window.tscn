@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_n67kr"]
 
 [node name="DownloadWindow" instance=ExtResource("1_n67kr")]
+z_index = 10
 script = ExtResource("1_hjbis")
 
 [node name="DownloadProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme_type_variation = &"GreenProgressbar"
 
 [node name="DownloadButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
 unique_name_in_owner = true
