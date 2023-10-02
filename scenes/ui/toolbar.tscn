@@ -72,9 +72,37 @@ theme_type_variation = &"TitlePanel"
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("2_ccml4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Power1Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Restart Window Manager
+(Delete all current windows)"
+
+[node name="Power2Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Plug External Drive
+(Add more disk space)"
+
+[node name="Power3Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Delete System32
+(Free a lot of space, but...)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
 layout_mode = 2
@@ -165,6 +193,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power1Button" to="." method="_on_power_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power2Button" to="." method="_on_power_2_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power3Button" to="." method="_on_power_3_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_mouse_enter_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/ShutdownButton" to="." method="_on_mouse_enter_play_hover_sfx"]

@@ -13,6 +13,10 @@ class_name Toolbar
 
 @onready var diskbar := %Diskbar as DiskSpaceBar
 
+@onready var _power1_btn := %Power1Button
+@onready var _power2_btn := %Power2Button
+@onready var _power3_btn := %Power3Button
+
 
 func _ready():
 	SignalManager.disk_full.connect(_on_disk_full)
@@ -45,12 +49,10 @@ func _on_empty_button_pressed():
 
 func _on_start_button_pressed():
 	_play_click_sfx()
-	if get_tree().paused:
-		get_tree().paused = false
+	if pause_menu.visible:
 		pause_menu.hide()
 		blocker.hide()
 	else:
-		get_tree().paused = true
 		pause_menu.show()
 		blocker.show()
 
@@ -65,3 +67,22 @@ func _on_shutdown_button_pressed():
 	_play_click_sfx()
 	get_tree().quit()
 	
+
+
+func _on_power_1_button_pressed():
+	SignalManager.delete_all_windows.emit()
+	_power1_btn.disabled = true
+	_on_start_button_pressed()
+
+
+func _on_power_2_button_pressed():
+	Global.set_max_space(Global.MAX_DISK_SPACE * 2)
+	_power2_btn.disabled = true
+	_on_start_button_pressed()
+
+
+func _on_power_3_button_pressed():
+	SignalManager.toggle_distortion.emit(true)
+	SignalManager.free_space.emit(Global.MAX_DISK_SPACE * 0.5)
+	_power3_btn.disabled = true
+	_on_start_button_pressed()

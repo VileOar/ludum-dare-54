@@ -32,6 +32,9 @@ func _ready():
 	SignalManager.new_window.connect(_on_new_window)
 	SignalManager.explode_files.connect(_on_explode_files)
 	SignalManager.free_space.connect(_on_free_space)
+	
+	SignalManager.delete_all_windows.connect(_on_delete_windows)
+	
 	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
 
@@ -40,6 +43,11 @@ func _on_new_file(file_type):
 	var file_pos = _get_position_within_bounds()
 	
 	_create_file(file_type, file_pos, Vector2.ZERO, 0.0)
+
+
+func _on_delete_windows():
+	for window in _windows_holder.get_children():
+		window.queue_free()
 
 
 func _on_new_window(window_type, last_position):

@@ -593,6 +593,7 @@ theme_type_variation = &"BIOSButton"
 text = "Go Back"
 
 [node name="HowToPlay" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -746,6 +747,8 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 24
 text = "These files should be handled with special care and skill, meaning you shouldn't do it by yourself. Drop them in the quarantine area, push the Purge button and only then drop them in the Trash.
+
+In your Start menu, you will also find some utilities that might prove useful.
 
 Good luck."
 autowrap_mode = 3

@@ -129,7 +129,10 @@ const EXPLODE_SPEED = 480.0
 const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 
 ## max disk space (could be altered by powerups)
-const MAX_DISK_SPACE = 1024
+var MAX_DISK_SPACE = 1024
+func set_max_space(new_max_space):
+	MAX_DISK_SPACE = new_max_space
+
 ## not actually a limit for the trash bin itself but for its delay
 const MAX_TRASH_SPACE = 512
 ## WARNING FOR ALMOST FULL DISK SPACE
