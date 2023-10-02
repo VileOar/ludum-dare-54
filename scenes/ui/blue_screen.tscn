@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckbje2y7g4xxc"]
+
+[ext_resource type="Script" path="res://scripts/ui/blue_screen.gd" id="1_ca5ft"]
+
+[node name="BlueScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ca5ft")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.34902, 0.858824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A problem has been detected and Pintows has been shut down to prevent damage to your computer :("
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "If this is the first time you've seen this error screen, be prepared to see it a lot more moving forwards. If this screen appears again, try not to cry, and do better next time. To that end, Pintows stores the length of your previous session, among other data. "
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Previous Session:"
+
+[node name="PreviousSessionText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0:00"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Longest Session:"
+
+[node name="LongestSessionText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0:00"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "If you need to reboot the system, press F1 and then wait for a bit. For steps on how to solve this problem, press F2."
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Technical information:"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "*** STOP: 0x00000050 (0xFD3094C2, 0x00000001, 0xFBFE7617, 0x00000000)"
+autowrap_mode = 2
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "*** SPCMDCON.SYS - Adress FBFE7617 base at FBFE5000, DateStamp 3d6dd67c"
+autowrap_mode = 2
