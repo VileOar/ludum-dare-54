@@ -35,4 +35,5 @@ func increase_spawn_rate():
 
 ## Explode Files
 func explode_files():
+	SignalManager.corrupted_file_effect_used.emit()
 	SignalManager.explode_files.emit(global_position, EXPLODE_QUANTITY * Global.current_wave / 2)

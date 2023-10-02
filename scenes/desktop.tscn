@@ -51,7 +51,7 @@ bus = &"SFX"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TrashBin" parent="." instance=ExtResource("2_n3o80")]
-position = Vector2(480, -240)
+position = Vector2(-512, -256)
 
 [node name="Files" type="Node" parent="."]
 
@@ -78,7 +78,7 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_lock_ = true
 
 [node name="Antivirus" parent="." instance=ExtResource("10_lpn00")]
-offset_left = 448.0
-offset_top = 32.0
-offset_right = 448.0
-offset_bottom = 32.0
+offset_left = 456.0
+offset_top = -80.0
+offset_right = 456.0
+offset_bottom = -80.0

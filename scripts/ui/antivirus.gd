@@ -10,6 +10,8 @@ class_name Antivirus
 @onready var _click_sfx = $ClickSFX
 @onready var _hover_sfx = $HoverSFX
 
+@onready var _virus_anim := %VirusAnim
+
 var _mouse_hovered := false
 
 var _active := false
@@ -28,10 +30,14 @@ var _purging := false
 
 
 func _ready():
+	_virus_anim.play("idle")
 	SignalManager.release_files.connect(_on_release_files)
 	_max_quarantine_size = _quarantine_grid.get_child_count()
 	_active = true
 	
+	SignalManager.new_wave.connect(_virus_code)
+	SignalManager.corrupted_file_effect_used.connect(_virus_laugh)
+	SignalManager.free_space.connect(_virus_angry) # also on _purge_files()
 
 
 func _process(delta):
@@ -85,6 +91,8 @@ func _purge_files():
 	_purge_counter = 0.0
 	_purge_progressbar.value = _purge_counter
 	_update_grid_graphics()
+	
+	_virus_angry(0)
 
 
 func _update_grid_graphics():
@@ -123,3 +131,24 @@ func _on_purge_button_pressed():
 	_click_sfx.play()
 	if not _quarantine_queue.is_empty():
 		_purging = true
+
+
+func _virus_laugh():
+	_virus_switch_anim("laugh")
+
+
+func _virus_angry(_a):
+	_virus_switch_anim("angry")
+
+
+func _virus_code(_a):
+	_virus_switch_anim("code")
+
+
+func _virus_switch_anim(anim_name):
+	if _virus_anim.current_animation == "idle" or not _virus_anim.is_playing():
+		_virus_anim.play(anim_name)
+
+
+func _on_virus_anim_animation_finished(_anim_name):
+	_virus_anim.play("idle")

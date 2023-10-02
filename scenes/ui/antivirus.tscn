@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjykajyw8e0wu"]
+[gd_scene load_steps=14 format=3 uid="uid://cjykajyw8e0wu"]
 
 [ext_resource type="Script" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
 [ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_jcl17"]
@@ -6,6 +6,97 @@
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_k3q13"]
 [ext_resource type="AudioStream" uid="uid://ckutu8ct3dp1p" path="res://assets/audio/sounds/purged magic.wav" id="3_c65l6"]
 [ext_resource type="Texture2D" uid="uid://c0bonum1s7cwo" path="res://assets/gfx/virus_face.png" id="5_ixnmx"]
+
+[sub_resource type="Animation" id="Animation_afmbr"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(3, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h0vkc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_osugx"]
+resource_name = "laugh"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yikwb"]
+resource_name = "angry"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35, 0.65, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2i(0, 2), Vector2i(5, 2), Vector2i(0, 2), Vector2i(5, 2), Vector2i(0, 2), Vector2i(5, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_nc2sy"]
+resource_name = "code"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.65, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2i(0, 3), Vector2i(7, 3), Vector2i(0, 3), Vector2i(7, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xi3eb"]
+_data = {
+"RESET": SubResource("Animation_h0vkc"),
+"angry": SubResource("Animation_yikwb"),
+"code": SubResource("Animation_nc2sy"),
+"idle": SubResource("Animation_afmbr"),
+"laugh": SubResource("Animation_osugx")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ija6y"]
 size = Vector2(176, 176)
@@ -53,10 +144,12 @@ theme_override_constants/separation = 0
 
 [node name="VirusWindow" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TitlePanel" type="PanelContainer" parent="VBoxContainer/VirusWindow"]
 layout_mode = 2
+mouse_filter = 2
 theme_type_variation = &"TitlePanel"
 
 [node name="Label" type="Label" parent="VBoxContainer/VirusWindow/TitlePanel"]
@@ -64,21 +157,35 @@ layout_mode = 2
 text = "virus.exe"
 
 [node name="WindowPanel" type="PanelContainer" parent="VBoxContainer/VirusWindow"]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(240, 160)
 layout_mode = 2
+mouse_filter = 2
 theme_type_variation = &"WindowPanel"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VirusWindow/WindowPanel"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.192157, 0.2, 0.564706, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/VirusWindow/WindowPanel"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control"]
 scale = Vector2(6, 6)
 texture = ExtResource("5_ixnmx")
 hframes = 8
 vframes = 4
+
+[node name="VirusAnim" type="AnimationPlayer" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xi3eb")
+}
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(240, 224)
@@ -145,6 +252,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_type_variation = &"OrangeProgressbar"
 
+[connection signal="animation_finished" from="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control/VirusAnim" to="." method="_on_virus_anim_animation_finished"]
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer/HBoxContainer/PurgeButton" to="." method="_on_mouse_enter_play_hover_sfx"]

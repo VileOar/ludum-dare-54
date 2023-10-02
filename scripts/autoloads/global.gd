@@ -73,6 +73,7 @@ var current_wave = 1:
 		current_wave = value
 		if current_wave > WAVE_TIMES.size():
 			current_wave = WAVE_TIMES.size()
+		SignalManager.new_wave.emit(current_wave)
 
 ## Weights of spawn dictated by current wave
 const FILE_TYPES_WEIGHTS = [

@@ -43,3 +43,9 @@ signal new_window(window_type, last_position)
 ## this signal is emitted periodically with a file type by the file spawner[br]
 ## the desktop should be in charge of actually creating the file node and randomly populating it
 signal new_file(file_type)
+
+
+# --- || OTHER EVENTS || ---
+
+signal corrupted_file_effect_used
+signal new_wave(wave)

@@ -45,5 +45,6 @@ func _on_timer_timeout():
 		
 func _on_button_pressed():
 	play_click_sfx()
+	SignalManager.after_recycle_time.emit()
 	await _click_sfx.finished
 	self.queue_free()

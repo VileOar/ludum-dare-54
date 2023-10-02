@@ -59,6 +59,9 @@ func _on_new_window(window_type, last_position):
 			windows_pos = last_position
 			new_window.space_to_recycle = space_to_free
 	
+	if window_type != Global.WindowTypes.RECYCLING:
+		SignalManager.corrupted_file_effect_used.emit()
+	
 	windows_pos = _clamp_within_bounds(windows_pos)
 	var window_properties = Global.window_properties[window_type]
 	var properties = window_properties[randi() % window_properties.size()]
@@ -134,7 +137,6 @@ func _create_window(window_instance : DraggableWindow, window_pos : Vector2, pro
 	window_instance.position = window_pos
 	window_instance.title = properties["title"]
 	window_instance.description = properties["description"]
-	
 
 
 ## return a position within desktop bounds
