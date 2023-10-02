@@ -15,12 +15,10 @@ func _ready():
 	
 
 func _on_timer_timeout():
-	print("start playing music")
 	fade_out(_music_audio, transition_duration)
 
 
 func _on_disk_almost_full():
-	print("on disk almost full")
 	fade_in(_panic_music_audio, time_till_music_starts)
 	_timer.start()
 

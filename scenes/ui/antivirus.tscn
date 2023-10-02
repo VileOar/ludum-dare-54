@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjykajyw8e0wu"]
+[gd_scene load_steps=6 format=3 uid="uid://cjykajyw8e0wu"]
 
 [ext_resource type="Script" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
 [ext_resource type="PackedScene" uid="uid://c1srnuj4hxkt1" path="res://scenes/ui/antivirus_slot.tscn" id="2_jkvhn"]
+[ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_k3q13"]
+[ext_resource type="AudioStream" uid="uid://ckutu8ct3dp1p" path="res://assets/audio/sounds/purged magic.wav" id="3_c65l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ija6y"]
 size = Vector2(176, 176)
@@ -15,6 +17,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_spha5")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k3q13")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="PurgeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c65l6")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

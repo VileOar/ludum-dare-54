@@ -5,6 +5,10 @@ class_name Antivirus
 @onready var _grid_detector = %Area2D
 @onready var _purge_progressbar = %PurgeProgressbar
 
+# Audio
+@onready var _purge_sfx = $PurgeSFX
+@onready var _click_sfx = $ClickSFX
+
 var _mouse_hovered := false
 
 var _active := false:
@@ -80,6 +84,7 @@ func _purge_files():
 			file.disable_effects()
 		_swap_out_file(file)
 	
+	_purge_sfx.play()
 	_purging = false
 	_purge_counter = 0.0
 	_purge_progressbar.value = _purge_counter
@@ -119,5 +124,6 @@ func _on_area_2d_mouse_exited():
 
 
 func _on_purge_button_pressed():
+	_click_sfx.play()
 	if not _quarantine_queue.is_empty():
 		_purging = true

@@ -2,6 +2,8 @@ extends Node
 
 @onready var _computer_on_audio : AudioStreamPlayer = $ComputerOn
 @onready var _music_audio : AudioStreamPlayer = $MainMenuMusic
+@onready var _click_sfx : AudioStreamPlayer = $ClickSFX
+@onready var _hover_sfx : AudioStreamPlayer = $HoverSFX
 @onready var _timer : Timer = $Timer
 
 @export var transition_duration : float = 6.00
@@ -19,6 +21,13 @@ func start_menu_music():
 	_timer.wait_time = time_till_music_starts
 	_timer.start()
 	
+	
+func play_click_sfx():
+	_click_sfx.play()
+	
+	
+func play_hover_sfx():
+	_hover_sfx.play()
 	
 # Fades out the computer on
 func _on_timer_timeout():
