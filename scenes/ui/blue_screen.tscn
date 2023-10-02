@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckbje2y7g4xxc"]
+[gd_scene load_steps=3 format=3 uid="uid://ckbje2y7g4xxc"]
 
 [ext_resource type="Script" path="res://scripts/ui/blue_screen.gd" id="1_ca5ft"]
+[ext_resource type="AudioStream" uid="uid://bdhntgrqdq4wt" path="res://assets/audio/sounds/bluescreen_v2.wav" id="2_6uryj"]
 
 [node name="BlueScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +12,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ca5ft")
+
+[node name="BluescreenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6uryj")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

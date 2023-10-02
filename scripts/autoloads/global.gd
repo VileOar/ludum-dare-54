@@ -138,8 +138,6 @@ const DISK_ALMOST_FULL_PERCENTAGE = 0.75
 ## this assumes that we want the recycle window to always spawn in the same place
 const RECYCLE_WINDOW_POS := Vector2(256, 256)
 
-## AUDIO CONST
-
 func sum_array(array : Array):
 	var sum = 0
 	for i in array:

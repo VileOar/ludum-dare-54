@@ -13,7 +13,10 @@ signal disk_full
 
 # --- || AUDIO || ---
 
-signal disk_almost_full
+signal disk_almost_full(is_disk_almost_full)
+
+signal play_game_over_sfx()
+
 
 # --- || RECYCLING || ---
 
