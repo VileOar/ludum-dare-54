@@ -515,7 +515,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 36
-text = "Created to Ludum Dare 54 By"
+text = "Created for Ludum Dare 54 By"
 
 [node name="GridContainer" type="GridContainer" parent="Credits/CenterContainer/VBoxContainer2"]
 layout_mode = 2
