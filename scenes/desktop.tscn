@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="4_ux808"]
 [ext_resource type="PackedScene" uid="uid://bjmftrmoy8ww5" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
 [ext_resource type="PackedScene" uid="uid://du3yx3v7snkkb" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
-[ext_resource type="PackedScene" path="res://scenes/windows/recycling_window.tscn" id="8_heqa6"]
+[ext_resource type="PackedScene" uid="uid://dmvynlgunihpn" path="res://scenes/windows/recycling_window.tscn" id="8_heqa6"]
 [ext_resource type="AudioStream" uid="uid://cu2g7108agyr7" path="res://assets/audio/sounds/[Popup] .wav" id="9_8atgh"]
 [ext_resource type="AudioStream" uid="uid://hlylwmss44mn" path="res://assets/audio/sounds/Explode - Scroll Wood Single.wav" id="9_caf8r"]
 [ext_resource type="AudioStream" uid="uid://dc7e3wnqpollv" path="res://assets/audio/sounds/Explode - Scroll Wood Short.wav" id="9_j8rme"]

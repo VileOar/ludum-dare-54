@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene load_steps=8 format=3 uid="uid://di25hfxjvfugn"]
 
 [ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
 [ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
+[ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_ettyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpb2x"]
 atlas = ExtResource("2_1dkig")
@@ -27,6 +28,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_a4axe")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ettyn")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="Blocker" type="ColorRect" parent="."]
 visible = false

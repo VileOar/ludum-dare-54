@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://buvdx7ui05ov5"]
+[gd_scene load_steps=3 format=3 uid="uid://dmvynlgunihpn"]
 
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_kkmvx"]
 [ext_resource type="Script" path="res://scripts/windows/recycling_window.gd" id="2_cpbaf"]
