@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckutu8ct3dp1p"
+path="res://.godot/imported/purged magic.wav-4ded718a44d3abb98e58abe90e384e47.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/purged magic.wav"
+dest_files=["res://.godot/imported/purged magic.wav-4ded718a44d3abb98e58abe90e384e47.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

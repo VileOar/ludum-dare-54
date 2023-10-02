@@ -6,8 +6,8 @@
 [node name="CorruptedFile" instance=ExtResource("1_cuxds")]
 script = ExtResource("2_l1gjo")
 
-[node name="FileIcon" parent="." index="0"]
+[node name="FileIcon" parent="." index="1"]
 animation = &"link"
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="." index="3"]
 text = "Carlos Costa.exe"

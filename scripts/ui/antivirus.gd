@@ -5,6 +5,11 @@ class_name Antivirus
 @onready var _grid_detector = %Area2D
 @onready var _purge_progressbar = %PurgeProgressbar
 
+# Audio
+@onready var _purge_sfx = $PurgeSFX
+@onready var _click_sfx = $ClickSFX
+@onready var _hover_sfx = $HoverSFX
+
 var _mouse_hovered := false
 
 var _active := false:
@@ -22,8 +27,6 @@ var _shadow_realm := Vector2(50000, 50000)
 ## to determine the next file to be replaced
 var _quarantine_queue := []
 var _max_quarantine_size := 4
-
-
 
 var _purge_counter := 0.0
 var _purge_speed := 100.0 # %/sec
@@ -84,6 +87,7 @@ func _purge_files():
 			file.disable_effects()
 		_swap_out_file(file)
 	
+	_purge_sfx.play()
 	_purging = false
 	_purge_counter = 0.0
 	_purge_progressbar.value = _purge_counter
@@ -114,6 +118,10 @@ func _on_toggle_antivirus():
 	_active = not _active
 
 
+func _on_mouse_enter_play_hover_sfx():
+	_hover_sfx.play()
+		
+
 func _on_area_2d_mouse_entered():
 	_mouse_hovered = true
 
@@ -123,5 +131,6 @@ func _on_area_2d_mouse_exited():
 
 
 func _on_purge_button_pressed():
+	_click_sfx.play()
 	if not _quarantine_queue.is_empty():
 		_purging = true

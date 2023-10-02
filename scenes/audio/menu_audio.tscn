@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfip05mtgpeyh"]
+
+[ext_resource type="Script" path="res://scripts/audio/menu_audio.gd" id="1_jj5yo"]
+[ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_5ulsv"]
+[ext_resource type="AudioStream" uid="uid://bhxc1gors0lmm" path="res://assets/audio/sounds/Old Laptop.wav" id="2_fgu3j"]
+[ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="3_0mmba"]
+[ext_resource type="AudioStream" uid="uid://bmg4gyahek1ht" path="res://assets/audio/music/Menu - Retro Between Levels Loop #9.wav" id="3_1eeex"]
+
+[node name="MenuAudio" type="Node"]
+script = ExtResource("1_jj5yo")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5ulsv")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0mmba")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ComputerOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fgu3j")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1eeex")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -13,6 +13,10 @@ signal file_created(file)
 signal disk_full
 
 
+# --- || AUDIO || ---
+
+signal disk_almost_full
+
 # --- || RECYCLING || ---
 
 # TODO: it would be cleaner to connect a signal directly from toolbar to recycle bin, but oh well

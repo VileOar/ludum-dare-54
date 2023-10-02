@@ -131,9 +131,13 @@ const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 const MAX_DISK_SPACE = 40
 ## not actually a limit for the trash bin itself but for its delay
 const MAX_TRASH_SPACE = 512
+## WARNING FOR ALMOST FULL DISK SPACE
+const DISK_ALMOST_FULL_PERCENTAGE = 0.75
 
 ## this assumes that we want the recycle window to always spawn in the same place
 const RECYCLE_WINDOW_POS := Vector2(256, 256)
+
+## AUDIO CONST
 
 func sum_array(array : Array):
 	var sum = 0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqj0l6kf7kjjl"]
+
+[ext_resource type="Script" path="res://scripts/audio/game_audio.gd" id="1_kl7f5"]
+[ext_resource type="AudioStream" uid="uid://m3glh5857wxx" path="res://assets/audio/music/Retro Platformer Theme #5 (looped).wav" id="3_nwyhk"]
+[ext_resource type="AudioStream" uid="uid://bh174agxpnj8b" path="res://assets/audio/music/Panic - Retro Action Loop #1.wav" id="4_ywofm"]
+
+[node name="GameAudio" type="Node"]
+script = ExtResource("1_kl7f5")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_nwyhk")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="PanicMusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_ywofm")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

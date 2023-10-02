@@ -44,6 +44,8 @@ func _on_button_pressed():
 	progress_timer.start()
 	
 	_recenter = false
+	
+	play_click_sfx()
 
 
 func _on_timer_timeout():
