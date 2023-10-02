@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_5ulsv"]
 [ext_resource type="AudioStream" uid="uid://bhxc1gors0lmm" path="res://assets/audio/sounds/Old Laptop.wav" id="2_fgu3j"]
 [ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="3_0mmba"]
-[ext_resource type="AudioStream" uid="uid://bmg4gyahek1ht" path="res://assets/audio/music/Menu - Retro Between Levels Loop #9.wav" id="3_1eeex"]
+[ext_resource type="AudioStream" uid="uid://d0rlotfopuv43" path="res://assets/audio/music/Menu-Retro-Between-Levels-Loop-9.ogg" id="5_qvjsp"]
 
 [node name="MenuAudio" type="Node"]
 script = ExtResource("1_jj5yo")
@@ -25,7 +25,7 @@ volume_db = -10.0
 bus = &"Music"
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1eeex")
+stream = ExtResource("5_qvjsp")
 volume_db = -20.0
 bus = &"Music"
 
