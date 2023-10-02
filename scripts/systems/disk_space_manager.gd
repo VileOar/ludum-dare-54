@@ -16,7 +16,7 @@ func _ready():
 func _add_disk_space(to_add):
 	disk_space = clamp(disk_space + to_add, 0, Global.MAX_DISK_SPACE)
 	space_update.emit(disk_space, Global.MAX_DISK_SPACE)
-	if disk_space > Global.MAX_DISK_SPACE:
+	if disk_space >= Global.MAX_DISK_SPACE:
 		SignalManager.disk_full.emit()
 	
 	# When disk is almost full signals
