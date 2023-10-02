@@ -26,15 +26,14 @@ extends Node2D
 @onready var _explode_file_sfx := $ExplodeFileSFX
 @onready var _popup_message_sfx := $PopupMessageSFX
 
-#TODO: this should be temporary
-var space_to_free := 0
-
 
 func _ready():
 	SignalManager.new_file.connect(_on_new_file)
 	SignalManager.new_window.connect(_on_new_window)
 	SignalManager.explode_files.connect(_on_explode_files)
-	SignalManager.free_space.connect(_on_free_space)
+	
+	SignalManager.delete_all_windows.connect(_on_delete_windows)
+	
 	Global.bounds_rect = Rect2(_bounds_rect.position, _bounds_rect.size)
 
 
@@ -45,7 +44,12 @@ func _on_new_file(file_type):
 	_create_file(file_type, file_pos, Vector2.ZERO, 0.0)
 
 
-func _on_new_window(window_type, last_position):
+func _on_delete_windows():
+	for window in _windows_holder.get_children():
+		window.queue_free()
+
+
+func _on_new_window(window_type, arg):
 	var windows_pos = _get_position_within_bounds()
 	var new_window
 	match window_type:
@@ -56,11 +60,11 @@ func _on_new_window(window_type, last_position):
 		Global.WindowTypes.RECURSIVE:
 			new_window = recursive_window_scene.instantiate()
 			var offset = Global.window_properties[window_type][0]["offset"]
-			windows_pos = last_position + Vector2(-offset, offset)
+			windows_pos = arg + Vector2(-offset, offset)
 		Global.WindowTypes.RECYCLING:
 			new_window = recycling_window_scene.instantiate()
-			windows_pos = last_position
-			new_window.space_to_recycle = space_to_free
+			windows_pos = Global.RECYCLE_WINDOW_POS
+			new_window.space_to_recycle = arg
 		Global.WindowTypes.WIZARD:
 			new_window = wizard_window_scene.instantiate()
 	
@@ -88,11 +92,6 @@ func _on_explode_files(origin_point : Vector2, quantity : int):
 		
 		var angle = randf() * 2 * PI
 		_create_file(type, origin_point, Vector2.RIGHT.rotated(angle), Global.EXPLODE_SPEED)
-
-
-func _on_free_space(space):
-	space_to_free = space
-	_on_new_window(Global.WindowTypes.RECYCLING, Global.RECYCLE_WINDOW_POS)
 
 
 # --- || INTERNAL || ---

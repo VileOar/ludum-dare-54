@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene load_steps=13 format=3 uid="uid://di25hfxjvfugn"]
 
 [ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
 [ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_ettyn"]
+[ext_resource type="AudioStream" uid="uid://bjuhm3qhuf61u" path="res://assets/audio/sounds/powerups/install_hard_drive.wav" id="2_udr5d"]
 [ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_xjlwx"]
+[ext_resource type="AudioStream" uid="uid://q7seum55johb" path="res://assets/audio/sounds/powerups/delete_system32.wav" id="3_x2x3o"]
+[ext_resource type="AudioStream" uid="uid://cvy2yb8xscj86" path="res://assets/audio/sounds/powerups/Charge-Up Magic Harp.wav" id="4_j71o2"]
 [ext_resource type="PackedScene" uid="uid://dxm3k1txq3n6c" path="res://scenes/ui/disk_space_bar.tscn" id="4_xto7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpb2x"]
@@ -30,6 +33,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_a4axe")
+
+[node name="InstallHardDriveSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_udr5d")
+volume_db = -6.0
+pitch_scale = 1.05
+bus = &"SFX"
+
+[node name="DeleteSystem32SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x2x3o")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="DeleteAllWindowsSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j71o2")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="HoverSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xjlwx")
@@ -72,9 +92,37 @@ theme_type_variation = &"TitlePanel"
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("2_ccml4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Power1Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Restart Window Manager
+(Delete all current windows)"
+
+[node name="Power2Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Plug External Drive
+(Add more disk space)"
+
+[node name="Power3Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Delete System32
+(Free a lot of space, but...)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
 layout_mode = 2
@@ -165,6 +213,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power1Button" to="." method="_on_power_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power2Button" to="." method="_on_power_2_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power3Button" to="." method="_on_power_3_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_mouse_enter_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/ShutdownButton" to="." method="_on_mouse_enter_play_hover_sfx"]

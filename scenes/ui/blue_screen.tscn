@@ -79,7 +79,7 @@ text = "0:00"
 
 [node name="Label5" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "If you need to reboot the system, press F1 and then wait for a bit. For steps on how to solve this problem, press F2."
+text = "If you need to reboot the system, press F1 and then wait for a bit. If you need help, check the 'How to Play' section in the Main Menu."
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer"]

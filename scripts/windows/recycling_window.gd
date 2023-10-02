@@ -28,6 +28,8 @@ func _ready():
 	timer_value_increment = recycling_bar.max_value/(time_to_recycle/TIMER_RATE)
 
 	recycling_timer.start()
+	close_button.disabled = true
+	ok_button.disabled = true
 
 
 func _on_timer_timeout():
@@ -40,9 +42,9 @@ func _on_timer_timeout():
 		ok_button.disabled = false
 
 		SignalManager.after_recycle_time.emit()
-		#self.queue_free() may/may not be used
-			
 		
+
+
 func _on_button_pressed():
 	play_click_sfx()
 	SignalManager.after_recycle_time.emit()

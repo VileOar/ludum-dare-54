@@ -16,8 +16,6 @@ var start := false
 func _ready():
 	animation.play("enter")
 
-# TODO: add options settings
-
 
 func _on_start_pressed():
 	_menu_audio.play_click_sfx()

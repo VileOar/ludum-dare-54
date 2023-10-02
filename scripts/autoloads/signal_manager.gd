@@ -52,3 +52,9 @@ signal new_file(file_type)
 
 signal corrupted_file_effect_used
 signal new_wave(wave)
+
+
+# --- || POWERS || ---
+
+signal delete_all_windows
+signal toggle_distortion(en)

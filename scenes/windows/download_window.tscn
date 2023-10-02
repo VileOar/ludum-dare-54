@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_n67kr"]
 
 [node name="DownloadWindow" instance=ExtResource("1_n67kr")]
-z_index = 10
 script = ExtResource("1_hjbis")
 
 [node name="Timer" type="Timer" parent="." index="1"]
