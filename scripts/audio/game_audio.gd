@@ -3,6 +3,7 @@ extends Node
 @onready var _music_audio : AudioStreamPlayer = $MusicPlayer
 @onready var _panic_music_audio : AudioStreamPlayer = $PanicMusicPlayer
 @onready var _timer : Timer = $Timer
+@onready var _is_disk_at_warning_level := false
 
 @export var transition_duration : float = 6.00
 @export var time_till_music_starts : float = 3.00
@@ -13,14 +14,27 @@ func _ready():
 	fade_in(_music_audio, 1.00)
 	_timer.wait_time = time_till_music_starts
 
-
+# TODO delete. it's not used anymore
 func _on_timer_timeout():
 	fade_out(_music_audio, transition_duration)
+	print("warning is now = false \n timeout")
 
 
-func _on_disk_almost_full():
-	fade_in(_panic_music_audio, time_till_music_starts)
-	_timer.start()
+func _on_disk_almost_full(is_disk_almost_full):
+	# if disk is playing panic song and no longer is almost full. fades out
+	if _is_disk_at_warning_level:
+		if !is_disk_almost_full:
+#			print("warning = true | back to normal music")
+			fade_out(_panic_music_audio, transition_duration)
+			fade_in(_music_audio, time_till_music_starts)
+			_is_disk_at_warning_level = false
+	
+	if !_is_disk_at_warning_level:
+		if is_disk_almost_full:
+#			print("warning = false | panic music")
+			fade_in(_panic_music_audio, time_till_music_starts)
+			fade_out(_music_audio, transition_duration)
+			_is_disk_at_warning_level = true
 
 
 # Source: https://ask.godotengine.org/27939/how-to-fade-in-out-an-audio-stream

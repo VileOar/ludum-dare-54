@@ -132,7 +132,8 @@ const MAX_DISK_SPACE = 1024
 ## not actually a limit for the trash bin itself but for its delay
 const MAX_TRASH_SPACE = 512
 ## WARNING FOR ALMOST FULL DISK SPACE
-const DISK_ALMOST_FULL_PERCENTAGE = 0.75
+#const DISK_ALMOST_FULL_PERCENTAGE = 0.75
+const DISK_ALMOST_FULL_PERCENTAGE = 0.25
 
 ## this assumes that we want the recycle window to always spawn in the same place
 const RECYCLE_WINDOW_POS := Vector2(256, 256)
