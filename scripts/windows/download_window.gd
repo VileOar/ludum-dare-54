@@ -40,6 +40,7 @@ func _on_button_pressed():
 	download_bar.visible = true
 	close_button.disabled = true
 	progress_timer.start()
+	play_click_sfx()
 
 
 func _on_timer_timeout():

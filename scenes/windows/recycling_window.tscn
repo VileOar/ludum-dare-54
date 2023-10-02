@@ -6,6 +6,8 @@
 [node name="RecyclingWindow" instance=ExtResource("1_kkmvx")]
 script = ExtResource("2_cpbaf")
 
+[node name="Timer" type="Timer" parent="." index="1"]
+
 [node name="Description" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
 text = "Recycling..."
 
@@ -21,7 +23,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "OK"
 
-[node name="Timer" type="Timer" parent="." index="1"]
-
-[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/OKButton" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/OKButton" to="." method="play_hover_sfx"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/OKButton" to="." method="_on_button_pressed"]

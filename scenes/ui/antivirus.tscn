@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjykajyw8e0wu"]
+[gd_scene load_steps=7 format=3 uid="uid://cjykajyw8e0wu"]
 
 [ext_resource type="Script" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
+[ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_jcl17"]
 [ext_resource type="PackedScene" uid="uid://c1srnuj4hxkt1" path="res://scenes/ui/antivirus_slot.tscn" id="2_jkvhn"]
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_k3q13"]
 [ext_resource type="AudioStream" uid="uid://ckutu8ct3dp1p" path="res://assets/audio/sounds/purged magic.wav" id="3_c65l6"]
@@ -17,6 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_spha5")
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jcl17")
+volume_db = 5.0
+bus = &"SFX"
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_k3q13")
@@ -109,4 +115,5 @@ mouse_filter = 2
 
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/HBoxContainer/PurgeButton" to="." method="_on_mouse_enter_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/PurgeButton" to="." method="_on_purge_button_pressed"]

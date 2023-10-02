@@ -6,6 +6,9 @@
 [node name="DownloadWindow" instance=ExtResource("1_n67kr")]
 script = ExtResource("1_hjbis")
 
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 0.2
+
 [node name="DownloadProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 visible = false
@@ -19,8 +22,6 @@ size_flags_vertical = 4
 theme_type_variation = &"GreenButton"
 text = "Start Download"
 
-[node name="Timer" type="Timer" parent="." index="1"]
-wait_time = 0.2
-
-[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DownloadButton" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DownloadButton" to="." method="play_hover_sfx"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DownloadButton" to="." method="_on_button_pressed"]

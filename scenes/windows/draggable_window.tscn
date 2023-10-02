@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cylps5fisf5fa"]
+[gd_scene load_steps=4 format=3 uid="uid://cylps5fisf5fa"]
 
 [ext_resource type="Script" path="res://scripts/windows/draggable_window.gd" id="1_1tewi"]
+[ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_pq175"]
+[ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="3_f3s3c"]
 
 [node name="DraggableWindow" type="Node2D"]
 script = ExtResource("1_1tewi")
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pq175")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f3s3c")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -65,4 +77,5 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="gui_input" from="VBoxContainer/PanelContainer2" to="." method="_on_panel_container_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer2/HBoxContainer/CloseButton" to="." method="play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

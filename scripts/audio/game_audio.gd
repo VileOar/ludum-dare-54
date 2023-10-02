@@ -12,7 +12,7 @@ func _ready():
 	SignalManager.disk_almost_full.connect(_on_disk_almost_full)
 	fade_in(_music_audio, 1.00)
 	_timer.wait_time = time_till_music_starts
-	
+
 
 func _on_timer_timeout():
 	fade_out(_music_audio, transition_duration)

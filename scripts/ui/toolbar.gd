@@ -2,6 +2,7 @@ extends Control
 class_name Toolbar
 
 @onready var _click_sfx := $ClickSFX
+@onready var _hover_sfx := $HoverSFX
 
 @onready var disk_space_bar := %DiskSpaceBar
 @onready var disk_space_label := %DiskSpaceLabel
@@ -25,6 +26,9 @@ func _on_disk_space_manager_space_update(new_space, max_space):
 
 func _play_click_sfx():
 	_click_sfx.play()
+	
+func _on_mouse_enter_play_hover_sfx():
+	_hover_sfx.play()
 
 func _on_empty_button_pressed():
 	_play_click_sfx()

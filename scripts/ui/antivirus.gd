@@ -8,6 +8,7 @@ class_name Antivirus
 # Audio
 @onready var _purge_sfx = $PurgeSFX
 @onready var _click_sfx = $ClickSFX
+@onready var _hover_sfx = $HoverSFX
 
 var _mouse_hovered := false
 
@@ -26,8 +27,6 @@ var _shadow_realm := Vector2(50000, 50000)
 ## to determine the next file to be replaced
 var _quarantine_queue := []
 var _max_quarantine_size := 4
-
-
 
 var _purge_counter := 0.0
 var _purge_speed := 100.0 # %/sec
@@ -114,6 +113,10 @@ func _on_release_files(files : Array):
 func _on_toggle_antivirus():
 	_active = not _active
 
+
+func _on_mouse_enter_play_hover_sfx():
+	_hover_sfx.play()
+		
 
 func _on_area_2d_mouse_entered():
 	_mouse_hovered = true

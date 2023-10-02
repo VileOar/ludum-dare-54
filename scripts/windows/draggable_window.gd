@@ -2,6 +2,9 @@ extends Node2D
 
 class_name DraggableWindow
 
+# Audio
+@onready var _click_sfx = $ClickSFX
+@onready var _hover_sfx = $HoverSFX
 
 @onready var close_button : Button = %CloseButton
 @onready var window_text : Label = %Description
@@ -23,6 +26,14 @@ func _physics_process(_delta):
 		position = get_global_mouse_position() - lift_pos_offset
 
 
+func play_hover_sfx():
+	_hover_sfx.play()
+
+
+func play_click_sfx():
+	_click_sfx.play()
+
+
 func _on_panel_container_gui_input(event:InputEvent):
 	if event is InputEventMouseButton:
 		match event.button_index:
@@ -40,4 +51,6 @@ func _on_panel_container_gui_input(event:InputEvent):
 
 
 func _on_close_button_pressed():
+	play_click_sfx()
+	await _click_sfx.finished
 	self.queue_free()
