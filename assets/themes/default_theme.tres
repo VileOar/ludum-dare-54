@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=30 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
+[ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="3_nn7h3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_065l1"]
 texture = ExtResource("2_gimpf")
@@ -39,11 +40,10 @@ region_rect = Rect2(288, 96, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ibde"]
 texture = ExtResource("1_xv5vh")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-region_rect = Rect2(0, 384, 96, 96)
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+region_rect = Rect2(0, 384, 96, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asdi1"]
 content_margin_left = 16.0
@@ -86,6 +86,24 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 region_rect = Rect2(288, 0, 96, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n101v"]
+texture = ExtResource("3_nn7h3")
+region_rect = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nef7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_per8k"]
+texture = ExtResource("3_nn7h3")
+region_rect = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxqfx"]
+texture = ExtResource("3_nn7h3")
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aatfy"]
+texture = ExtResource("3_nn7h3")
+region_rect = Rect2(96, 0, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ouil"]
 content_margin_left = 4.0
@@ -165,6 +183,14 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(288, 288, 96, 96)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfm5d"]
+texture = ExtResource("1_xv5vh")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 96, 96)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da8nw"]
 texture = ExtResource("1_xv5vh")
 texture_margin_left = 8.0
@@ -187,10 +213,10 @@ region_rect = Rect2(0, 0, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dgwe"]
 texture = ExtResource("1_xv5vh")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 24.0
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 region_rect = Rect2(0, 192, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1jrm"]
@@ -203,10 +229,10 @@ region_rect = Rect2(0, 288, 96, 96)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1sc"]
 texture = ExtResource("1_xv5vh")
-texture_margin_left = 24.0
-texture_margin_top = 8.0
-texture_margin_right = 24.0
-texture_margin_bottom = 24.0
+texture_margin_left = 12.0
+texture_margin_top = 4.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 region_rect = Rect2(0, 96, 96, 96)
 
 [resource]
@@ -235,6 +261,12 @@ Button/styles/focus = SubResource("StyleBoxEmpty_nx7p3")
 Button/styles/hover = SubResource("StyleBoxTexture_detdx")
 Button/styles/normal = SubResource("StyleBoxTexture_kghdm")
 Button/styles/pressed = SubResource("StyleBoxTexture_wid8x")
+CloseButton/base_type = &"Button"
+CloseButton/styles/disabled = SubResource("StyleBoxTexture_n101v")
+CloseButton/styles/focus = SubResource("StyleBoxEmpty_7nef7")
+CloseButton/styles/hover = SubResource("StyleBoxTexture_per8k")
+CloseButton/styles/normal = SubResource("StyleBoxTexture_rxqfx")
+CloseButton/styles/pressed = SubResource("StyleBoxTexture_aatfy")
 ErrorPanel/base_type = &"PanelContainer"
 ErrorPanel/styles/panel = SubResource("StyleBoxTexture_0ouil")
 GreenButton/base_type = &"Button"
@@ -260,6 +292,7 @@ IconButton/styles/focus = SubResource("StyleBoxEmpty_4dv0h")
 IconButton/styles/hover = SubResource("StyleBoxTexture_oqctp")
 IconButton/styles/normal = SubResource("StyleBoxEmpty_3k1g4")
 IconButton/styles/pressed = SubResource("StyleBoxTexture_b44v1")
+Panel/styles/panel = SubResource("StyleBoxTexture_pfm5d")
 QuarantinePanel/base_type = &"PanelContainer"
 QuarantinePanel/styles/panel = SubResource("StyleBoxTexture_da8nw")
 SelectPanel/base_type = &"PanelContainer"

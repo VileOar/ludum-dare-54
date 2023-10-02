@@ -7,6 +7,12 @@ var ignore_inputs := false
 func _ready():
 	randomize()
 
+
+func reset_on_play():
+	game_time = 0
+	current_wave = 1
+
+
 enum FileTypes {
 	NORMAL, ## a simple file with no gimmicks
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
@@ -26,6 +32,30 @@ enum WindowTypes {
 }
 
 
+# --- || GAME TIME || ---
+
+var game_time := 0
+var best_time := 0
+
+func time_to_str(time:int) -> String:
+	var seconds = time % 60
+	var minutes = int(time / float(60))
+	var minutes_str = str(minutes)
+	var seconds_str = str(seconds)
+	if minutes < 10:
+		minutes_str = "0" + minutes_str
+	if seconds < 10:
+		seconds_str = "0" + seconds_str
+	
+	return minutes_str + ":" + seconds_str
+
+
+func handle_highscore():
+	if game_time > best_time:
+		best_time = game_time
+
+
+# --- || WAVES || ---
 
 ## time in seconds that each wave takes. If -1 then it keeps going forever
 const WAVE_TIMES = {
@@ -88,6 +118,9 @@ const FILE_TYPES_WEIGHTS = [
 	}
 ]
 
+
+# --- || OTHER || ---
+
 ## should only be set by desktop
 var bounds_rect : Rect2
 
@@ -97,7 +130,7 @@ const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 ## max disk space (could be altered by powerups)
 const MAX_DISK_SPACE = 1024
 ## not actually a limit for the trash bin itself but for its delay
-const MAX_TRASH_SPACE = 256
+const MAX_TRASH_SPACE = 512
 ## WARNING FOR ALMOST FULL DISK SPACE
 const DISK_ALMOST_FULL_PERCENTAGE = 0.75
 
@@ -214,31 +247,31 @@ const file_properties = {
 		{
 			"name" : "TotallyNotSpam",
 			"size" : 4,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 		{
 			"name" : "README",
 			"size" : 20,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 		{
 			"name" : "SUSBSCRIBE tO My CAHNHEL",
 			"size" : 24,
-			"anim_name": "link"
+			"anim_name": "badlink"
 		},
 	],
 	FileTypes.DOWNLOAD_EXE: [
 		{
 			"name" : "Roblux",
 			"size" : 4,
-			"anim_name": "exe"
+			"anim_name": "download"
 		},
 	],
 	FileTypes.RECURSIVE: [
 		{
-			"name" : "me.png",
+			"name" : "no_u.gmm",
 			"size" : 4,
-			"anim_name": "png"
+			"anim_name": "code"
 		},
 	]
 }

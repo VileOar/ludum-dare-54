@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh0tjx8c6go3"]
+
+[ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="1_6qusr"]
+[ext_resource type="Script" path="res://scripts/files/recursive_spawner_file.gd" id="2_5khcv"]
+
+[node name="RecursiveSpawnerFile" instance=ExtResource("1_6qusr")]
+script = ExtResource("2_5khcv")

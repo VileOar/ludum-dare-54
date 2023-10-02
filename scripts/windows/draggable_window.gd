@@ -3,9 +3,9 @@ extends Node2D
 class_name DraggableWindow
 
 
-@onready var close_button : Button = $PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/CloseButton
-@onready var window_text : Label = $PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/Description
-@onready var window_title : Label = $PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Title
+@onready var close_button : Button = %CloseButton
+@onready var window_text : Label = %Description
+@onready var window_title : Label = %Title
 
 var lifted := false
 var lift_pos_offset = Vector2.ZERO 
