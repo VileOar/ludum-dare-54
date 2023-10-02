@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://crlkuni2202pw"]
+[gd_scene load_steps=19 format=3 uid="uid://crlkuni2202pw"]
 
 [ext_resource type="PackedScene" uid="uid://dv0gqt42k76sy" path="res://scenes/files/draggable_file.tscn" id="1_nnh13"]
 [ext_resource type="Script" path="res://scripts/systems/desktop.gd" id="1_y7jii"]
@@ -11,11 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://dcoxgyk10v7ah" path="res://scenes/windows/download_window.tscn" id="5_q1gx7"]
 [ext_resource type="PackedScene" uid="uid://cuk43ykfp2af0" path="res://scenes/windows/recursive_window.tscn" id="6_6hjia"]
 [ext_resource type="PackedScene" uid="uid://dh0tjx8c6go3" path="res://scenes/files/recursive_spawner_file.tscn" id="6_bqlhh"]
+[ext_resource type="PackedScene" uid="uid://b6di764ete100" path="res://scenes/files/wizard_spawner_file.tscn" id="7_ri7dv"]
 [ext_resource type="PackedScene" uid="uid://dmvynlgunihpn" path="res://scenes/windows/recycling_window.tscn" id="8_heqa6"]
 [ext_resource type="AudioStream" uid="uid://cu2g7108agyr7" path="res://assets/audio/sounds/[Popup] .wav" id="9_8atgh"]
 [ext_resource type="AudioStream" uid="uid://hlylwmss44mn" path="res://assets/audio/sounds/Explode - Scroll Wood Single.wav" id="9_caf8r"]
 [ext_resource type="AudioStream" uid="uid://dc7e3wnqpollv" path="res://assets/audio/sounds/Explode - Scroll Wood Short.wav" id="9_j8rme"]
 [ext_resource type="PackedScene" uid="uid://cjykajyw8e0wu" path="res://scenes/ui/antivirus.tscn" id="10_lpn00"]
+[ext_resource type="PackedScene" uid="uid://ka1g3ihekiob" path="res://scenes/windows/wizard_window.tscn" id="15_2kita"]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_y7jii")
@@ -24,10 +26,12 @@ corrupted_files_scene = ExtResource("3_rm4x6")
 error_exe_scene = ExtResource("4_ux808")
 download_file_scene = ExtResource("5_i7eqv")
 recursive_file_scene = ExtResource("6_bqlhh")
+wizard_file_scene = ExtResource("7_ri7dv")
 window_scene = ExtResource("4_7gjup")
 download_window_scene = ExtResource("5_q1gx7")
 recursive_window_scene = ExtResource("6_6hjia")
 recycling_window_scene = ExtResource("8_heqa6")
+wizard_window_scene = ExtResource("15_2kita")
 metadata/_edit_vertical_guides_ = []
 metadata/_edit_horizontal_guides_ = []
 

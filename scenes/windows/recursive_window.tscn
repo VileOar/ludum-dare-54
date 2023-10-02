@@ -18,6 +18,7 @@ text = "Try Again"
 
 [node name="RejectButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
+size_flags_horizontal = 10
 text = "Cancel"
 
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/AcceptButton" to="." method="play_hover_sfx"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://ka1g3ihekiob"]
+
+[ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_u1f8n"]
+[ext_resource type="Script" path="res://scripts/windows/wizard_window.gd" id="2_sswfh"]
+
+[node name="WizardWindow" instance=ExtResource("1_u1f8n")]
+script = ExtResource("2_sswfh")
+
+[node name="Title" parent="VBoxContainer/PanelContainer2/HBoxContainer" index="0"]
+text = "Pabaji ili Setuapo"
+
+[node name="CloseButton" parent="VBoxContainer/PanelContainer2/HBoxContainer" index="1"]
+disabled = true
+
+[node name="Description" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(300, 100)
+text = "Welcome to Pabaji Wizard."
+horizontal_alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "< Back"
+
+[node name="NextButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Next >"
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

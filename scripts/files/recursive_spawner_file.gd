@@ -3,6 +3,7 @@ class_name RecursiveSpawnerFile
 
 static var exist_counter := 0
 
+
 func _ready():
 	super._ready()
 	exist_counter += 1

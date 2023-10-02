@@ -453,7 +453,7 @@ offset_bottom = 192.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 48
-text = "Oh No! My Computer has Virus!"
+text = "Bonzios SP 9.5"
 
 [node name="MainUsers" type="Control" parent="."]
 anchors_preset = 0
