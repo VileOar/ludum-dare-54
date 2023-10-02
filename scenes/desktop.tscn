@@ -78,7 +78,6 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_lock_ = true
 
 [node name="Antivirus" parent="." instance=ExtResource("10_lpn00")]
-visible = false
 offset_left = 448.0
 offset_top = 32.0
 offset_right = 448.0

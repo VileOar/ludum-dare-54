@@ -149,12 +149,6 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "Empty trash"
 
-[node name="AntiVButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_type_variation = &"AntivirusButton"
-text = "Antivirus"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -179,5 +173,3 @@ horizontal_alignment = 1
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_mouse_enter_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/AntiVButton" to="." method="_on_mouse_enter_play_hover_sfx"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/AntiVButton" to="." method="_on_anti_v_button_pressed"]

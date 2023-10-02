@@ -12,13 +12,7 @@ class_name Antivirus
 
 var _mouse_hovered := false
 
-var _active := false:
-	set(val):
-		_active = val
-		if val:
-			show()
-		else:
-			hide()
+var _active := false
 
 ## a position way out of screen, where files are sent when they are in quarantine, so I don't have
 ## to bother with deleting and recreating them if they pop out of quarantine
@@ -34,7 +28,6 @@ var _purging := false
 
 
 func _ready():
-	SignalManager.toggle_antivirus.connect(_on_toggle_antivirus)
 	SignalManager.release_files.connect(_on_release_files)
 	_max_quarantine_size = _quarantine_grid.get_child_count()
 	_active = true
@@ -112,10 +105,6 @@ func _on_release_files(files : Array):
 		for i in range(files.size() - 1, -1, -1):
 			var file = files[i]
 			_drop_in_quarantine(file)
-
-
-func _on_toggle_antivirus():
-	_active = not _active
 
 
 func _on_mouse_enter_play_hover_sfx():

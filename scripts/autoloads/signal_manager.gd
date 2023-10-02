@@ -1,8 +1,6 @@
 extends Node
 
 
-signal toggle_antivirus
-
 ## called when mouse stops holding files
 signal release_files(files)
 

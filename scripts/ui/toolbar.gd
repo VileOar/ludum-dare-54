@@ -43,10 +43,6 @@ func _on_empty_button_pressed():
 	_play_click_sfx()
 	SignalManager.empty_trash.emit()
 
-func _on_anti_v_button_pressed():
-	_play_click_sfx()
-	SignalManager.toggle_antivirus.emit()
-
 func _on_start_button_pressed():
 	_play_click_sfx()
 	if get_tree().paused:
