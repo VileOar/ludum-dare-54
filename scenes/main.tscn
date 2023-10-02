@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbv62ldbf64mb"]
+[gd_scene load_steps=9 format=3 uid="uid://dbv62ldbf64mb"]
 
 [ext_resource type="PackedScene" uid="uid://bj5y314d3ssba" path="res://scenes/spawner.tscn" id="1_5sg88"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_veabf"]
 [ext_resource type="Script" path="res://scripts/systems/disk_space_manager.gd" id="2_8ua7v"]
 [ext_resource type="PackedScene" uid="uid://crlkuni2202pw" path="res://scenes/desktop.tscn" id="2_jclm6"]
 [ext_resource type="PackedScene" uid="uid://dqj0l6kf7kjjl" path="res://scenes/audio/game_audio.tscn" id="3_n2vht"]
-[ext_resource type="Script" path="res://scripts/audio/game_audio.gd" id="4_e7hlq"]
 [ext_resource type="PackedScene" uid="uid://di25hfxjvfugn" path="res://scenes/ui/toolbar.tscn" id="4_gx0xd"]
 
 [sub_resource type="Animation" id="Animation_an2fa"]
@@ -51,10 +50,9 @@ script = ExtResource("1_veabf")
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1160.0
 offset_bottom = 656.0
-color = Color(0.915294, 0.915294, 0.915294, 0.1)
+color = Color(0, 0, 0, 1)
 
 [node name="GameAudio" parent="." instance=ExtResource("3_n2vht")]
-script = ExtResource("4_e7hlq")
 
 [node name="Spawner" parent="." instance=ExtResource("1_5sg88")]
 

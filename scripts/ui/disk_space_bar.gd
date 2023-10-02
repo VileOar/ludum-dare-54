@@ -38,7 +38,6 @@ func spawn_boom():
 	boom_anim.position.y = randf_range(position.y, position.x + size.y)
 	boom_anim.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(boom_anim)
-	print("boom")
 
 
 func play_game_over_anim():
