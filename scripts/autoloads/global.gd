@@ -19,8 +19,8 @@ enum FileTypes {
 	CORRUPTED_FOLDER, ## "explodes" in several files when deleted
 	ERROR_MESSAGE_EXE, ## infintely spawns error messages
 	DOWNLOAD_EXE, ## show download bar (TODO: that can be easily closed...?)
-	RECURSIVE,
-#	ADD_POPUP_EXE, ## spawns an add popup
+	RECURSIVE_EXE,
+	WIZARD_EXE,
 	# TODO: add more as needed
 }
 
@@ -29,6 +29,7 @@ enum WindowTypes {
 	DOWNLOAD, ## can be simply closed or used to download more files
 	RECURSIVE, ## spawns a message of the same type if wrong choiced is picked
 	RECYCLING, ## temporary window while trash is being emptied
+	WIZARD, ## player has to click next and not misclick the last option
 }
 
 
@@ -83,7 +84,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.CORRUPTED_FOLDER : 1,
 		FileTypes.ERROR_MESSAGE_EXE : 1,
 		FileTypes.DOWNLOAD_EXE: 0,
-		FileTypes.RECURSIVE: 0,
+		FileTypes.WIZARD_EXE: 0,
 	},
 	{
 		FileTypes.NORMAL : 7,
@@ -91,7 +92,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.CORRUPTED_FOLDER : 1,
 		FileTypes.ERROR_MESSAGE_EXE : 1,
 		FileTypes.DOWNLOAD_EXE: 0,
-		FileTypes.RECURSIVE: 1,
+		FileTypes.WIZARD_EXE: 1,
 	},
 	{
 		FileTypes.NORMAL : 10,
@@ -99,7 +100,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.CORRUPTED_FOLDER : 2,
 		FileTypes.ERROR_MESSAGE_EXE : 1,
 		FileTypes.DOWNLOAD_EXE: 1,
-		FileTypes.RECURSIVE: 1,
+		FileTypes.WIZARD_EXE: 1,
 	},
 	{
 		FileTypes.NORMAL : 20,
@@ -107,7 +108,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.CORRUPTED_FOLDER : 3,
 		FileTypes.ERROR_MESSAGE_EXE : 3,
 		FileTypes.DOWNLOAD_EXE: 1,
-		FileTypes.RECURSIVE: 1,
+		FileTypes.WIZARD_EXE: 1,
 	},
 	{
 		FileTypes.NORMAL : 30,
@@ -115,7 +116,7 @@ const FILE_TYPES_WEIGHTS = [
 		FileTypes.CORRUPTED_FOLDER : 5,
 		FileTypes.ERROR_MESSAGE_EXE : 5,
 		FileTypes.DOWNLOAD_EXE: 3,
-		FileTypes.RECURSIVE: 3,
+		FileTypes.WIZARD_EXE: 3,
 	}
 ]
 
@@ -261,16 +262,16 @@ const file_properties = {
 	],
 	FileTypes.DOWNLOAD_EXE: [
 		{
-			"name" : "Roblux",
-			"size" : 4,
-			"anim_name": "download"
-		},
-	],
-	FileTypes.RECURSIVE: [
-		{
 			"name" : "no_u.gmm",
 			"size" : 4,
 			"anim_name": "code"
+		},
+	],
+	FileTypes.WIZARD_EXE: [
+		{
+			"name" : "Pabaji",
+			"size" : 4,
+			"anim_name": "download"
 		},
 	]
 }
@@ -347,17 +348,17 @@ const window_properties = {
 			"offset" : 15
 		},
 	],
-	WindowTypes.RECURSIVE: [
-		{
-			"title" : "Pintows XP",
-			"description" : "Couldn't defragment the disk.",
-			"offset" : 15
-		},
-	],
 	WindowTypes.RECYCLING: [
 		{
 			"title" : "Trash Bin",
 			"description" : "Recycling...",
+			"offset" : 15
+		},
+	],
+	WindowTypes.WIZARD: [
+		{
+			"title" : "Pabaji ili Setuapo",
+			"description" : "Welcome to Pabaji Wizard.",
 			"offset" : 15
 		},
 	]

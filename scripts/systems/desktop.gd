@@ -7,10 +7,13 @@ extends Node2D
 @export var error_exe_scene : PackedScene
 @export var download_file_scene : PackedScene
 @export var recursive_file_scene : PackedScene
+@export var wizard_file_scene : PackedScene
+
 @export var window_scene : PackedScene
 @export var download_window_scene : PackedScene
 @export var recursive_window_scene : PackedScene
 @export var recycling_window_scene : PackedScene
+@export var wizard_window_scene : PackedScene
 
 @onready var _files_holder := $Files
 @onready var _windows_holder := $Windows
@@ -58,6 +61,8 @@ func _on_new_window(window_type, last_position):
 			new_window = recycling_window_scene.instantiate()
 			windows_pos = last_position
 			new_window.space_to_recycle = space_to_free
+		Global.WindowTypes.WIZARD:
+			new_window = wizard_window_scene.instantiate()
 	
 	if window_type != Global.WindowTypes.RECYCLING:
 		SignalManager.corrupted_file_effect_used.emit()
@@ -110,9 +115,9 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 		Global.FileTypes.DOWNLOAD_EXE:
 			new_file = download_file_scene.instantiate()
 			new_file.type = Global.FileTypes.DOWNLOAD_EXE
-		Global.FileTypes.RECURSIVE:
-			new_file = recursive_file_scene.instantiate()
-			new_file.type = Global.FileTypes.RECURSIVE
+		Global.FileTypes.WIZARD_EXE:
+			new_file = wizard_file_scene.instantiate()
+			new_file.type = Global.FileTypes.WIZARD_EXE
 	
 	if new_file == null:
 		push_error("file type not found")
