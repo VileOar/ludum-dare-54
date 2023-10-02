@@ -1,13 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene load_steps=20 format=3 uid="uid://kamcmkeapi6o"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_3lyop"]
 [ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="3_hy4mu"]
 [ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="4_kmbvl"]
+[ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="5_3ir3o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_df11f"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjkjx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uugkd"]
+atlas = ExtResource("5_3ir3o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyhi0"]
+atlas = ExtResource("5_3ir3o")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="Animation" id="Animation_s6dsr"]
 length = 0.001
@@ -568,7 +577,6 @@ theme_type_variation = &"BIOSButton"
 text = "Go Back"
 
 [node name="HowToPlay" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -582,9 +590,17 @@ offset_bottom = 536.0
 [node name="ScrollContainer" type="ScrollContainer" parent="HowToPlay/CenterContainer"]
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
+scroll_vertical = 236
 horizontal_scroll_mode = 0
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 32
@@ -607,6 +623,46 @@ save the PC failed completely >:]
 
 Sincerely, the hacker.
 "
+
+[node name="Intro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kmbvl")
+theme_override_font_sizes/font_size = 24
+text = "Antivirus Ultra Virus Killer 5000 System Analysis Report:
+
+1 Virus Detected!!!
+Virus is targetting file system, multiplying and corrupting files. It was also very rude.
+
+Be as fast as you can deleting the spawned files by dumping them in the Recycling Bin. Don't forget, you need to actually Empty the Trash to delete them.
+
+Be careful, though! Some files have been corrupted and will cause you harm if handled improperly. You can distinguish them from normal files by their reddish tint."
+autowrap_mode = 3
+
+[node name="EXE" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_uugkd")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE"]
+layout_mode = 2
+text = "Corrupted EXE files will increase file spawn rate"
+
+[node name="folder" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_uyhi0")
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder"]
+layout_mode = 2
+text = "Corrupted folders will spawn new files if put in the Bin"
 
 [node name="Back2" type="Button" parent="HowToPlay"]
 layout_mode = 0
