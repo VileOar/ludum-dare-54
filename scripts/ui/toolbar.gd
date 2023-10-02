@@ -9,6 +9,8 @@ class_name Toolbar
 @onready var pause_menu := %PauseMenu
 @onready var blocker := $Blocker
 
+@onready var _rumble_timer := $RumbleTimer
+
 @onready var time_label := %Time
 @onready var date_label := %Date
 
@@ -16,7 +18,14 @@ var _initial_bar_size : Vector2
 
 var _disk_bar_shake_strength = 0.0
 
+# lowest value from which bar starts increasing in size
+const _MIN_BAR_GROW_PERCENT = 0.6
 const _MAX_BAR_SIZE_SCALE = 1.5
+
+const _MAX_RUMBLE_TIME = 0.5
+
+@onready var m = (_MAX_BAR_SIZE_SCALE - 1.0) / (1.0 - _MIN_BAR_GROW_PERCENT)
+@onready var b = _MAX_BAR_SIZE_SCALE - m
 
 
 func _ready():
@@ -33,7 +42,7 @@ func _physics_process(_delta):
 		disk_space_bar.position = Vector2.RIGHT.rotated(angle) * _disk_bar_shake_strength
 
 
-func _on_disk_space_manager_space_update(new_space, max_space):
+func _on_disk_space_manager_space_update(new_space : float, max_space : float):
 	# TODO: change colour (and animation?) according to space occupied
 	disk_space_bar.max_value = max_space
 	disk_space_bar.min_value = 0
@@ -41,8 +50,13 @@ func _on_disk_space_manager_space_update(new_space, max_space):
 	
 	disk_space_label.text = str(max_space - new_space) + " free out of " + str(max_space)
 	
-	var percent = new_space / Global.MAX_DISK_SPACE
-	#_set_progressbar_size()
+	var percent = new_space / max_space
+	if percent >= _MIN_BAR_GROW_PERCENT:
+		_set_progressbar_size(percent * m + b)
+	else:
+		_set_progressbar_size(1.0)
+	_disk_bar_shake_strength = percent * 4
+	_rumble_timer.start(min(_MAX_RUMBLE_TIME, _MAX_RUMBLE_TIME * (percent + 0.2)))
 
 
 func _set_progressbar_size(size_scale):
@@ -76,3 +90,7 @@ func _on_logoff_button_pressed():
 
 func _on_shutdown_button_pressed():
 	get_tree().quit()
+
+
+func _on_rumble_timer_timeout():
+	_disk_bar_shake_strength = 0.0

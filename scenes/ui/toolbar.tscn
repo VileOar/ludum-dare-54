@@ -169,8 +169,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
+[node name="RumbleTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/ShutdownButton" to="." method="_on_shutdown_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/AntiVButton" to="." method="_on_anti_v_button_pressed"]
+[connection signal="timeout" from="RumbleTimer" to="." method="_on_rumble_timer_timeout"]
