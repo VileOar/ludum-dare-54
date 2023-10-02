@@ -1,5 +1,6 @@
 extends Node
 
+@onready var _defeat_sfx = $DefeatSFX
 @onready var _music_audio : AudioStreamPlayer = $MusicPlayer
 @onready var _panic_music_audio : AudioStreamPlayer = $PanicMusicPlayer
 @onready var _timer : Timer = $Timer
@@ -11,13 +12,19 @@ extends Node
 
 func _ready():
 	SignalManager.disk_almost_full.connect(_on_disk_almost_full)
+	SignalManager.play_game_over_sfx.connect(_game_over)
 	fade_in(_music_audio, 1.00)
 	_timer.wait_time = time_till_music_starts
 
 # TODO delete. it's not used anymore
 func _on_timer_timeout():
 	fade_out(_music_audio, transition_duration)
-	print("warning is now = false \n timeout")
+
+# Signal comes frmo disk toolbar
+func _game_over():
+	_defeat_sfx.play()
+	_panic_music_audio.stop()
+	_music_audio.stop()
 
 
 func _on_disk_almost_full(is_disk_almost_full):

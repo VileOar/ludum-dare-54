@@ -43,6 +43,9 @@ func spawn_boom():
 func play_game_over_anim():
 	_timer.stop()
 	$AnimationPlayer.play("game_over")
+	
+func play_defeat_sfx():
+	SignalManager.play_game_over_sfx.emit()
 
 
 func _physics_process(delta):

@@ -17,6 +17,9 @@ signal disk_full
 
 signal disk_almost_full(is_disk_almost_full)
 
+signal play_game_over_sfx()
+
+
 # --- || RECYCLING || ---
 
 # TODO: it would be cleaner to connect a signal directly from toolbar to recycle bin, but oh well
