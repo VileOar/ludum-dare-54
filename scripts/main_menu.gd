@@ -37,8 +37,7 @@ func _on_credits_pressed():
 
 
 func _on_exit_pressed():
-	_menu_audio.play_click_sfx()
-	animation.play("turn")
+	get_tree().quit()
 
 func _on_back_pressed():
 	_menu_audio.play_click_sfx()
@@ -55,18 +54,13 @@ func _on_animation_player_animation_finished(anim_name):
 	print("Animation ended = " + anim_name)
 	match anim_name:
 		"turn":
-			if start:
-				get_tree().change_scene_to_packed(main_scene)
-			else:
-				get_tree().quit()
+			get_tree().change_scene_to_packed(main_scene)
 		"hide_menu":
 			if credits:
 				animation.play("show_credits")
 			else:
 				animation.play("show_howto")
 
-func is_left_click(event) -> bool:
-	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 
 func _on_mouse_entered(idx):
 	var label : Label = user_options.get_child(idx).get_child(1)

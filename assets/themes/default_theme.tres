@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=46 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=51 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
+[ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_8xme0"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="3_nn7h3"]
 [ext_resource type="Texture2D" uid="uid://b43iqevc4my1g" path="res://assets/gfx/panels.png" id="4_7vbmc"]
 
@@ -45,6 +46,28 @@ texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
 region_rect = Rect2(0, 384, 96, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nm3w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.74902, 0.74902, 0.741176, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wy63u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un5el"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.654902, 0.196078, 0.0666667, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usqka"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asdi1"]
 content_margin_left = 16.0
@@ -343,6 +366,19 @@ AntivirusButton/styles/normal = SubResource("StyleBoxTexture_5isax")
 AntivirusButton/styles/pressed = SubResource("StyleBoxTexture_nksq6")
 AntivirusPanel/base_type = &"PanelContainer"
 AntivirusPanel/styles/panel = SubResource("StyleBoxTexture_4ibde")
+BIOSButton/base_type = &"Button"
+BIOSButton/colors/font_color = Color(0.909804, 0.737255, 0.313726, 1)
+BIOSButton/colors/font_disabled_color = Color(0.74902, 0.74902, 0.741176, 1)
+BIOSButton/colors/font_hover_color = Color(0.74902, 0.74902, 0.741176, 1)
+BIOSButton/colors/font_hover_pressed_color = Color(0.94902, 0.945098, 0.929412, 1)
+BIOSButton/colors/font_pressed_color = Color(0.94902, 0.945098, 0.929412, 1)
+BIOSButton/font_sizes/font_size = 32
+BIOSButton/fonts/font = ExtResource("3_8xme0")
+BIOSButton/styles/disabled = SubResource("StyleBoxFlat_7nm3w")
+BIOSButton/styles/focus = SubResource("StyleBoxEmpty_wy63u")
+BIOSButton/styles/hover = SubResource("StyleBoxFlat_un5el")
+BIOSButton/styles/normal = SubResource("StyleBoxEmpty_usqka")
+BIOSButton/styles/pressed = SubResource("StyleBoxFlat_7nm3w")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.2, 0.2, 0.2, 0.588235)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
