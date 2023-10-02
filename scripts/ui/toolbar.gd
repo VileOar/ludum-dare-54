@@ -3,6 +3,9 @@ class_name Toolbar
 
 @onready var _click_sfx := $ClickSFX
 @onready var _hover_sfx := $HoverSFX
+@onready var _delete_all_windows_sfx := $DeleteAllWindowsSFX
+@onready var _install_hard_drive_sfx := $InstallHardDriveSFX
+@onready var _delete_system32_sfx := $DeleteSystem32SFX
 
 @onready var disk_space_label := %DiskSpaceLabel
 @onready var pause_menu := %PauseMenu
@@ -71,17 +74,20 @@ func _on_shutdown_button_pressed():
 
 func _on_power_1_button_pressed():
 	SignalManager.delete_all_windows.emit()
+	_delete_all_windows_sfx.play()
 	_power1_btn.disabled = true
 	_on_start_button_pressed()
 
 
 func _on_power_2_button_pressed():
+	_install_hard_drive_sfx.play()
 	Global.set_max_space(Global.MAX_DISK_SPACE * 2)
 	_power2_btn.disabled = true
 	_on_start_button_pressed()
 
 
 func _on_power_3_button_pressed():
+	_delete_system32_sfx.play()
 	SignalManager.toggle_distortion.emit(true)
 	SignalManager.free_space.emit(Global.MAX_DISK_SPACE * 0.5)
 	_power3_btn.disabled = true
