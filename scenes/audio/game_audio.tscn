@@ -1,9 +1,119 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqj0l6kf7kjjl"]
+[gd_scene load_steps=8 format=3 uid="uid://dqj0l6kf7kjjl"]
 
 [ext_resource type="Script" path="res://scripts/audio/game_audio.gd" id="1_kl7f5"]
 [ext_resource type="AudioStream" uid="uid://dq7cq8uekptca" path="res://assets/audio/sounds/Retro Defeat #1.wav" id="2_eb4es"]
 [ext_resource type="AudioStream" uid="uid://m3glh5857wxx" path="res://assets/audio/music/Retro Platformer Theme #5 (looped).wav" id="3_nwyhk"]
 [ext_resource type="AudioStream" uid="uid://bh174agxpnj8b" path="res://assets/audio/music/Panic - Retro Action Loop #1.wav" id="4_ywofm"]
+
+[sub_resource type="Animation" id="Animation_c1gvu"]
+resource_name = "change_to_panic"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-20.0, -20.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanicMusicPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, -20.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("MusicPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-1.5, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("PanicMusicPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_quy0t"]
+resource_name = "change_to_normal"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, -20.0, -20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanicMusicPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-20.0, -20.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("MusicPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("PanicMusicPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6k2k"]
+_data = {
+"change_to_normal": SubResource("Animation_quy0t"),
+"change_to_panic": SubResource("Animation_c1gvu")
+}
 
 [node name="GameAudio" type="Node"]
 script = ExtResource("1_kl7f5")
@@ -16,7 +126,7 @@ bus = &"Music"
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_nwyhk")
-volume_db = -20.0
+volume_db = -80.0
 bus = &"Music"
 
 [node name="PanicMusicPlayer" type="AudioStreamPlayer" parent="."]
@@ -28,5 +138,10 @@ bus = &"Music"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x6k2k")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
