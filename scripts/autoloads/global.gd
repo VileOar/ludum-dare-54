@@ -13,10 +13,8 @@ enum FileTypes {
 	INCREASE_SPAWN_EXE, ## increase the spawn rate considerably
 	CORRUPTED_FOLDER, ## "explodes" in several files when deleted
 	ERROR_MESSAGE_EXE, ## infintely spawns error messages
-	DOWNLOAD_EXE, ## show download bar (TODO: that can be easily closed...?)
-	RECURSIVE_EXE,
+	DOWNLOAD_EXE, ## show download bar
 	WIZARD_EXE,
-	# TODO: add more as needed
 }
 
 enum WindowTypes {
@@ -241,7 +239,7 @@ const file_properties = {
 			"anim_name": "folder"
 		},
 	],
-	FileTypes.ERROR_MESSAGE_EXE: [
+	FileTypes.WIZARD_EXE: [
 		{
 			"name" : "TotallyNotSpam",
 			"size" : 4,
@@ -258,14 +256,14 @@ const file_properties = {
 			"anim_name": "badlink"
 		},
 	],
-	FileTypes.DOWNLOAD_EXE: [
+	FileTypes.ERROR_MESSAGE_EXE: [
 		{
 			"name" : "no_u.gmm",
 			"size" : 4,
 			"anim_name": "code"
 		},
 	],
-	FileTypes.WIZARD_EXE: [
+	FileTypes.DOWNLOAD_EXE: [
 		{
 			"name" : "Pabaji",
 			"size" : 4,

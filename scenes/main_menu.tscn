@@ -703,7 +703,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
-text = "Bad links will malfunction and continuously spawn error messages. Deal with it ASAP"
+text = "Bad link files will open a malicious install wizard. Read the messages carefully to avoid falling in a loop."
 autowrap_mode = 3
 
 [node name="download" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
@@ -735,7 +735,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
-text = "Malicious code files will spawn popup windows which can spawn more of themselves, cluttering your desktop"
+text = "Malicious code files will malfunction and continuously spawn error messages. Deal with them ASAP"
 autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
