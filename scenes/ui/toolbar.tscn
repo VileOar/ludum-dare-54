@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene load_steps=8 format=3 uid="uid://di25hfxjvfugn"]
 
 [ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
 [ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
+[ext_resource type="PackedScene" uid="uid://dxm3k1txq3n6c" path="res://scenes/ui/disk_space_bar.tscn" id="4_xto7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpb2x"]
 atlas = ExtResource("2_1dkig")
@@ -117,20 +118,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "C:"
 
-[node name="BarAnchor" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Diskbar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("4_xto7r")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="DiskSpaceBar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer/BarAnchor"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 32)
-layout_mode = 1
-offset_right = 256.0
-offset_bottom = 32.0
-size_flags_vertical = 4
-show_percentage = false
 
 [node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -169,13 +159,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
-[node name="RumbleTimer" type="Timer" parent="."]
-wait_time = 0.4
-one_shot = true
-
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/ShutdownButton" to="." method="_on_shutdown_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/AntiVButton" to="." method="_on_anti_v_button_pressed"]
-[connection signal="timeout" from="RumbleTimer" to="." method="_on_rumble_timer_timeout"]

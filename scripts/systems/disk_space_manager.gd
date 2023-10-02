@@ -17,7 +17,6 @@ func _add_disk_space(to_add):
 	space_update.emit(disk_space, Global.MAX_DISK_SPACE)
 	if disk_space > Global.MAX_DISK_SPACE:
 		SignalManager.disk_full.emit()
-		get_tree().change_scene_to_file("res://scenes/ui/blue_screen.tscn")
 
 
 func _on_file_created(file : DraggableFile):

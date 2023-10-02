@@ -51,7 +51,7 @@ script = ExtResource("1_veabf")
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1160.0
 offset_bottom = 656.0
-color = Color(0.915294, 0.915294, 0.915294, 0.1)
+color = Color(0, 0, 0, 1)
 
 [node name="Audio" parent="." instance=ExtResource("2_2bb6f")]
 script = ExtResource("3_8tq8v")

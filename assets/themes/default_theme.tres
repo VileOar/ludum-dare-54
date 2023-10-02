@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=44 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=46 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
@@ -105,6 +105,30 @@ region_rect = Rect2(0, 0, 32, 32)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aatfy"]
 texture = ExtResource("3_nn7h3")
 region_rect = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ilcj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 24, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fo2wy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("4_7vbmc")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 120, 24, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ouil"]
 content_margin_left = 4.0
@@ -336,6 +360,9 @@ CloseButton/styles/focus = SubResource("StyleBoxEmpty_7nef7")
 CloseButton/styles/hover = SubResource("StyleBoxTexture_per8k")
 CloseButton/styles/normal = SubResource("StyleBoxTexture_rxqfx")
 CloseButton/styles/pressed = SubResource("StyleBoxTexture_aatfy")
+DiskProgress/base_type = &"ProgressBar"
+DiskProgress/styles/background = SubResource("StyleBoxTexture_6ilcj")
+DiskProgress/styles/fill = SubResource("StyleBoxTexture_fo2wy")
 ErrorPanel/base_type = &"PanelContainer"
 ErrorPanel/styles/panel = SubResource("StyleBoxTexture_0ouil")
 GreenButton/base_type = &"Button"
