@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene load_steps=23 format=3 uid="uid://kamcmkeapi6o"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_3lyop"]
@@ -17,6 +17,18 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyhi0"]
 atlas = ExtResource("5_3ir3o")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1mko"]
+atlas = ExtResource("5_3ir3o")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wsll"]
+atlas = ExtResource("5_3ir3o")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ankro"]
+atlas = ExtResource("5_3ir3o")
+region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="Animation" id="Animation_s6dsr"]
 length = 0.001
@@ -398,7 +410,11 @@ _data = {
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_tjut0")
 main_scene = ExtResource("2_3lyop")
 
@@ -577,25 +593,28 @@ theme_type_variation = &"BIOSButton"
 text = "Go Back"
 
 [node name="HowToPlay" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="HowToPlay"]
-layout_mode = 0
-offset_top = 152.0
-offset_right = 1160.0
-offset_bottom = 536.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HowToPlay/CenterContainer"]
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
-scroll_vertical = 236
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
@@ -632,11 +651,11 @@ theme_override_font_sizes/font_size = 24
 text = "Antivirus Ultra Virus Killer 5000 System Analysis Report:
 
 1 Virus Detected!!!
-Virus is targetting file system, multiplying and corrupting files. It was also very rude.
+Virus is targetting file system, multiplying and corrupting files. It is also very finnicky and rude.
 
-Be as fast as you can deleting the spawned files by dumping them in the Recycling Bin. Don't forget, you need to actually Empty the Trash to delete them.
+Suggested approach is deleting the spawned files by dumping them in the Recycling Bin as fast as possible. Keep in mind, you need to actually Empty the Trash to delete them. Letting your disk run out of space could be catastrophic. Presumably you should want to avoid that.
 
-Be careful, though! Some files have been corrupted and will cause you harm if handled improperly. You can distinguish them from normal files by their reddish tint."
+WARNING: Some files have been corrupted and will cause further harm if handled improperly. You can distinguish them from normal files by their reddish tint."
 autowrap_mode = 3
 
 [node name="EXE" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
@@ -650,7 +669,10 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Corrupted EXE files will increase file spawn rate"
+autowrap_mode = 3
 
 [node name="folder" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -662,7 +684,77 @@ texture = SubResource("AtlasTexture_uyhi0")
 
 [node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Corrupted folders will spawn new files if put in the Bin"
+autowrap_mode = 3
+
+[node name="badlink" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_i1mko")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
+text = "Bad links will malfunction and continuously spawn error messages. Deal with it ASAP"
+autowrap_mode = 3
+
+[node name="download" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_6wsll")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
+text = "Download links will try to trick you into starting download of more files with a popup which tries to follow your mouse cursor. Delete all these links to stop the windows from reappearing"
+autowrap_mode = 3
+
+[node name="code" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ankro")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
+text = "Malicious code files will spawn popup windows which can spawn more of themselves, cluttering your desktop"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Outro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_kmbvl")
+theme_override_font_sizes/font_size = 24
+text = "These files should be handled with special care and skill, meaning you shouldn't do it by yourself. Drop them in the quarantine area, push the Purge button and only then drop them in the Trash.
+
+Good luck."
+autowrap_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"AntivirusPanel"
 
 [node name="Back2" type="Button" parent="HowToPlay"]
 layout_mode = 0
@@ -673,6 +765,9 @@ offset_bottom = 613.0
 theme_type_variation = &"BIOSButton"
 text = "Go Back
 "
+
+[node name="MarginContainer" type="MarginContainer" parent="HowToPlay"]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Background")
