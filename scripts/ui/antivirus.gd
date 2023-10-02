@@ -80,6 +80,10 @@ func _purge_files():
 	while _quarantine_queue.size() > 0:
 		var file = _quarantine_queue.pop_back() as DraggableFile
 		if file is EvilFile:
+			# stupid edge case
+			if file.get_file_icon_anim() == "badlink":
+				file.set_icon("link")
+			
 			file.disable_effects()
 		_swap_out_file(file)
 	

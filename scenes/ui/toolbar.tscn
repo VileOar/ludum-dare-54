@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene load_steps=10 format=3 uid="uid://di25hfxjvfugn"]
 
 [ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
 [ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_ettyn"]
 [ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_xjlwx"]
+[ext_resource type="PackedScene" uid="uid://dxm3k1txq3n6c" path="res://scenes/ui/disk_space_bar.tscn" id="4_xto7r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpb2x"]
 atlas = ExtResource("2_1dkig")
@@ -91,10 +92,12 @@ text = "Shutdown"
 icon = SubResource("AtlasTexture_43tsx")
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ToolbarPanel"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+clip_contents = true
 layout_mode = 2
 alignment = 1
 
@@ -115,20 +118,21 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "C:"
 
-[node name="DiskSpaceBar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Diskbar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("4_xto7r")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 16)
 layout_mode = 2
-size_flags_vertical = 4
-show_percentage = false
 
 [node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -151,11 +155,21 @@ size_flags_vertical = 4
 theme_type_variation = &"AntivirusButton"
 text = "Antivirus"
 
-[node name="Date" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Time" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Date" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_mouse_enter_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_logoff_button_pressed"]

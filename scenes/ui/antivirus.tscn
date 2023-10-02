@@ -111,7 +111,9 @@ text = "PURGE"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 mouse_filter = 2
+theme_type_variation = &"OrangeProgressbar"
 
 [connection signal="mouse_entered" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PanelContainer2/Area2D" to="." method="_on_area_2d_mouse_exited"]

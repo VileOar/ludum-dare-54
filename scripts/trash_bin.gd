@@ -27,6 +27,9 @@ func _ready():
 	SignalManager.release_files.connect(remove_files)
 	SignalManager.empty_trash.connect(empty_trash)
 	SignalManager.after_recycle_time.connect(after_recycle_time)
+	
+	can_recycle = false
+	can_antivirus = false
 
 
 func _remove_file(file : DraggableFile):

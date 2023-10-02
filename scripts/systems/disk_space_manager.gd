@@ -18,7 +18,6 @@ func _add_disk_space(to_add):
 	space_update.emit(disk_space, Global.MAX_DISK_SPACE)
 	if disk_space > Global.MAX_DISK_SPACE:
 		SignalManager.disk_full.emit()
-		get_tree().change_scene_to_file("res://scenes/ui/blue_screen.tscn")
 	
 	# When disk is almost full signals
 	if disk_space > Global.MAX_DISK_SPACE * Global.DISK_ALMOST_FULL_PERCENTAGE and !is_disk_almost_full:
@@ -28,7 +27,6 @@ func _add_disk_space(to_add):
 		is_disk_almost_full = false
 		SignalManager.disk_almost_full.emit(is_disk_almost_full)
 		
-
 
 
 func _on_file_created(file : DraggableFile):

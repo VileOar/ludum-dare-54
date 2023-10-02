@@ -13,6 +13,8 @@ static var exist_counter = 0
 var download_increment := 1 # value to increment progress
 var files_to_download := 10 # files that will spawn at the end of download
 
+var _recenter = true
+
 
 func _ready():
 	exist_counter += 1
@@ -23,7 +25,7 @@ func _physics_process(delta):
 	var rect = Rect2(top.global_position, top.size)
 	var mouse_pos = get_global_mouse_position()
 	# this check is necessary because this signal is fired when hovering into children of this control
-	if not rect.has_point(mouse_pos):
+	if _recenter and not rect.has_point(mouse_pos):
 		global_position = mouse_pos
 
 
@@ -40,6 +42,9 @@ func _on_button_pressed():
 	download_bar.visible = true
 	close_button.disabled = true
 	progress_timer.start()
+	
+	_recenter = false
+	
 	play_click_sfx()
 
 
