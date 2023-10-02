@@ -37,6 +37,8 @@ position = Vector2(480, -240)
 
 [node name="Windows" type="Node" parent="."]
 
+[node name="DownloadWindow" parent="Windows" instance=ExtResource("5_q1gx7")]
+
 [node name="MouseManager" parent="." instance=ExtResource("3_vdwjr")]
 
 [node name="Node" type="Node" parent="."]

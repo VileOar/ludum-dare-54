@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cylps5fisf5fa"]
+[gd_scene load_steps=2 format=3 uid="uid://cylps5fisf5fa"]
 
 [ext_resource type="Script" path="res://scripts/windows/draggable_window.gd" id="1_1tewi"]
-[ext_resource type="Texture2D" uid="uid://sty1r4akbfmk" path="res://cross.png" id="2_eebc2"]
 
 [node name="DraggableWindow" type="Node2D"]
 script = ExtResource("1_1tewi")
@@ -22,6 +21,7 @@ theme_override_constants/separation = 0
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"TitlePanel"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2"]
@@ -36,13 +36,15 @@ text = "System Message"
 
 [node name="CloseButton" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
-icon = ExtResource("2_eebc2")
+theme_type_variation = &"CloseButton"
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"WindowPanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]

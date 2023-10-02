@@ -8,12 +8,23 @@ static var exist_counter = 0
 @onready var progress_timer : Timer = $Timer
 @onready var download_bar : ProgressBar = %DownloadProgress
 
+@onready var top := $VBoxContainer
+
 var download_increment := 1 # value to increment progress
 var files_to_download := 10 # files that will spawn at the end of download
 
 
 func _ready():
 	exist_counter += 1
+
+
+func _physics_process(delta):
+	super._physics_process(delta)
+	var rect = Rect2(top.global_position, top.size)
+	var mouse_pos = get_global_mouse_position()
+	# this check is necessary because this signal is fired when hovering into children of this control
+	if not rect.has_point(mouse_pos):
+		global_position = mouse_pos
 
 
 func _notification(what):
