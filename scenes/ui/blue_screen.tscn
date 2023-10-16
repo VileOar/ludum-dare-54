@@ -45,12 +45,12 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "A problem has been detected and Pintows has been shut down to prevent damage to your computer :("
+text = "A problem has been detected and Bonzios has been shut down to prevent damage to your computer :("
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "If this is the first time you've seen this error screen, be prepared to see it a lot more moving forwards. If this screen appears again, try not to cry, and do better next time. To that end, Pintows stores the length of your previous session, among other data. "
+text = "If this is the first time you've seen this error screen, be prepared to see it a lot more moving forwards. If this screen appears again, try not to cry, and do better next time. To that end, Bonzios stores the length of your previous session, among other data. "
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
