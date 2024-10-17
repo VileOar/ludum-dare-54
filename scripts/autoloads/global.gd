@@ -25,6 +25,9 @@ enum WindowTypes {
 	WIZARD, ## player has to click next and not misclick the last option
 }
 
+const MAX_WINDOWS := 12
+const MAX_RANDOM_FILES := 50 # just the ones that are normally spawned, does ot limit those spawned by folders
+
 
 # --- || GAME TIME || ---
 

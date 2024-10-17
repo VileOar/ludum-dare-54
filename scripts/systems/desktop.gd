@@ -132,6 +132,7 @@ func _create_file(file_type : int, file_pos : Vector2, move_dir : Vector2, speed
 	
 	_files_holder.add_child(new_file)
 	
+	
 	new_file.text = properties["name"]
 	new_file.set_icon(properties["anim_name"])
 	

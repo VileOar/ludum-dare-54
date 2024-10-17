@@ -13,12 +13,25 @@ class_name DraggableWindow
 var lifted := false
 var lift_pos_offset = Vector2.ZERO 
 
+## how many of these there are
+static var exist_counter = 0
+
 var title : String = "":
 	set(value):
 		window_title.text = value
 var description : String = "":
 	set(value):
 		window_text.text = value
+
+
+func _enter_tree():
+	exist_counter += 1
+
+
+func _notification(what):
+	match what:
+		NOTIFICATION_PREDELETE:
+			exist_counter = max(exist_counter - 1, 0)
 
 
 func _physics_process(_delta):

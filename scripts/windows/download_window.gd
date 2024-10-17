@@ -2,7 +2,7 @@ extends DraggableWindow
 class_name DownloadWindow
 
 ## how many of these there are
-static var exist_counter = 0
+static var download_exist_counter = 0
 
 @onready var download_button : Button = %DownloadButton
 @onready var progress_timer : Timer = $Timer
@@ -17,7 +17,7 @@ var _recenter = true
 
 
 func _ready():
-	exist_counter += 1
+	download_exist_counter += 1
 
 
 func _physics_process(delta):
@@ -33,6 +33,7 @@ func _notification(what):
 	match what:
 		NOTIFICATION_PREDELETE:
 			exist_counter = max(exist_counter - 1, 0)
+			download_exist_counter = max(exist_counter - 1, 0)
 
 
 func _on_button_pressed():

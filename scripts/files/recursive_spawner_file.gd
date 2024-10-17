@@ -1,6 +1,8 @@
 extends ErrorExeFile
 class_name RecursiveSpawnerFile
 
+# ALERT: I think this file is not used
+
 static var exist_counter := 0
 
 

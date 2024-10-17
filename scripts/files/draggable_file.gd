@@ -10,6 +10,8 @@ class_name DraggableFile
 @onready var _anim := $FileIcon
 @onready var _anim_player := $AnimationPlayer
 
+static var file_counter = 0
+
 ## whether the file can be put in recycle bin
 var can_recycle = true
 ## whether the file can be put in antivirus
@@ -45,10 +47,15 @@ func _ready():
 	SignalManager.file_created.emit(self)
 
 
+func _enter_tree():
+	file_counter += 1
+
+
 func _notification(what):
 	match what:
 		NOTIFICATION_PREDELETE:
 			Global.selected_files.erase(self)
+			file_counter = max(file_counter - 1, 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
