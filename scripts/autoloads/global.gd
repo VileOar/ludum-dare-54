@@ -25,8 +25,8 @@ enum WindowTypes {
 	WIZARD, ## player has to click next and not misclick the last option
 }
 
-const MAX_WINDOWS := 20
-const MAX_RANDOM_FILES := 100 # just the ones that are normally spawned, does ot limit those spawned by folders
+const MAX_WINDOWS := 30
+const MAX_RANDOM_FILES := 500 # just the ones that are normally spawned, does ot limit those spawned by folders
 								# this is just sanity limit, as if no more files spawn, player can't lose
 								# cause no more space is taken, but this limit exists just as a last resort measure
 
