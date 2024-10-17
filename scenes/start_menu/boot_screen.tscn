@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7pmiea2m8gvm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2bo5r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gm4jk"]
+
+[node name="BootScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGTransition" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ProgressCentre" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressCentre"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressCentre/VBoxContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DiskProgress"
+show_percentage = false
+
+[node name="ProgressLabel" type="ProgressBar" parent="ProgressCentre/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_2bo5r")
+theme_override_styles/fill = SubResource("StyleBoxEmpty_gm4jk")
+value = 94.4

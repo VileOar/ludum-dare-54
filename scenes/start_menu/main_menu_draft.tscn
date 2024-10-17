@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwug1ibtm4on4"]
+
+[ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="1_ncvqk"]
+[ext_resource type="Script" path="res://scenes/start_menu/main_menu.gd" id="1_w5c0e"]
+[ext_resource type="PackedScene" uid="uid://b7pmiea2m8gvm" path="res://scenes/start_menu/boot_screen.tscn" id="2_jy82d"]
+[ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_nydd0"]
+[ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_vuigh"]
+[ext_resource type="PackedScene" uid="uid://c5fyc1alkq7jd" path="res://scenes/start_menu/credits.tscn" id="4_cpw2a"]
+[ext_resource type="PackedScene" uid="uid://bclnq8r0xonxq" path="res://scenes/start_menu/how_to_play.tscn" id="5_2yyt8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5c0e")
+main_scene = ExtResource("2_nydd0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.34902, 0.858824, 1)
+
+[node name="MenuAudio" parent="." instance=ExtResource("1_ncvqk")]
+
+[node name="BootScreen" parent="." instance=ExtResource("2_jy82d")]
+visible = false
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_vuigh")
+theme_override_font_sizes/font_size = 48
+text = "Bonzios SP 9.5"
+
+[node name="Screens" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/Screens"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer/Screens/Buttons"]
+layout_mode = 2
+theme_type_variation = &"BIOSButton"
+text = "Start"
+
+[node name="HowToPlay" type="Button" parent="VBoxContainer/Screens/Buttons"]
+layout_mode = 2
+theme_type_variation = &"BIOSButton"
+text = "How to Play"
+
+[node name="Credits" type="Button" parent="VBoxContainer/Screens/Buttons"]
+layout_mode = 2
+theme_type_variation = &"BIOSButton"
+text = "Credits"
+
+[node name="Exit" type="Button" parent="VBoxContainer/Screens/Buttons"]
+layout_mode = 2
+theme_type_variation = &"BIOSButton"
+text = "Exit"
+
+[node name="BackableScreens" type="MarginContainer" parent="VBoxContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Screens/BackableScreens"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ScreenHolder" type="MarginContainer" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="Credits" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" instance=ExtResource("4_cpw2a")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HowToPlay" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" instance=ExtResource("5_2yyt8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"BIOSButton"
+text = "Go Back"
+
+[connection signal="pressed" from="VBoxContainer/Screens/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Screens/Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Screens/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Screens/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Screens/BackableScreens/VBoxContainer/Back" to="." method="_on_back_pressed"]
