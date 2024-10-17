@@ -52,7 +52,7 @@ func _on_spawn_timer_timeout():
 	
 	if DraggableFile.file_counter < Global.MAX_RANDOM_FILES:
 		SignalManager.new_file.emit(type)
-	print(DraggableFile.file_counter)
+	#print(DraggableFile.file_counter)
 	spawn_time = WAVE_RATE[Global.current_wave]
 	spawn_timer.start(spawn_time)
 

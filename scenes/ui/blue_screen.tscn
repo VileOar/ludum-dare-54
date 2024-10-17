@@ -45,7 +45,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "A problem has been detected and Bonzios has been shut down to prevent damage to your computer :("
+text = "A problem has been detected and Bonzios SP 9.5 has been shut down to prevent damage to your computer :("
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]

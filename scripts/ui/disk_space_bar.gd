@@ -48,7 +48,7 @@ func play_defeat_sfx():
 	SignalManager.play_game_over_sfx.emit()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if _disk_bar_shake_strength > 0:
 		var angle = randf() * 2 * PI
 		_space_bar.position = Vector2.RIGHT.rotated(angle) * _disk_bar_shake_strength

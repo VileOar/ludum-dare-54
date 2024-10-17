@@ -4,6 +4,7 @@ extends Control
 @export var main_scene : PackedScene
 
 @onready var _menu_audio = $MenuAudio
+@onready var _animation_player = %AnimationPlayer
 
 @onready var _main_buttons = %Buttons
 @onready var _backable_screens = %BackableScreens
@@ -28,6 +29,8 @@ func _on_back_pressed():
 
 
 func _on_start_pressed():
+	_animation_player.play("start")
+	await _animation_player.animation_finished
 	get_tree().change_scene_to_packed(main_scene)
 
 

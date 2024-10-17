@@ -31,7 +31,7 @@ region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5r0ol"]
 atlas = ExtResource("4_abcgw")
-region = Rect2(128, 0, 64, 64)
+region = Rect2(129, 0, 64, 64)
 
 [node name="HowToPlay" type="MarginContainer"]
 anchors_preset = 15

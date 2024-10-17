@@ -50,5 +50,5 @@ func fade_in(stream_player, duration):
 	
 # stop the music -- otherwise it continues to run at silent volume
 func _on_TweenOut_tween_completed(object, _key):
-	print("fade out completed")
+	#print("fade out completed")
 	object.stop()

@@ -1,4 +1,5 @@
 extends Control
+## NOTE: This script and associated scene have been rewritten
 
 @onready var _menu_audio = $MenuAudio
 
@@ -49,7 +50,7 @@ func _on_back_2_pressed():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	print("Animation ended = " + anim_name)
+	#print("Animation ended = " + anim_name)
 	match anim_name:
 		"turn":
 			get_tree().change_scene_to_packed(main_scene)

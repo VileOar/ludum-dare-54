@@ -25,7 +25,7 @@ enum WindowTypes {
 	WIZARD, ## player has to click next and not misclick the last option
 }
 
-const MAX_WINDOWS := 12
+const MAX_WINDOWS := 20
 const MAX_RANDOM_FILES := 100 # just the ones that are normally spawned, does ot limit those spawned by folders
 								# this is just sanity limit, as if no more files spawn, player can't lose
 								# cause no more space is taken, but this limit exists just as a last resort measure
@@ -66,8 +66,8 @@ const WAVE_TIMES = {
 
 var current_wave = 1:
 	set(value):
-		print("Changed wave to ")
-		print(value)
+		#print("Changed wave to ")
+		#print(value)
 		current_wave = value
 		if current_wave > WAVE_TIMES.size():
 			current_wave = WAVE_TIMES.size()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=51 format=3 uid="uid://cr14ypjrq1sus"]
+[gd_resource type="Theme" load_steps=55 format=3 uid="uid://cr14ypjrq1sus"]
 
 [ext_resource type="Texture2D" uid="uid://c0kt1jh1aw8dm" path="res://assets/gfx/panels/desktop_panels.png" id="1_xv5vh"]
 [ext_resource type="Texture2D" uid="uid://rgwc4msiuvgo" path="res://assets/gfx/buttons/button_styles.png" id="2_gimpf"]
@@ -343,6 +343,32 @@ texture_margin_right = 16.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 288, 96, 96)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgk3w"]
+content_margin_left = 8.0
+content_margin_top = 32.0
+content_margin_right = 8.0
+content_margin_bottom = 32.0
+bg_color = Color(0.396078, 0.862745, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko25w"]
+content_margin_left = 8.0
+content_margin_top = 32.0
+content_margin_right = 8.0
+content_margin_bottom = 32.0
+bg_color = Color(0.396078, 0.862745, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55vi4"]
+content_margin_left = 8.0
+content_margin_top = 32.0
+content_margin_right = 8.0
+content_margin_bottom = 32.0
+bg_color = Color(0.74902, 0.74902, 0.741176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re8m2"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.156863, 0.643137, 0.796078, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1sc"]
 texture = ExtResource("1_xv5vh")
 texture_margin_left = 12.0
@@ -447,5 +473,9 @@ TitlePanel/base_type = &"PanelContainer"
 TitlePanel/styles/panel = SubResource("StyleBoxTexture_3dgwe")
 ToolbarPanel/base_type = &"PanelContainer"
 ToolbarPanel/styles/panel = SubResource("StyleBoxTexture_f1jrm")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_bgk3w")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ko25w")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_55vi4")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_re8m2")
 WindowPanel/base_type = &"PanelContainer"
 WindowPanel/styles/panel = SubResource("StyleBoxTexture_qu1sc")

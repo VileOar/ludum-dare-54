@@ -19,4 +19,4 @@ func _unhandled_input(event):
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
 	elif event.is_action_pressed("show_help"):
 		#TODO: Implement tutorial/help screen... or not
-		print("show help")
+		#print("show help")
