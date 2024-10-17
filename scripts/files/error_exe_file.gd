@@ -19,7 +19,7 @@ func _custom_disable_effects():
 
 
 func _on_spawn_error_timer_timeout():
-	if DraggableWindow.exist_counter <= Global.MAX_WINDOWS:
+	if DraggableWindow.exist_counter < Global.MAX_WINDOWS:
 		on_timer_end()
 	
 	_spawn_error_timer.start(SPAWN_ERROR_TIME - (Global.current_wave * 0.7)) 

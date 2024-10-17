@@ -26,8 +26,9 @@ enum WindowTypes {
 }
 
 const MAX_WINDOWS := 12
-const MAX_RANDOM_FILES := 50 # just the ones that are normally spawned, does ot limit those spawned by folders
-
+const MAX_RANDOM_FILES := 100 # just the ones that are normally spawned, does ot limit those spawned by folders
+								# this is just sanity limit, as if no more files spawn, player can't lose
+								# cause no more space is taken, but this limit exists just as a last resort measure
 
 # --- || GAME TIME || ---
 
