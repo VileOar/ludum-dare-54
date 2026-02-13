@@ -58,3 +58,4 @@ signal new_wave(wave)
 
 signal delete_all_windows
 signal toggle_distortion(en)
+signal program_install(size)

@@ -5,6 +5,7 @@ class_name RecyclingWindow
 @onready var ok_button : Button = %OKButton
 @onready var recycling_bar : ProgressBar = %RecycleProgress
 @onready var recycling_timer : Timer = $Timer
+@onready var windows_timeout = $WindowsTimeout
 
 const MIN_RECYCLE_TIME := 0.2 ## in seconds
 const MAX_RECYCLE_TIME := 3.0 ## in seconds
@@ -42,11 +43,19 @@ func _on_timer_timeout():
 		ok_button.disabled = false
 
 		SignalManager.after_recycle_time.emit()
+	
+	if Global.is_close_trash_window_program_installed:
+		windows_timeout.start()
 		
-
 
 func _on_button_pressed():
 	play_click_sfx()
 	SignalManager.after_recycle_time.emit()
+	await _click_sfx.finished
+	self.queue_free()
+
+
+func _on_windows_timeout():
+	play_click_sfx()
 	await _click_sfx.finished
 	self.queue_free()

@@ -11,7 +11,9 @@ var is_disk_almost_full := false
 func _ready():
 	SignalManager.file_created.connect(_on_file_created)
 	SignalManager.free_space.connect(_on_free_space)
+	SignalManager.program_install.connect(_on_program_install)
 	_add_disk_space(0)
+	
 
 
 func _add_disk_space(to_add):
@@ -32,7 +34,9 @@ func _add_disk_space(to_add):
 
 func _on_file_created(file : DraggableFile):
 	_add_disk_space(file.file_size)
-
+	
+func _on_program_install(size : int):
+	_add_disk_space(size)
 
 func _on_free_space(size : float):
 	# add negative to remove

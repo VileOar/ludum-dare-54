@@ -2,7 +2,7 @@ extends Node
 
 var selected_files : Array = []
 var ignore_inputs := false
-
+var is_close_trash_window_program_installed : bool = false
 
 func _ready():
 	randomize()
@@ -130,6 +130,9 @@ const CORRUPTED_COLOUR = Color(1, 0.9, 0.9, 1)
 var MAX_DISK_SPACE = 1024
 func set_max_space(new_max_space):
 	MAX_DISK_SPACE = new_max_space
+	
+## power up - install program to clean trash window
+var PROGRAM_CLOSE_TRASH_WINDOW_SIZE = 100
 
 ## not actually a limit for the trash bin itself but for its delay
 const MAX_TRASH_SPACE = 512

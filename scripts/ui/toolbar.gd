@@ -19,6 +19,7 @@ class_name Toolbar
 @onready var _power1_btn := %Power1Button
 @onready var _power2_btn := %Power2Button
 @onready var _power3_btn := %Power3Button
+@onready var _power4_btn = %Power4Button
 
 
 func _ready():
@@ -95,3 +96,11 @@ func _on_power_3_button_pressed():
 	SignalManager.free_space.emit(Global.MAX_DISK_SPACE * 0.5)
 	_power3_btn.disabled = true
 	_on_start_button_pressed()
+
+
+func _on_power_4_button_pressed():
+	SignalManager.program_install.emit(Global.PROGRAM_CLOSE_TRASH_WINDOW_SIZE)
+	Global.is_close_trash_window_program_installed = true
+	_power4_btn.disabled = true
+	_on_start_button_pressed()
+	

@@ -110,6 +110,13 @@ theme_override_font_sizes/font_size = 12
 text = "Restart Window Manager
 (Delete all current windows)"
 
+[node name="Power4Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Install AutoCloseTrashWin
+(Occupies space)"
+
 [node name="Power2Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -217,6 +224,7 @@ size_flags_horizontal = 3
 horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power1Button" to="." method="_on_power_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power4Button" to="." method="_on_power_4_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power2Button" to="." method="_on_power_2_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer/Power3Button" to="." method="_on_power_3_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer/LogoffButton" to="." method="_on_mouse_enter_play_hover_sfx"]
