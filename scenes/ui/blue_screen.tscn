@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckbje2y7g4xxc"]
+[gd_scene load_steps=5 format=3 uid="uid://ckbje2y7g4xxc"]
 
 [ext_resource type="Script" path="res://scripts/ui/blue_screen.gd" id="1_ca5ft"]
 [ext_resource type="AudioStream" uid="uid://bdhntgrqdq4wt" path="res://assets/audio/sounds/bluescreen_v2.wav" id="2_6uryj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xm2v"]
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0vkp"]
+font_color = Color(1, 1, 0, 1)
 
 [node name="BlueScreen" type="Control"]
 layout_mode = 3
@@ -64,6 +70,7 @@ text = "Previous Session:"
 [node name="PreviousSessionText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "0:00"
+label_settings = SubResource("LabelSettings_5xm2v")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -76,10 +83,13 @@ text = "Longest Session:"
 [node name="LongestSessionText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "0:00"
+label_settings = SubResource("LabelSettings_n0vkp")
 
-[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label5" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "If you need to reboot the system, press F1 and then wait for a bit. If you need help, check the 'How to Play' section in the Main Menu."
+bbcode_enabled = true
+text = "If you need to reboot the system, press [color=yellow]F1[/color] and then wait for a bit. If you need help, check the [color=yellow]'How to Play'[/color] section in the Main Menu."
+fit_content = true
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer"]

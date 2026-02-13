@@ -55,6 +55,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"BIOSButton"
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
+button_pressed = true
 text = "Status Report"
 
 [node name="BtnCorrupted" type="Button" parent="VBoxContainer/TabButtons"]

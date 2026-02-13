@@ -21,7 +21,7 @@ func _ready():
 		btn = btn as Button
 		btn.button_group = _tab_btn_group
 	var _v = _tab_btn_group.pressed.connect(_on_tab_changed)
-
+	_objectives.show()
 
 func _on_tab_changed(button: BaseButton):
 	for node in _screen_container.get_children():
