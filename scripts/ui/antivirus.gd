@@ -4,8 +4,6 @@ class_name Antivirus
 @onready var _quarantine_grid = %QuarantineGrid
 @onready var _grid_detector = %Area2D
 @onready var _purge_progressbar = %PurgeProgressbar
-@onready var _area_2d_quarantine = $VBoxContainer/PanelContainer2
-@onready var _collision_shape_quaratine = $VBoxContainer/PanelContainer2/Area2D/CollisionShape2D
 
 
 # Audio
@@ -43,8 +41,22 @@ func _ready():
 	SignalManager.free_space.connect(_virus_angry) # also on _purge_files()
 
 
+func _process(delta):
+# TODO makes trash work in 4.6
+#	if _is_mouse_over():
+#		_mouse_hovered = true
+#	else:
+#		_mouse_hovered = false
+	
+	if _purging:
+		_purge_counter += _purge_speed * delta
+		_purge_progressbar.value = _purge_counter
+		if _purge_counter >= 100.0:
+			_purge_files()
+
+
 # Is the mouse currently on top of a specific physics object (_grid_detector)?”
-func is_mouse_over() -> bool:
+func _is_mouse_over() -> bool:
 	# ask the physics engine what’s at a certain position
 	var space_state = get_world_2d().direct_space_state
 
@@ -64,18 +76,6 @@ func is_mouse_over() -> bool:
 			return true
 
 	return false
-
-func _process(delta):
-#	if is_mouse_over():
-#		_mouse_hovered = true
-#	else:
-#		_mouse_hovered = false
-	
-	if _purging:
-		_purge_counter += _purge_speed * delta
-		_purge_progressbar.value = _purge_counter
-		if _purge_counter >= 100.0:
-			_purge_files()
 
 
 func _drop_in_quarantine(file : DraggableFile):

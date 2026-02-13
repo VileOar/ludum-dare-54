@@ -3,6 +3,7 @@ extends DraggableFile
 @onready var deleting_time := $DeletingTime
 @onready var _trash_audio := $EmptyTrashAudio
 @onready var _trash_file_audio := $TrashFileAudio
+@onready var _trash_area = $Area2D
 
 var mouse_hovered := false
 
@@ -29,6 +30,37 @@ func _ready():
 	
 	can_recycle = false
 	can_antivirus = false
+
+# TODO makes trash work in 4.6
+func _process(delta):
+#	if _is_mouse_over():
+#		_mouse_hovered = true
+#	else:
+#		_mouse_hovered = false
+	pass
+
+
+# Is the mouse currently on top of a specific physics object (trash area)?”
+func _is_mouse_over() -> bool:
+	# ask the physics engine what’s at a certain position
+	var space_state = get_world_2d().direct_space_state
+
+	var query = PhysicsPointQueryParameters2D.new()
+	# physics objects that exist exactly where the mouse is
+	query.position = get_global_mouse_position()
+	# sets query to detect area 2D but not bodies (static, rigid)
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+
+	# gets an  array of all colliders under that point
+	var result = space_state.intersect_point(query)
+
+	# checks if mouse is over trash area
+	for hit in result:
+		if hit.collider == _trash_area:
+			return true
+
+	return false
 
 
 func _remove_file(file : DraggableFile):
@@ -64,7 +96,9 @@ func after_recycle_time():
 
 func _on_area_2d_mouse_entered():
 	mouse_hovered = true
+	pass
 
 
 func _on_area_2d_mouse_exited():
 	mouse_hovered = false
+	pass
