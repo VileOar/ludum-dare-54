@@ -4,6 +4,9 @@ class_name Antivirus
 @onready var _quarantine_grid = %QuarantineGrid
 @onready var _grid_detector = %Area2D
 @onready var _purge_progressbar = %PurgeProgressbar
+@onready var _area_2d_quarantine = $VBoxContainer/PanelContainer2
+@onready var _collision_shape_quaratine = $VBoxContainer/PanelContainer2/Area2D/CollisionShape2D
+
 
 # Audio
 @onready var _purge_sfx = $PurgeSFX
@@ -40,7 +43,34 @@ func _ready():
 	SignalManager.free_space.connect(_virus_angry) # also on _purge_files()
 
 
+# Is the mouse currently on top of a specific physics object (_grid_detector)?”
+func is_mouse_over() -> bool:
+	# ask the physics engine what’s at a certain position
+	var space_state = get_world_2d().direct_space_state
+
+	var query = PhysicsPointQueryParameters2D.new()
+	# physics objects that exist exactly where the mouse is
+	query.position = get_global_mouse_position()
+	# sets query to detect area 2D but not bodies (static, rigid)
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+
+	# gets an  array of all colliders under that point
+	var result = space_state.intersect_point(query)
+
+	# checks if mouse is over grid detector
+	for hit in result:
+		if hit.collider == _grid_detector:
+			return true
+
+	return false
+
 func _process(delta):
+#	if is_mouse_over():
+#		_mouse_hovered = true
+#	else:
+#		_mouse_hovered = false
+	
 	if _purging:
 		_purge_counter += _purge_speed * delta
 		_purge_progressbar.value = _purge_counter
@@ -121,10 +151,12 @@ func _on_mouse_enter_play_hover_sfx():
 
 func _on_area_2d_mouse_entered():
 	_mouse_hovered = true
+	pass
 
 
 func _on_area_2d_mouse_exited():
 	_mouse_hovered = false
+	pass
 
 
 func _on_purge_button_pressed():
