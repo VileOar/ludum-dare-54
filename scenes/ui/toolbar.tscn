@@ -167,9 +167,11 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(384, 0)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(384, 48)
 layout_mode = 2
 alignment = 1
 
@@ -185,6 +187,7 @@ layout_mode = 2
 [node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "w"
 horizontal_alignment = 1
 vertical_alignment = 1
 

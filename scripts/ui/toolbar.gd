@@ -14,7 +14,7 @@ class_name Toolbar
 @onready var time_label := %Time
 @onready var date_label := %Date
 
-@onready var diskbar := %Diskbar as DiskSpaceBar
+@onready var diskbar = %Diskbar
 
 @onready var _power1_btn := %Power1Button
 @onready var _power2_btn := %Power2Button
@@ -37,8 +37,11 @@ func _physics_process(_delta):
 
 func _on_disk_space_manager_space_update(new_space : float, max_space : float):
 	disk_space_label.text = str(max_space - new_space) + " free out of " + str(max_space)
-	
-	diskbar.set_disk_space(new_space, max_space)
+	if diskbar:
+		diskbar.set_disk_space(new_space, max_space)
+	else:
+		print("[Warning] DiskBar does not exist yet.")
+
 
 func _play_click_sfx():
 	_click_sfx.play()

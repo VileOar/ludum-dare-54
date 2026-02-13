@@ -9,7 +9,7 @@ var _disk_bar_shake_strength = 0.0
 
 # lowest value from which bar starts increasing in size
 const _MIN_BAR_GROW_PERCENT = 0.6
-const _MAX_BAR_SIZE_SCALE = 1.5
+const _MAX_BAR_SIZE_SCALE = 1.4
 
 const _MAX_RUMBLE_TIME = 0.5
 

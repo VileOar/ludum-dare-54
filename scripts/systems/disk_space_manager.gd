@@ -11,6 +11,7 @@ var is_disk_almost_full := false
 func _ready():
 	SignalManager.file_created.connect(_on_file_created)
 	SignalManager.free_space.connect(_on_free_space)
+	_add_disk_space(0)
 
 
 func _add_disk_space(to_add):
