@@ -86,6 +86,7 @@ func _on_power_1_button_pressed():
 func _on_power_2_button_pressed():
 	_install_hard_drive_sfx.play()
 	Global.set_max_space(Global.MAX_DISK_SPACE * 2)
+	diskbar.set_progressbar_to_default_size()
 	_power2_btn.disabled = true
 	_on_start_button_pressed()
 
@@ -94,6 +95,7 @@ func _on_power_3_button_pressed():
 	_delete_system32_sfx.play()
 	SignalManager.toggle_distortion.emit(true)
 	SignalManager.free_space.emit(Global.MAX_DISK_SPACE * 0.5)
+	diskbar.set_progressbar_to_default_size()
 	_power3_btn.disabled = true
 	_on_start_button_pressed()
 
