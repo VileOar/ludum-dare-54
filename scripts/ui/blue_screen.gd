@@ -9,6 +9,7 @@ extends Control
 
 
 func _ready():
+	Global.is_close_trash_window_program_installed = false
 	_bluescreen_sfx.play()
 	last_score_text.text = Global.time_to_str(Global.game_time)
 	highscore_text.text = Global.time_to_str(Global.best_time)

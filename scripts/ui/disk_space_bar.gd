@@ -13,8 +13,8 @@ const _MAX_BAR_SIZE_SCALE = 1.4
 
 const _MAX_RUMBLE_TIME = 0.5
 
-@onready var m = (_MAX_BAR_SIZE_SCALE - 1.0) / (1.0 - _MIN_BAR_GROW_PERCENT)
-@onready var b = _MAX_BAR_SIZE_SCALE - m
+@onready var scale_slope = (_MAX_BAR_SIZE_SCALE - 1.0) / (1.0 - _MIN_BAR_GROW_PERCENT)
+@onready var scale_offset = _MAX_BAR_SIZE_SCALE - scale_slope
 
 @onready var _space_bar = $DiskSpaceBar
 @onready var _timer = $Timer
@@ -54,23 +54,25 @@ func _physics_process(_delta):
 		_space_bar.position = Vector2.RIGHT.rotated(angle) * _disk_bar_shake_strength
 
 
-func set_disk_space(new_space : float, max_space : float):
+func set_disk_space(current_space : float, max_space : float):
 	var last_value = _space_bar.max_value
-	_space_bar.max_value = max_space
-	_space_bar.min_value = 0
-	_space_bar.value = new_space
 	
-	var percent = new_space / max_space
+	_space_bar.min_value = 0
+	_space_bar.max_value = max_space
+	_space_bar.value = current_space
+	
+	var percent = current_space / max_space
 	if percent >= _MIN_BAR_GROW_PERCENT:
-		_set_progressbar_size(percent * m + b)
+		_set_progressbar_size(percent * scale_slope + scale_offset)
 	else:
 		#_set_progressbar_size(1.0)
 		set_progressbar_to_default_size()
 	
-	if new_space < last_value:
+	if current_space < last_value:
 		_disk_bar_shake_strength = percent * 4
 		_timer.start(min(_MAX_RUMBLE_TIME, _MAX_RUMBLE_TIME * (percent + 0.2)))
 	
+	_set_shake(percent)
 	_set_color(percent)
 	
 	
@@ -83,6 +85,9 @@ func _set_progressbar_size(size_scale):
 #	_space_bar.custom_minimum_size = size_scale * _initial_bar_size
 #	custom_minimum_size = _space_bar.custom_minimum_size
 
+func _set_shake(percent) -> void:
+	if percent < 0.4:
+		_disk_bar_shake_strength = 0
 
 func _set_color(percent):
 	if percent < 0.4:
