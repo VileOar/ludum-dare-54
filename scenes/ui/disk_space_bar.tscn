@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxm3k1txq3n6c"]
+[gd_scene format=3 uid="uid://dxm3k1txq3n6c"]
 
-[ext_resource type="Script" path="res://scripts/ui/disk_space_bar.gd" id="1_mwvhy"]
+[ext_resource type="Script" uid="uid://dpb32ikbjo7eq" path="res://scripts/ui/disk_space_bar.gd" id="1_mwvhy"]
 [ext_resource type="PackedScene" uid="uid://phejbovpdls7" path="res://scenes/ui/boom_anim.tscn" id="2_2bpjc"]
 
 [sub_resource type="Animation" id="Animation_vfn2l"]
@@ -117,11 +117,11 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_053hy"]
 _data = {
-"RESET": SubResource("Animation_vfn2l"),
-"game_over": SubResource("Animation_nu5ym")
+&"RESET": SubResource("Animation_vfn2l"),
+&"game_over": SubResource("Animation_nu5ym")
 }
 
-[node name="BarAnchor" type="Control"]
+[node name="BarAnchor" type="Control" unique_id=1790139689]
 process_mode = 3
 custom_minimum_size = Vector2(256, 32)
 layout_mode = 3
@@ -130,7 +130,7 @@ size_flags_vertical = 4
 script = ExtResource("1_mwvhy")
 boom_scene = ExtResource("2_2bpjc")
 
-[node name="DiskSpaceBar" type="ProgressBar" parent="."]
+[node name="DiskSpaceBar" type="ProgressBar" parent="." unique_id=1213740534]
 custom_minimum_size = Vector2(256, 32)
 layout_mode = 1
 offset_right = 256.0
@@ -139,12 +139,10 @@ size_flags_vertical = 4
 theme_type_variation = &"DiskProgress"
 show_percentage = false
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1492371344]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_053hy")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=815911733]
+libraries/ = SubResource("AnimationLibrary_053hy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

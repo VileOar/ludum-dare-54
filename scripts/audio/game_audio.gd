@@ -52,4 +52,3 @@ func fade_in(stream_player, duration):
 	_tween_in.tween_property(stream_player, "volume_db", UtilsAudio.DEFAULT_VOLUME, duration)
 	# when the tween ends, the music will be stopped
 	
-

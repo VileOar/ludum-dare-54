@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://di25hfxjvfugn"]
+[gd_scene format=3 uid="uid://di25hfxjvfugn"]
 
-[ext_resource type="Script" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
+[ext_resource type="Script" uid="uid://cdop6gtrf3brk" path="res://scripts/ui/toolbar.gd" id="1_a4axe"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="2_1dkig"]
 [ext_resource type="Texture2D" uid="uid://bdknahn28ejfd" path="res://assets/gfx/start_menu.png" id="2_ccml4"]
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_ettyn"]
@@ -22,7 +22,7 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("2_1dkig")
 region = Rect2(128, 0, 64, 64)
 
-[node name="Toolbar" type="Control"]
+[node name="Toolbar" type="Control" unique_id=1153376243]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -34,34 +34,34 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_a4axe")
 
-[node name="InstallHardDriveSFX" type="AudioStreamPlayer" parent="."]
+[node name="InstallHardDriveSFX" type="AudioStreamPlayer" parent="." unique_id=1804029401]
 stream = ExtResource("2_udr5d")
 volume_db = -6.0
 pitch_scale = 1.05
 bus = &"SFX"
 
-[node name="DeleteSystem32SFX" type="AudioStreamPlayer" parent="."]
+[node name="DeleteSystem32SFX" type="AudioStreamPlayer" parent="." unique_id=927553647]
 stream = ExtResource("3_x2x3o")
 volume_db = -10.0
 pitch_scale = 0.8
 bus = &"SFX"
 
-[node name="DeleteAllWindowsSFX" type="AudioStreamPlayer" parent="."]
+[node name="DeleteAllWindowsSFX" type="AudioStreamPlayer" parent="." unique_id=1047326310]
 stream = ExtResource("4_j71o2")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+[node name="HoverSFX" type="AudioStreamPlayer" parent="." unique_id=1367538150]
 stream = ExtResource("2_xjlwx")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+[node name="ClickSFX" type="AudioStreamPlayer" parent="." unique_id=1003535854]
 stream = ExtResource("2_ettyn")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="Blocker" type="ColorRect" parent="."]
+[node name="Blocker" type="ColorRect" parent="." unique_id=2106418007]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.156863)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1193433567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,142 +82,142 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="PauseMenu" type="PanelContainer" parent="VBoxContainer"]
+[node name="PauseMenu" type="PanelContainer" parent="VBoxContainer" unique_id=1216488545]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_type_variation = &"TitlePanel"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu" unique_id=1693909524]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer" unique_id=210044931]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2" unique_id=1911506895]
 layout_mode = 2
 texture = ExtResource("2_ccml4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2" unique_id=1191540702]
 layout_mode = 2
 alignment = 1
 
-[node name="Power1Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="Power1Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2012295937]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Restart Window Manager
 (Delete all current windows)"
 
-[node name="Power4Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="Power4Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1085506605]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Install AutoCloseTrashWin
 (Occupies space)"
 
-[node name="Power2Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="Power2Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1373576381]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Plug External Drive
 (Add more disk space)"
 
-[node name="Power3Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="Power3Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1286314498]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Delete System32
 (Free a lot of space, but...)"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PauseMenu/VBoxContainer" unique_id=1766582760]
 layout_mode = 2
 
-[node name="LogoffButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer"]
+[node name="LogoffButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer" unique_id=1298186376]
 layout_mode = 2
 theme_type_variation = &"IconButton"
 text = "Logoff"
 icon = SubResource("AtlasTexture_hpb2x")
 
-[node name="ShutdownButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer"]
+[node name="ShutdownButton" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer" unique_id=1437721910]
 layout_mode = 2
 theme_type_variation = &"IconButton"
 text = "Shutdown"
 icon = SubResource("AtlasTexture_43tsx")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=545562903]
 clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ToolbarPanel"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1117363354]
 clip_contents = true
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=424934760]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StartButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/MarginContainer" unique_id=2063072784]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_type_variation = &"GreenButton"
 text = "Start"
 icon = SubResource("AtlasTexture_yycvd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=1797454830]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=645411058]
 custom_minimum_size = Vector2(384, 0)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer" unique_id=584457272]
 custom_minimum_size = Vector2(384, 48)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=893529313]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "C:"
 
-[node name="Diskbar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource("4_xto7r")]
+[node name="Diskbar" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1593389593 instance=ExtResource("4_xto7r")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="DiskSpaceLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=460332197]
 unique_name_in_owner = true
 layout_mode = 2
 text = "w"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=1565795484]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EmptyButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+[node name="EmptyButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer" unique_id=2033814020]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Empty trash"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1089150425]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Time" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Time" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=2016676028]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="Date" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Date" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=1531235883]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

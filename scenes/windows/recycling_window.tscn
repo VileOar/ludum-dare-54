@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmvynlgunihpn"]
+[gd_scene format=3 uid="uid://dmvynlgunihpn"]
 
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_kkmvx"]
-[ext_resource type="Script" path="res://scripts/windows/recycling_window.gd" id="2_cpbaf"]
+[ext_resource type="Script" uid="uid://bxsrylwvjrtnu" path="res://scripts/windows/recycling_window.gd" id="2_cpbaf"]
 
-[node name="RecyclingWindow" instance=ExtResource("1_kkmvx")]
+[node name="RecyclingWindow" unique_id=1007657898 instance=ExtResource("1_kkmvx")]
 script = ExtResource("2_cpbaf")
 
-[node name="Timer" type="Timer" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="1" unique_id=857143619]
 
-[node name="WindowsTimeout" type="Timer" parent="." index="2"]
+[node name="WindowsTimeout" type="Timer" parent="." index="2" unique_id=1011710813]
 
 [node name="Description" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
 text = "Recycling..."
 
-[node name="RecycleProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="RecycleProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1" unique_id=571735120]
 unique_name_in_owner = true
 layout_mode = 2
 step = 1.0
 
-[node name="OKButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+[node name="OKButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2" unique_id=1477885031]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

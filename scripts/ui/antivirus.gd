@@ -43,10 +43,10 @@ func _ready():
 
 func _process(delta):
 # TODO makes trash work in 4.6
-#	if _is_mouse_over():
-#		_mouse_hovered = true
-#	else:
-#		_mouse_hovered = false
+	if _is_mouse_over():
+		_mouse_hovered = true
+	else:
+		_mouse_hovered = false
 	
 	if _purging:
 		_purge_counter += _purge_speed * delta
@@ -150,12 +150,12 @@ func _on_mouse_enter_play_hover_sfx():
 		
 
 func _on_area_2d_mouse_entered():
-	_mouse_hovered = true
+	#_mouse_hovered = true
 	pass
 
 
 func _on_area_2d_mouse_exited():
-	_mouse_hovered = false
+	#_mouse_hovered = false
 	pass
 
 
