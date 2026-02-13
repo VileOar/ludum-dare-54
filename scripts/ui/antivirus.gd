@@ -43,10 +43,10 @@ func _ready():
 
 func _process(delta):
 # TODO makes trash work in 4.6
-#	if _is_mouse_over():
-#		_mouse_hovered = true
-#	else:
-#		_mouse_hovered = false
+	if _is_mouse_over():
+		_mouse_hovered = true
+	else:
+		_mouse_hovered = false
 	
 	if _purging:
 		_purge_counter += _purge_speed * delta

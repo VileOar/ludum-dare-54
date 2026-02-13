@@ -33,10 +33,10 @@ func _ready():
 
 # TODO makes trash work in 4.6
 func _process(delta):
-#	if _is_mouse_over():
-#		_mouse_hovered = true
-#	else:
-#		_mouse_hovered = false
+	if _is_mouse_over():
+		mouse_hovered = true
+	else:
+		mouse_hovered = false
 	pass
 
 
