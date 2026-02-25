@@ -1,15 +1,13 @@
 Fonts
-
 DotGothic16-Regular - Source: Google Fonts - Copyright 2020 The DotGothic16 Project Authors (https://github.com/fontworks-fonts/DotGothic16)
 Retro Gaming - Source: DaFont - by Daymarius (https://www.dafont.com/pt/retro-gaming.font)
 VCR_OSD_MONO_1.001 - Source: DaFont - by Riciery Leal (https://www.dafont.com/vcr-osd-mono.font)
 
-SFX
+Audio SFX
 Bluescreen - Personal Recording
 Click SFX, Hover SFX, Computer Turning On SFX,  - Humble Bundle Audio Odyssey (royalty-free license)
 
-Music
-
+Audio Music
 Defeat Music, Main Game Music, Panic Main Game Music - Humble Bundle Game Audio Collection - Big Retro Game Music Collection (royalty-free license)
 Main Menu Music - Humble Bundle Game Audio Collection - Big Retro Game Music Collection (royalty-free license)
 
