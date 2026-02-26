@@ -1,22 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuk43ykfp2af0"]
+[gd_scene format=3 uid="uid://cuk43ykfp2af0"]
 
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_dsr3o"]
-[ext_resource type="Script" path="res://scripts/windows/recursive_window.gd" id="1_s8ifr"]
+[ext_resource type="Script" uid="uid://orur1e1hjgn0" path="res://scripts/windows/recursive_window.gd" id="1_s8ifr"]
 
-[node name="RecursiveWindow" instance=ExtResource("1_dsr3o")]
+[node name="RecursiveWindow" unique_id=1078686600 instance=ExtResource("1_dsr3o")]
 script = ExtResource("1_s8ifr")
 
-[node name="Title" parent="VBoxContainer/PanelContainer2/HBoxContainer" index="0"]
+[node name="Title" parent="VBoxContainer/PanelContainer2/HBoxContainer" parent_id_path=PackedInt32Array(1713835616) index="0" unique_id=1536037813]
 text = "Pintows XP"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(847474894) index="1" unique_id=287357805]
 layout_mode = 2
 
-[node name="AcceptButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+[node name="AcceptButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0" unique_id=884895760]
 layout_mode = 2
 text = "Try Again"
 
-[node name="RejectButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="RejectButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" unique_id=1018721747]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Cancel"

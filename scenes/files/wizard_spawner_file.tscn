@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6di764ete100"]
+[gd_scene format=3 uid="uid://b6di764ete100"]
 
 [ext_resource type="PackedScene" uid="uid://bu4xvcsll0w5n" path="res://scenes/files/error_exe_file.tscn" id="1_pc230"]
-[ext_resource type="Script" path="res://scripts/files/wizard_spawner_file.gd" id="2_d8hv3"]
+[ext_resource type="Script" uid="uid://b5d517tckglj" path="res://scripts/files/wizard_spawner_file.gd" id="2_d8hv3"]
 
-[node name="WizardSpawnerFile" instance=ExtResource("1_pc230")]
+[node name="WizardSpawnerFile" unique_id=1085462720 instance=ExtResource("1_pc230")]
 script = ExtResource("2_d8hv3")

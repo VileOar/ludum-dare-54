@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjykajyw8e0wu"]
+[gd_scene format=3 uid="uid://cjykajyw8e0wu"]
 
-[ext_resource type="Script" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
+[ext_resource type="Script" uid="uid://c4tsamgvrfwtv" path="res://scripts/ui/antivirus.gd" id="1_spha5"]
 [ext_resource type="AudioStream" uid="uid://npj6bvslhyiu" path="res://assets/audio/sounds/hover click4.wav" id="2_jcl17"]
 [ext_resource type="PackedScene" uid="uid://c1srnuj4hxkt1" path="res://scenes/ui/antivirus_slot.tscn" id="2_jkvhn"]
 [ext_resource type="AudioStream" uid="uid://d2hyj1vdys72u" path="res://assets/audio/sounds/Click.wav" id="2_k3q13"]
@@ -91,17 +91,17 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xi3eb"]
 _data = {
-"RESET": SubResource("Animation_h0vkc"),
-"angry": SubResource("Animation_yikwb"),
-"code": SubResource("Animation_nc2sy"),
-"idle": SubResource("Animation_afmbr"),
-"laugh": SubResource("Animation_osugx")
+&"RESET": SubResource("Animation_h0vkc"),
+&"angry": SubResource("Animation_yikwb"),
+&"code": SubResource("Animation_nc2sy"),
+&"idle": SubResource("Animation_afmbr"),
+&"laugh": SubResource("Animation_osugx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ija6y"]
 size = Vector2(176, 176)
 
-[node name="Antivirus" type="Control"]
+[node name="Antivirus" type="Control" unique_id=940525088]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,22 +111,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_spha5")
 
-[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+[node name="HoverSFX" type="AudioStreamPlayer" parent="." unique_id=1485325700]
 stream = ExtResource("2_jcl17")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+[node name="ClickSFX" type="AudioStreamPlayer" parent="." unique_id=1012771331]
 stream = ExtResource("2_k3q13")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="PurgeSFX" type="AudioStreamPlayer" parent="."]
+[node name="PurgeSFX" type="AudioStreamPlayer" parent="." unique_id=82659557]
 stream = ExtResource("3_c65l6")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1607763699]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,67 +142,65 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="VirusWindow" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VirusWindow" type="VBoxContainer" parent="VBoxContainer" unique_id=401526189]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="TitlePanel" type="PanelContainer" parent="VBoxContainer/VirusWindow"]
+[node name="TitlePanel" type="PanelContainer" parent="VBoxContainer/VirusWindow" unique_id=1537263342]
 layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"TitlePanel"
 
-[node name="Label" type="Label" parent="VBoxContainer/VirusWindow/TitlePanel"]
+[node name="Label" type="Label" parent="VBoxContainer/VirusWindow/TitlePanel" unique_id=1732916412]
 layout_mode = 2
 text = "virus.exe"
 
-[node name="WindowPanel" type="PanelContainer" parent="VBoxContainer/VirusWindow"]
+[node name="WindowPanel" type="PanelContainer" parent="VBoxContainer/VirusWindow" unique_id=441361864]
 custom_minimum_size = Vector2(240, 160)
 layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"WindowPanel"
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VirusWindow/WindowPanel"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VirusWindow/WindowPanel" unique_id=186950966]
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.192157, 0.2, 0.564706, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/VirusWindow/WindowPanel"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/VirusWindow/WindowPanel" unique_id=699460603]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer" unique_id=931042375]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control" unique_id=123564369]
 scale = Vector2(6, 6)
 texture = ExtResource("5_ixnmx")
 hframes = 8
 vframes = 4
 
-[node name="VirusAnim" type="AnimationPlayer" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control"]
+[node name="VirusAnim" type="AnimationPlayer" parent="VBoxContainer/VirusWindow/WindowPanel/CenterContainer/Control" unique_id=999604752]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_xi3eb")
-}
+libraries/ = SubResource("AnimationLibrary_xi3eb")
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=82381207]
 custom_minimum_size = Vector2(240, 224)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_type_variation = &"AntivirusPanel"
 
-[node name="Area2D" type="Area2D" parent="VBoxContainer/PanelContainer2"]
+[node name="Area2D" type="Area2D" parent="VBoxContainer/PanelContainer2" unique_id=489726668]
 unique_name_in_owner = true
 position = Vector2(120, 143.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/PanelContainer2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/PanelContainer2/Area2D" unique_id=258358057]
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_ija6y")
 
-[node name="QuarantineGrid" type="GridContainer" parent="VBoxContainer/PanelContainer2"]
+[node name="QuarantineGrid" type="GridContainer" parent="VBoxContainer/PanelContainer2" unique_id=1129149707]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -210,41 +208,41 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Slot0" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+[node name="Slot0" parent="VBoxContainer/PanelContainer2/QuarantineGrid" unique_id=1937524202 instance=ExtResource("2_jkvhn")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot1" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+[node name="Slot1" parent="VBoxContainer/PanelContainer2/QuarantineGrid" unique_id=875249224 instance=ExtResource("2_jkvhn")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot2" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+[node name="Slot2" parent="VBoxContainer/PanelContainer2/QuarantineGrid" unique_id=733692562 instance=ExtResource("2_jkvhn")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot3" parent="VBoxContainer/PanelContainer2/QuarantineGrid" instance=ExtResource("2_jkvhn")]
+[node name="Slot3" parent="VBoxContainer/PanelContainer2/QuarantineGrid" unique_id=1482763922 instance=ExtResource("2_jkvhn")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=224450871]
 layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"QuarantinePanel"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1640196178]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PurgeButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="PurgeButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=647664028]
 layout_mode = 2
 theme_type_variation = &"AntivirusButton"
 text = "PURGE"
 
-[node name="PurgeProgressbar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="PurgeProgressbar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer" unique_id=2097305151]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

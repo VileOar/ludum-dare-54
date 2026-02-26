@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bclnq8r0xonxq"]
+[gd_scene format=3 uid="uid://bclnq8r0xonxq"]
 
-[ext_resource type="Script" path="res://scenes/start_menu/how_to_play.gd" id="1_ifnlt"]
+[ext_resource type="Script" uid="uid://ch8i4f2e5h8eg" path="res://scenes/start_menu/how_to_play.gd" id="1_ifnlt"]
 [ext_resource type="Texture2D" uid="uid://d1p6it3tnt84y" path="res://assets/aseprite/big_icons.png" id="3_abwu8"]
 [ext_resource type="Texture2D" uid="uid://dbuhv7006hx1q" path="res://assets/gfx/buttons/button_icons.png" id="4_abcgw"]
 [ext_resource type="Texture2D" uid="uid://jvf4uwwjq7gj" path="res://assets/gfx/desktop_icons/file_icons.png" id="4_nxq8f"]
@@ -33,7 +33,7 @@ region = Rect2(0, 192, 32, 32)
 atlas = ExtResource("4_abcgw")
 region = Rect2(129, 0, 64, 64)
 
-[node name="HowToPlay" type="MarginContainer"]
+[node name="HowToPlay" type="MarginContainer" unique_id=1406552451]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,15 +41,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ifnlt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=348025150]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="TabButtons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="TabButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1964256518]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BtnObjectives" type="Button" parent="VBoxContainer/TabButtons"]
+[node name="BtnObjectives" type="Button" parent="VBoxContainer/TabButtons" unique_id=990627360]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BIOSButton"
@@ -58,7 +58,7 @@ toggle_mode = true
 button_pressed = true
 text = "Status Report"
 
-[node name="BtnCorrupted" type="Button" parent="VBoxContainer/TabButtons"]
+[node name="BtnCorrupted" type="Button" parent="VBoxContainer/TabButtons" unique_id=1370582943]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BIOSButton"
@@ -66,7 +66,7 @@ theme_override_font_sizes/font_size = 24
 toggle_mode = true
 text = "Corrupted Files"
 
-[node name="BtnAntivirus" type="Button" parent="VBoxContainer/TabButtons"]
+[node name="BtnAntivirus" type="Button" parent="VBoxContainer/TabButtons" unique_id=1604339332]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BIOSButton"
@@ -74,27 +74,27 @@ theme_override_font_sizes/font_size = 24
 toggle_mode = true
 text = "Antivirus"
 
-[node name="ScreenContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="ScreenContainer" type="MarginContainer" parent="VBoxContainer" unique_id=447625948]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Objectives" type="MarginContainer" parent="VBoxContainer/ScreenContainer"]
+[node name="Objectives" type="MarginContainer" parent="VBoxContainer/ScreenContainer" unique_id=1300069435]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Objectives"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Objectives" unique_id=1031949224]
 layout_mode = 2
 size_flags_horizontal = 4
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer" unique_id=556891541]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Intro" type="Label" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer"]
+[node name="Intro" type="Label" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer" unique_id=608789638]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -105,168 +105,168 @@ text = "Antivirus Ultra Virus Killer 5000 System Analysis Report:
 Virus is targetting file system, multiplying and corrupting files. It is also very finnicky and rude."
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer" unique_id=1439582940]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1350471731]
 custom_minimum_size = Vector2(256, 96)
 layout_mode = 2
 texture = SubResource("AtlasTexture_c64h0")
 stretch_mode = 5
 
-[node name="Outro" type="Label" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Outro" type="Label" parent="VBoxContainer/ScreenContainer/Objectives/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=899130977]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabel"
 text = "Suggested approach is deleting the spawned files by dumping them in the Recycling Bin as fast as possible. Keep in mind, you need to actually Empty the Trash to delete them. Letting your disk run out of space could be catastrophic. Presumably you should want to avoid that."
 autowrap_mode = 3
 
-[node name="Corrupted" type="MarginContainer" parent="VBoxContainer/ScreenContainer"]
+[node name="Corrupted" type="MarginContainer" parent="VBoxContainer/ScreenContainer" unique_id=2044442989]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Corrupted"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Corrupted" unique_id=2115863797]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer" unique_id=678356537]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 
-[node name="Intro" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="Intro" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=251615345]
 layout_mode = 2
 theme_type_variation = &"BiosLabel"
 text = "WARNING: Some files have been corrupted and will cause further harm if handled improperly. You can distinguish them from normal files by their reddish tint."
 autowrap_mode = 3
 
-[node name="EXE" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="EXE" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=1967184961]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/EXE"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/EXE" unique_id=1730803416]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_mdo37")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/EXE"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/EXE" unique_id=824125169]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabelSmall"
 text = "Corrupted EXE files will increase file spawn rate"
 autowrap_mode = 3
 
-[node name="folder" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="folder" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=1010909894]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/folder"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/folder" unique_id=303401234]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_grpff")
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/folder"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/folder" unique_id=525646665]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabelSmall"
 text = "Corrupted folders will spawn new files if put in the Bin"
 autowrap_mode = 3
 
-[node name="badlink" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="badlink" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=740762675]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/badlink"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/badlink" unique_id=967076082]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_qhcba")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/badlink"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/badlink" unique_id=1000743459]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabelSmall"
 text = "Bad link files will open a malicious install wizard. Read the messages carefully to avoid falling in a loop."
 autowrap_mode = 3
 
-[node name="download" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="download" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=1683030213]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/download"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/download" unique_id=89568590]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_nht4g")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/download"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/download" unique_id=990034070]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabelSmall"
 text = "Download links will try to trick you into starting download of more files with a popup which tries to follow your mouse cursor. Delete all these links to stop the windows from reappearing"
 autowrap_mode = 3
 
-[node name="code" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer"]
+[node name="code" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer" unique_id=506761161]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/code"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/code" unique_id=1438093849]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_dgmjf")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/code"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Corrupted/ScrollContainer/VBoxContainer/code" unique_id=1187507427]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabelSmall"
 text = "Malicious code files will malfunction and continuously spawn error messages. Deal with them ASAP"
 autowrap_mode = 3
 
-[node name="Antivirus" type="MarginContainer" parent="VBoxContainer/ScreenContainer"]
+[node name="Antivirus" type="MarginContainer" parent="VBoxContainer/ScreenContainer" unique_id=277225388]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Antivirus"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScreenContainer/Antivirus" unique_id=1082633295]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer" unique_id=585623177]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer" unique_id=123954223]
 layout_mode = 2
 theme_type_variation = &"BiosLabel"
 text = "Corrupted files should be handled with special care and skill, meaning you shouldn't do it yourself."
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer" unique_id=1213908367]
 layout_mode = 2
 
-[node name="Outro" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Outro" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1669215808]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabel"
 text = "Your edition of the Antivirus Ultra Virus Killer 5000 provides a quarantine area. Drop corrupted files here and push the 'Purge' button. Once purging is complete, these files can be safely deleted via Trash Bin."
 autowrap_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=630899405]
 layout_mode = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1036946289]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_vertical = 4
 theme_type_variation = &"AntivirusPanel"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer" unique_id=510594578]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1386756034]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BiosLabel"
@@ -275,7 +275,7 @@ text = "Additional utilities have also been enabled in your start menu, but shou
 Good luck."
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScreenContainer/Antivirus/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1729785593]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_5r0ol")

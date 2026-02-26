@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv0gqt42k76sy"]
+[gd_scene format=3 uid="uid://dv0gqt42k76sy"]
 
-[ext_resource type="Script" path="res://scripts/files/draggable_file.gd" id="1_bbf4o"]
+[ext_resource type="Script" uid="uid://bepkts8p0nvhk" path="res://scripts/files/draggable_file.gd" id="1_bbf4o"]
 [ext_resource type="SpriteFrames" uid="uid://dbr2hhv0iya5b" path="res://assets/spriteframes/file_icons.tres" id="2_gs77j"]
 [ext_resource type="AudioStream" uid="uid://umkujykhjuhr" path="res://assets/audio/sounds/ErrorDeleting.wav" id="2_uxwsr"]
 
@@ -79,31 +79,31 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xy54f"]
 _data = {
-"RESET": SubResource("Animation_rhnvy"),
-"error": SubResource("Animation_v3rdd")
+&"RESET": SubResource("Animation_rhnvy"),
+&"error": SubResource("Animation_v3rdd")
 }
 
-[node name="DraggableFile" type="Node2D"]
+[node name="DraggableFile" type="Node2D" unique_id=1851221641]
 script = ExtResource("1_bbf4o")
 
-[node name="ErrorDeleteAudio" type="AudioStreamPlayer" parent="."]
+[node name="ErrorDeleteAudio" type="AudioStreamPlayer" parent="." unique_id=2006525717]
 stream = ExtResource("2_uxwsr")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="FileIcon" type="AnimatedSprite2D" parent="."]
+[node name="FileIcon" type="AnimatedSprite2D" parent="." unique_id=763578355]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_gs77j")
 animation = &"exe"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1547473912]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 color = Color(1, 1, 1, 0)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=17976352]
 offset_left = -64.0
 offset_top = 32.0
 offset_right = 66.0
@@ -112,15 +112,15 @@ text = "Carlos Costa.png"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SelectionArea" type="Area2D" parent="."]
+[node name="SelectionArea" type="Area2D" parent="." unique_id=633323203]
 visible = false
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=1371650328]
 shape = SubResource("RectangleShape2D_whtvk")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1245060575]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 15
@@ -131,9 +131,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"SelectPanel"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xy54f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=223728660]
+libraries/ = SubResource("AnimationLibrary_xy54f")
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

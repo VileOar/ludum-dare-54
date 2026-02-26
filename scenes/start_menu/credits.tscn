@@ -1,92 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5fyc1alkq7jd"]
+[gd_scene format=3 uid="uid://c5fyc1alkq7jd"]
 
 [ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="1_gvnva"]
 
-[node name="Credits" type="MarginContainer"]
+[node name="Credits" type="MarginContainer" unique_id=1378527641]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1864917242]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=23024293]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=464589364]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 36
 text = "Created for Ludum Dare 54 By"
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2" unique_id=348087783]
 layout_mode = 2
 theme_override_constants/h_separation = 192
 theme_override_constants/v_separation = 64
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1021186816]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer" unique_id=1739013775]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 32
 text = "Francisco Pinto"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer" unique_id=1076147170]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 24
 text = "Sound Designer/Developer"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1097385020]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=90262294]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 32
 text = "Lucius Vinicius"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=1055334779]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 24
 text = "Developer"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=193499355]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=1434622260]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 32
 text = "Luís Chaves"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=916089406]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 24
 text = "Developer"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1639112950]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer4" unique_id=444679489]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 32
 text = "Pedro Valério"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer/VBoxContainer4" unique_id=2005155227]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_gvnva")
 theme_override_font_sizes/font_size = 24

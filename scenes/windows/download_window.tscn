@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcoxgyk10v7ah"]
+[gd_scene format=3 uid="uid://dcoxgyk10v7ah"]
 
-[ext_resource type="Script" path="res://scripts/windows/download_window.gd" id="1_hjbis"]
+[ext_resource type="Script" uid="uid://bebn77irdc4cp" path="res://scripts/windows/download_window.gd" id="1_hjbis"]
 [ext_resource type="PackedScene" uid="uid://cylps5fisf5fa" path="res://scenes/windows/draggable_window.tscn" id="1_n67kr"]
 
-[node name="DownloadWindow" instance=ExtResource("1_n67kr")]
+[node name="DownloadWindow" unique_id=475754801 instance=ExtResource("1_n67kr")]
 script = ExtResource("1_hjbis")
 
-[node name="Timer" type="Timer" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="1" unique_id=1091553589]
 wait_time = 0.2
 
-[node name="DownloadProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="DownloadProgress" type="ProgressBar" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="1" unique_id=249763666]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_type_variation = &"GreenProgressbar"
 
-[node name="DownloadButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+[node name="DownloadButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="2" unique_id=1304304831]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

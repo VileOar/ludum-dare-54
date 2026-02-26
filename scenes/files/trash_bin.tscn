@@ -24,7 +24,7 @@ stream = ExtResource("4_dy24m")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="FileIcon" parent="." index="3"]
+[node name="FileIcon" parent="." index="3" unique_id=763578355]
 animation = &"trash_bin_empty"
 
 [node name="Area2D" type="Area2D" parent="." index="5" unique_id=257168517]
@@ -32,7 +32,7 @@ animation = &"trash_bin_empty"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=731698983]
 shape = SubResource("RectangleShape2D_dcycp")
 
-[node name="Label" parent="." index="6"]
+[node name="Label" parent="." index="6" unique_id=17976352]
 offset_top = 40.0
 offset_right = 64.0
 offset_bottom = 66.0
@@ -42,7 +42,7 @@ text = "Trash Bin"
 [node name="DeletingTime" type="Timer" parent="." index="8" unique_id=1550823164]
 one_shot = true
 
-[node name="PanelContainer" parent="." index="9"]
+[node name="PanelContainer" parent="." index="9" unique_id=1245060575]
 custom_minimum_size = Vector2(96, 96)
 offset_left = -32.0
 offset_top = -32.0

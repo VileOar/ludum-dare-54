@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj5y314d3ssba"]
+[gd_scene format=3 uid="uid://bj5y314d3ssba"]
 
-[ext_resource type="Script" path="res://scripts/systems/file_spawner.gd" id="1_c2f8w"]
+[ext_resource type="Script" uid="uid://bduph5h3untjf" path="res://scripts/systems/file_spawner.gd" id="1_c2f8w"]
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" unique_id=387726802]
 script = ExtResource("1_c2f8w")
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=682749802]
 one_shot = true
 autostart = true
 
-[node name="SpawnModifierTimer" type="Timer" parent="."]
+[node name="SpawnModifierTimer" type="Timer" parent="." unique_id=1246276399]
 one_shot = true
 
-[node name="WavesTimer" type="Timer" parent="."]
+[node name="WavesTimer" type="Timer" parent="." unique_id=622531746]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SpawnModifierTimer" to="." method="_on_spawn_modifier_timer_timeout"]
