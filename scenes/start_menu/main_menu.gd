@@ -15,6 +15,7 @@ extends Control
 
 
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	for btn in find_children("*", "BaseButton"):
 		(btn as BaseButton).mouse_entered.connect(_on_btn_mouse_entered)
 
