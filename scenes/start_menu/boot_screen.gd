@@ -9,4 +9,6 @@ class_name BootScreen
 		value = val
 		_progress_bar.value = val
 		_progress_label.value = val
-
+		
+func _ready() -> void:
+	_progress_bar.visible = true

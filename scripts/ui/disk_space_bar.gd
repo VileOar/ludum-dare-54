@@ -64,7 +64,8 @@ func set_disk_space(new_space : float, max_space : float):
 	if percent >= _MIN_BAR_GROW_PERCENT:
 		_set_progressbar_size(percent * m + b)
 	else:
-		_set_progressbar_size(1.0)
+		#_set_progressbar_size(1.0)
+		set_progressbar_to_default_size()
 	
 	if new_space < last_value:
 		_disk_bar_shake_strength = percent * 4
@@ -74,6 +75,7 @@ func set_disk_space(new_space : float, max_space : float):
 
 func set_progressbar_to_default_size():
 	_space_bar.custom_minimum_size = _initial_bar_size
+
 
 func _set_progressbar_size(size_scale):
 	size_scale = min(size_scale, _MAX_BAR_SIZE_SCALE)

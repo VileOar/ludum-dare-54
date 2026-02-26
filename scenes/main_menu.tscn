@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://kamcmkeapi6o"]
+[gd_scene format=3 uid="uid://kamcmkeapi6o"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tjut0"]
+[ext_resource type="Script" uid="uid://bvskn40veejc4" path="res://scripts/main_menu.gd" id="1_tjut0"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_3lyop"]
 [ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="3_hy4mu"]
 [ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="4_kmbvl"]
@@ -43,6 +43,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.109804, 0.109804, 0.109804, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ProgressCenter/ProgressBar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vpxe0"]
@@ -397,18 +409,18 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53n6a"]
 _data = {
-"RESET": SubResource("Animation_s6dsr"),
-"enter": SubResource("Animation_vpxe0"),
-"hide_credits": SubResource("Animation_g4px3"),
-"hide_howto": SubResource("Animation_ecvqd"),
-"hide_menu": SubResource("Animation_wmc4t"),
-"show_credits": SubResource("Animation_gpvnk"),
-"show_howto": SubResource("Animation_ur47t"),
-"show_menu": SubResource("Animation_tse0x"),
-"turn": SubResource("Animation_k1kok")
+&"RESET": SubResource("Animation_s6dsr"),
+&"enter": SubResource("Animation_vpxe0"),
+&"hide_credits": SubResource("Animation_g4px3"),
+&"hide_howto": SubResource("Animation_ecvqd"),
+&"hide_menu": SubResource("Animation_wmc4t"),
+&"show_credits": SubResource("Animation_gpvnk"),
+&"show_howto": SubResource("Animation_ur47t"),
+&"show_menu": SubResource("Animation_tse0x"),
+&"turn": SubResource("Animation_k1kok")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=576121768]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -418,50 +430,48 @@ grow_vertical = 2
 script = ExtResource("1_tjut0")
 main_scene = ExtResource("2_3lyop")
 
-[node name="MenuAudio" parent="." instance=ExtResource("3_hy4mu")]
+[node name="MenuAudio" parent="." unique_id=1527961480 instance=ExtResource("3_hy4mu")]
 
-[node name="Background" type="Control" parent="."]
+[node name="Background" type="Control" parent="." unique_id=307414709]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BGTransition" type="ColorRect" parent="Background"]
+[node name="BGTransition" type="ColorRect" parent="Background" unique_id=155843783]
 layout_mode = 0
 offset_right = 1160.0
 offset_bottom = 648.0
 color = Color(0.109804, 0.109804, 0.109804, 1)
 
-[node name="ProgressCenter" type="CenterContainer" parent="."]
+[node name="ProgressCenter" type="CenterContainer" parent="." unique_id=1962763635]
 layout_mode = 0
 offset_top = 448.0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="ProgressBar" type="ProgressBar" parent="ProgressCenter"]
-modulate = Color(1, 1, 1, 0)
+[node name="ProgressBar" type="ProgressBar" parent="ProgressCenter" unique_id=744145156]
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_df11f")
 theme_override_styles/fill = SubResource("StyleBoxEmpty_pjkjx")
-value = 100.0
 
-[node name="TitleContainer" type="CenterContainer" parent="."]
+[node name="TitleContainer" type="CenterContainer" parent="." unique_id=707121817]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1160.0
 offset_bottom = 192.0
 
-[node name="Label" type="Label" parent="TitleContainer"]
+[node name="Label" type="Label" parent="TitleContainer" unique_id=340635388]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 48
 text = "Bonzios SP 9.5"
 
-[node name="MainUsers" type="Control" parent="."]
+[node name="MainUsers" type="Control" parent="." unique_id=1264610484]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UserContainer" type="CenterContainer" parent="MainUsers"]
+[node name="UserContainer" type="CenterContainer" parent="MainUsers" unique_id=1613639200]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -469,122 +479,122 @@ offset_top = 192.0
 offset_right = 1160.0
 offset_bottom = 576.0
 
-[node name="UserOptions" type="VBoxContainer" parent="MainUsers/UserContainer"]
+[node name="UserOptions" type="VBoxContainer" parent="MainUsers/UserContainer" unique_id=1153745190]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Start" type="Button" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Start" type="Button" parent="MainUsers/UserContainer/UserOptions" unique_id=1715960544]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Start"
 
-[node name="How to Play" type="Button" parent="MainUsers/UserContainer/UserOptions"]
+[node name="How to Play" type="Button" parent="MainUsers/UserContainer/UserOptions" unique_id=349152683]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "How to Play"
 
-[node name="Credits" type="Button" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Credits" type="Button" parent="MainUsers/UserContainer/UserOptions" unique_id=2024002201]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Credits"
 
-[node name="Exit" type="Button" parent="MainUsers/UserContainer/UserOptions"]
+[node name="Exit" type="Button" parent="MainUsers/UserContainer/UserOptions" unique_id=1113574663]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Exit"
 
-[node name="Credits" type="Control" parent="."]
+[node name="Credits" type="Control" parent="." unique_id=508819221]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="Credits"]
+[node name="CenterContainer" type="CenterContainer" parent="Credits" unique_id=125188961]
 layout_mode = 0
 offset_top = 192.0
 offset_right = 1160.0
 offset_bottom = 528.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer" unique_id=113350997]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer2"]
+[node name="CenterContainer" type="CenterContainer" parent="Credits/CenterContainer/VBoxContainer2" unique_id=161974282]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/CenterContainer"]
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/CenterContainer" unique_id=1625745380]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 36
 text = "Created for Ludum Dare 54 By"
 
-[node name="GridContainer" type="GridContainer" parent="Credits/CenterContainer/VBoxContainer2"]
+[node name="GridContainer" type="GridContainer" parent="Credits/CenterContainer/VBoxContainer2" unique_id=1890531996]
 layout_mode = 2
 theme_override_constants/h_separation = 190
 theme_override_constants/v_separation = 65
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer" unique_id=2055992528]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer" unique_id=42541714]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 32
 text = "Francisco Pinto"
 
-[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer" unique_id=1093185602]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 24
 text = "Sound Designer/Developer"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer" unique_id=810700135]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=2070516368]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 32
 text = "Lucius Vinicius"
 
-[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer2" unique_id=205651380]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 24
 text = "Developer"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer" unique_id=407176494]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=801186824]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 32
 text = "Luís Chaves"
 
-[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3"]
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer3" unique_id=1129698898]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 24
 text = "Developer"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="Credits/CenterContainer/VBoxContainer2/GridContainer" unique_id=663473738]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4" unique_id=1067356158]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 32
 text = "Pedro Valério"
 
-[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4"]
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer2/GridContainer/VBoxContainer4" unique_id=487863096]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
 theme_override_font_sizes/font_size = 24
 text = "2D Artist/Developer"
 
-[node name="Back" type="Button" parent="Credits"]
+[node name="Back" type="Button" parent="Credits" unique_id=258637373]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 560.0
@@ -593,7 +603,7 @@ offset_bottom = 613.0
 theme_type_variation = &"BIOSButton"
 text = "Go Back"
 
-[node name="HowToPlay" type="Control" parent="."]
+[node name="HowToPlay" type="Control" parent="." unique_id=1496587651]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -602,7 +612,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="HowToPlay"]
+[node name="CenterContainer" type="CenterContainer" parent="HowToPlay" unique_id=793004193]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -610,17 +620,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HowToPlay/CenterContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HowToPlay/CenterContainer" unique_id=1201212295]
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer" unique_id=2129999407]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=1126871867]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
@@ -645,7 +655,7 @@ save the PC failed completely >:]
 Sincerely, the hacker.
 "
 
-[node name="Intro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="Intro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=262490848]
 custom_minimum_size = Vector2(768, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_kmbvl")
@@ -660,89 +670,89 @@ Suggested approach is deleting the spawned files by dumping them in the Recyclin
 WARNING: Some files have been corrupted and will cause further harm if handled improperly. You can distinguish them from normal files by their reddish tint."
 autowrap_mode = 3
 
-[node name="EXE" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="EXE" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=1578967450]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE"]
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE" unique_id=1114435357]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_uugkd")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/EXE" unique_id=254481818]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Corrupted EXE files will increase file spawn rate"
 autowrap_mode = 3
 
-[node name="folder" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="folder" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=761907497]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder"]
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder" unique_id=1991030823]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_uyhi0")
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/folder" unique_id=1397114476]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Corrupted folders will spawn new files if put in the Bin"
 autowrap_mode = 3
 
-[node name="badlink" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="badlink" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=1754636032]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink"]
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink" unique_id=1268791292]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_i1mko")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/badlink" unique_id=566093747]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Bad link files will open a malicious install wizard. Read the messages carefully to avoid falling in a loop."
 autowrap_mode = 3
 
-[node name="download" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="download" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=448663209]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download"]
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download" unique_id=209423987]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_6wsll")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/download" unique_id=83334381]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Download links will try to trick you into starting download of more files with a popup which tries to follow your mouse cursor. Delete all these links to stop the windows from reappearing"
 autowrap_mode = 3
 
-[node name="code" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="code" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=1426015259]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code"]
+[node name="TextureRect" type="TextureRect" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code" unique_id=1640570212]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_ankro")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code"]
+[node name="Label" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/code" unique_id=373915049]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
 text = "Malicious code files will malfunction and continuously spawn error messages. Deal with them ASAP"
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer" unique_id=467021829]
 layout_mode = 2
 
-[node name="Outro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Outro" type="Label" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1310896701]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_kmbvl")
@@ -754,13 +764,13 @@ In your Start menu, you will also find some utilities that might prove useful.
 Good luck."
 autowrap_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HowToPlay/CenterContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1228608852]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_vertical = 4
 theme_type_variation = &"AntivirusPanel"
 
-[node name="Back2" type="Button" parent="HowToPlay"]
+[node name="Back2" type="Button" parent="HowToPlay" unique_id=866326925]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 560.0
@@ -770,15 +780,13 @@ theme_type_variation = &"BIOSButton"
 text = "Go Back
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="HowToPlay"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="HowToPlay" unique_id=302000645]
+layout_mode = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1211810126]
 root_node = NodePath("../Background")
-autoplay = "enter"
-libraries = {
-"": SubResource("AnimationLibrary_53n6a")
-}
+libraries/ = SubResource("AnimationLibrary_53n6a")
+autoplay = &"enter"
 
 [connection signal="mouse_entered" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_mouse_entered_sfx"]
 [connection signal="pressed" from="MainUsers/UserContainer/UserOptions/Start" to="." method="_on_start_pressed"]

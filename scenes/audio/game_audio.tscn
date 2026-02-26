@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqj0l6kf7kjjl"]
+[gd_scene format=3 uid="uid://dqj0l6kf7kjjl"]
 
-[ext_resource type="Script" path="res://scripts/audio/game_audio.gd" id="1_kl7f5"]
+[ext_resource type="Script" uid="uid://p5a4lpr4fui6" path="res://scripts/audio/game_audio.gd" id="1_kl7f5"]
 [ext_resource type="AudioStream" uid="uid://dq7cq8uekptca" path="res://assets/audio/sounds/Retro Defeat #1.wav" id="2_eb4es"]
 [ext_resource type="AudioStream" uid="uid://bserblt1dsv7" path="res://assets/audio/music/Retro-Platformer-Theme-_5-_looped.ogg" id="3_yu1je"]
 [ext_resource type="AudioStream" uid="uid://deoku4idjqu5f" path="res://assets/audio/music/Panic-Retro-Action-Loop-1.ogg" id="4_vlfib"]
@@ -111,31 +111,29 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6k2k"]
 _data = {
-"change_to_normal": SubResource("Animation_quy0t"),
-"change_to_panic": SubResource("Animation_c1gvu")
+&"change_to_normal": SubResource("Animation_quy0t"),
+&"change_to_panic": SubResource("Animation_c1gvu")
 }
 
-[node name="GameAudio" type="Node"]
+[node name="GameAudio" type="Node" unique_id=1347690930]
 script = ExtResource("1_kl7f5")
 
-[node name="DefeatSFX" type="AudioStreamPlayer" parent="."]
+[node name="DefeatSFX" type="AudioStreamPlayer" parent="." unique_id=1213917621]
 stream = ExtResource("2_eb4es")
 volume_db = -20.0
 bus = &"Music"
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1014701951]
 process_mode = 3
 stream = ExtResource("3_yu1je")
 volume_db = -80.0
 bus = &"Music"
 
-[node name="PanicMusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="PanicMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=455640885]
 process_mode = 3
 stream = ExtResource("4_vlfib")
 volume_db = -20.0
 bus = &"Music"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_x6k2k")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=58877207]
+libraries/ = SubResource("AnimationLibrary_x6k2k")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwug1ibtm4on4"]
+[gd_scene format=3 uid="uid://bwug1ibtm4on4"]
 
 [ext_resource type="PackedScene" uid="uid://dfip05mtgpeyh" path="res://scenes/audio/menu_audio.tscn" id="1_ncvqk"]
-[ext_resource type="Script" path="res://scenes/start_menu/main_menu.gd" id="1_w5c0e"]
+[ext_resource type="Script" uid="uid://btkwo71hnhjx4" path="res://scenes/start_menu/main_menu.gd" id="1_w5c0e"]
 [ext_resource type="PackedScene" uid="uid://b7pmiea2m8gvm" path="res://scenes/start_menu/boot_screen.tscn" id="2_jy82d"]
 [ext_resource type="PackedScene" uid="uid://dbv62ldbf64mb" path="res://scenes/main.tscn" id="2_nydd0"]
 [ext_resource type="FontFile" uid="uid://b2deer6q5fn0e" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_vuigh"]
@@ -179,12 +179,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoyuq"]
 _data = {
-"RESET": SubResource("Animation_3lu5x"),
-"enter": SubResource("Animation_rjk1x"),
-"start": SubResource("Animation_blpag")
+&"RESET": SubResource("Animation_3lu5x"),
+&"enter": SubResource("Animation_rjk1x"),
+&"start": SubResource("Animation_blpag")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=923597641]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,7 +194,7 @@ grow_vertical = 2
 script = ExtResource("1_w5c0e")
 main_scene = ExtResource("2_nydd0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=838863743]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,9 +203,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0823529, 0.34902, 0.858824, 1)
 
-[node name="MenuAudio" parent="." instance=ExtResource("1_ncvqk")]
+[node name="MenuAudio" parent="." unique_id=2019190894 instance=ExtResource("1_ncvqk")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1456987011]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,50 +214,50 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TitleContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="VBoxContainer" unique_id=489804468]
 layout_mode = 2
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="VBoxContainer/TitleContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TitleContainer" unique_id=404256042]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_vuigh")
 theme_override_font_sizes/font_size = 48
 text = "Bonzios SP 9.5"
 
-[node name="Screens" type="MarginContainer" parent="VBoxContainer"]
+[node name="Screens" type="MarginContainer" parent="VBoxContainer" unique_id=1552909763]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/Screens"]
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/Screens" unique_id=1014989153]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer/Screens/Buttons"]
+[node name="Start" type="Button" parent="VBoxContainer/Screens/Buttons" unique_id=1244271967]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Start"
 
-[node name="HowToPlay" type="Button" parent="VBoxContainer/Screens/Buttons"]
+[node name="HowToPlay" type="Button" parent="VBoxContainer/Screens/Buttons" unique_id=113915712]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "How to Play"
 
-[node name="Credits" type="Button" parent="VBoxContainer/Screens/Buttons"]
+[node name="Credits" type="Button" parent="VBoxContainer/Screens/Buttons" unique_id=1121911619]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Credits"
 
-[node name="Exit" type="Button" parent="VBoxContainer/Screens/Buttons"]
+[node name="Exit" type="Button" parent="VBoxContainer/Screens/Buttons" unique_id=36355645]
 layout_mode = 2
 theme_type_variation = &"BIOSButton"
 text = "Exit"
 
-[node name="BackableScreens" type="MarginContainer" parent="VBoxContainer/Screens"]
+[node name="BackableScreens" type="MarginContainer" parent="VBoxContainer/Screens" unique_id=1307779645]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -265,37 +265,37 @@ theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Screens/BackableScreens"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Screens/BackableScreens" unique_id=1462895021]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="ScreenHolder" type="MarginContainer" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer"]
+[node name="ScreenHolder" type="MarginContainer" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer" unique_id=835806564]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 
-[node name="Credits" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" instance=ExtResource("4_cpw2a")]
+[node name="Credits" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" unique_id=1003691953 instance=ExtResource("4_cpw2a")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="HowToPlay" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" instance=ExtResource("5_2yyt8")]
+[node name="HowToPlay" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer/ScreenHolder" unique_id=73703605 instance=ExtResource("5_2yyt8")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Back" type="Button" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer"]
+[node name="Back" type="Button" parent="VBoxContainer/Screens/BackableScreens/VBoxContainer" unique_id=325139207]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_type_variation = &"BIOSButton"
 text = "Go Back"
 
-[node name="BootScreen" parent="." instance=ExtResource("2_jy82d")]
+[node name="BootScreen" parent="." unique_id=1885012904 instance=ExtResource("2_jy82d")]
 layout_mode = 1
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2082445661]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -306,12 +306,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.109804, 0.109804, 0.109804, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=481107317]
 unique_name_in_owner = true
-autoplay = "enter"
-libraries = {
-"": SubResource("AnimationLibrary_aoyuq")
-}
+libraries/ = SubResource("AnimationLibrary_aoyuq")
+autoplay = &"enter"
 
 [connection signal="pressed" from="VBoxContainer/Screens/Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Screens/Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]

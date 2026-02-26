@@ -112,6 +112,7 @@ text = "Restart Window Manager
 
 [node name="Power4Button" type="Button" parent="VBoxContainer/PauseMenu/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1085506605]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Install AutoCloseTrashWin
